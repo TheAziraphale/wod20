@@ -160,6 +160,7 @@ Hooks.once("init", async function () {
         bloodPool = "??"
         break;
     }
+    console.log("bloodPool", bloodPool);
     options.data.root[varName] = bloodPool;
   });
   Handlebars.registerHelper("setBloodPerTurnFromGen", function(varName, varValue, options) {
@@ -188,6 +189,7 @@ Hooks.once("init", async function () {
         blood = "??"
         break;
     }
+    console.log("blood", blood);
     options.data.root[varName] = blood;
   });
   const capitalize = (s) => {
