@@ -1,4 +1,5 @@
 <div class="resource flex-group-center Bloodpool relative-group">
+    {{setVar "generation" data.data.headers.generation}}
     {{setBloodFromGen "bloodPool" generation}}
     {{setBloodPerTurnFromGen "bloodTurn" generation}}
     <div class="flexrow">
