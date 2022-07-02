@@ -121,6 +121,9 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
     options.data.root[varName] = varValue;
   });
+  Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
+    options.data.root[varName] = varValue === undefined || varValue === 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5);
+  });
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);

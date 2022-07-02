@@ -3,22 +3,7 @@
     {{setVar "generation" data.data.headers.generation}}
     {{setVar "loopLength" 5 }}
     
-    {{#le generation 7}}
-      {{setVar "loopLength" 6}}
-    {{/le}}
-    {{#le generation 6}}
-      {{setVar "loopLength" 7}}
-    {{/le}}
-    {{#le generation 5}}
-      {{setVar "loopLength" 8}}
-    {{/le}}
-    {{#le generation 4}}
-      {{setVar "loopLength" 9}}
-    {{/le}}
-    {{#le generation 3}}
-      {{setVar "loopLength" 10}}
-    {{/le}}
-
+    {{setDotsFromGen "loopLength" generation}}
     {{setVar "colNum" 3}}
   <div class="abilities grid grid-{{colNum}}col flex-group-center">
     {{#each data.data.abilities as |ability key|}}
