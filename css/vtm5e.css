@@ -619,8 +619,8 @@
   position:relative;
 }
 
-.blood-pool-label {
-  flex: 2;
+.pool-label {
+  flex: 3;
 }
 
 #sidebar.app {
