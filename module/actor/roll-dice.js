@@ -34,7 +34,6 @@ export async function rollDice (
   let hadASuccess = false
   let hadAOne = false
   let chanceDieSuccess = false
-  console.log(dice, numDice, healthModifier(wound))
   roll.terms[0].results.forEach((dice) => {
     if (numDice + healthModifier(wound) <= 0 && dice.result === 10) {
       chanceDieSuccess = true
