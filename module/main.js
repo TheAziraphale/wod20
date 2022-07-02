@@ -296,12 +296,14 @@ Hooks.once("init", async function () {
     return a == b ? "" : label;
   });
   Handlebars.registerHelper("notequalarray", function (a, b, label) {
-    a.forEach((item) => {
+    var splitted = a.split(',')
+
+    splitted.forEach((item) => {
       if(item === b)
         return ""
     })
 
-    return a == b ? "" : label;
+    return label;
   });
   Handlebars.registerHelper("getDisciplineName", function (key, roll = false) {
     const disciplines = {
