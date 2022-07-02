@@ -187,7 +187,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.woundPenalties[woundPenalty]?.name
             );
           const modifier = parseInt(html.find("#inputMod")[0].value || 0);
-          const difficulty = parseInt(html.find("#inputDif")[0].value || 0);
+          const difficulty = parseInt(html.find("#inputDif")[0].value || 6);
           const specialty = parseInt(html.find("#specialty")[0]?.checked || false);
           const numDice = dataset.noability!=="true" ? abilityVal + parseInt(dataset.roll) + modifier : parseInt(dataset.roll) + modifier;
           
@@ -234,7 +234,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     const useHunger = this.hunger && dataset.useHunger === "1";
     const numDice = dataset.roll;
     console.log(dataset.roll);
-    rollDice(numDice, this.actor, `${dataset.label}`, 0);
+    rollDice(numDice, this.actor, `${dataset.label}`, 6);
   }
 
   _onCustomVampireRoll(event) {
@@ -253,7 +253,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       const dice2 =
         this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
       const dicePool = dice1 + dice2;
-      rollDice(dicePool, this.actor, `${dataset.name}`, 0);
+      rollDice(dicePool, this.actor, `${dataset.name}`, 6);
     }
   }
 
