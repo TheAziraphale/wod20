@@ -249,6 +249,17 @@
   "VTM5E.Rötschreck" : "Rötschreck", 
   "VTM5E.ResistingRötschreck" : "Resisting Rötschreck", 
   "VTM5E.ResistingFrenzy": "Resisting Frenzy", 
-  "VTM5E.Healthy" : "Healthy"
+  "VTM5E.Healthy" : "Healthy",
+  
+  "strength": "Strength",
+  "dexterity": "Dexterity",
+  "stamina": "Stamina",
+  "charisma": "Charisma",
+  "manipulation": "Manipulation",
+  "appearance": "Appearance",
+  "perception": "Perception",
+  "intelligence": "Intelligence",
+  "wits": "Wits",
+  "null": "None"
 
 }
