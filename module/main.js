@@ -219,22 +219,23 @@ Hooks.once("init", async function () {
     var auraVal = ""
     switch(road) {
       case 10:
-        auraVal += "(-2 difficulty)"
+        auraVal += "(-2)"
         break;
       case 9:
       case 8:
-        auraVal += "(-1 difficulty)"
+        auraVal += "(-1)"
         break;
       case 3:
       case 2:
-        auraVal += '(+1 difficulty)'
+        auraVal += '(+1)'
         break;
       case 1:
-        auraVal += "(+2 difficulty)"
+        auraVal += "(+2)"
         break;
       default:
-        auraVal += "(no modifier)"
+        auraVal += "(±0)"
     }
+    console.log("auraStr", varValue, auraVal, road)
     options.data.root[varName] = auraVal;
   });
   const capitalize = (s) => {

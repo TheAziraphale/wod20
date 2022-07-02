@@ -623,10 +623,25 @@
   flex: 3;
 }
 
+.aura-label {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.aura-val {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 .aura-content {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-top: 5px;
+}
+
+.aura-input {
+  min-width: 80px;
 }
 
 #sidebar.app {
