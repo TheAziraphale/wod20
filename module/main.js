@@ -235,7 +235,6 @@ Hooks.once("init", async function () {
       default:
         auraVal += "(±0)"
     }
-    console.log("auraStr", varValue, auraVal, road)
     options.data.root[varName] = auraVal;
   });
   const capitalize = (s) => {
