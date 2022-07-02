@@ -152,6 +152,9 @@
   justify-content: space-between;
 }
 
+.zero-flex {
+  flex: 0
+}
 /* New Styles */
 .vtm5e .window-content {
   background: #faf5ed;
