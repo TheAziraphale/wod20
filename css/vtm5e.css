@@ -152,9 +152,14 @@
   justify-content: space-between;
 }
 
-.zero-flex {
+.flex-zero {
   flex: 0
 }
+
+.flex-two {
+  flex. 2
+}
+
 /* New Styles */
 .vtm5e .window-content {
   background: #faf5ed;
