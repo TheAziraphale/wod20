@@ -297,6 +297,7 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("notequalarray", function (a, b, label) {
     var splitted = a.split(',')
+    console.log(a, b, splitted)
 
     splitted.forEach((item) => {
       if(item === b)
