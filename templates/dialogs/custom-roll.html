@@ -18,8 +18,13 @@
         <input type="text" min="0" id="inputDif" value="6">
     </div>
     {{#unless noability}}
-        {{!-- Automatically apply health level to roll? --}}
-        <input id="specialty" type="checkbox"> Specialty </input>
+        <div class="form-group">
+            <label>Specialty?</label>
+            <input id="specialty" type="checkbox" />
+        </div>
     {{/unless}}
-
+    <div class="form-group">
+        <label>Apply Wound?</label>
+        <input id="applyWound" type="checkbox" checked />
+    </div>
 </form>

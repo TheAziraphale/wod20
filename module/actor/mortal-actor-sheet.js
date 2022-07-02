@@ -181,14 +181,10 @@ export class MortalActorSheet extends CoterieActorSheet {
           const abilityName = game.i18n.localize(
             this.actor.data.data.abilities[ability]?.name
             );
-          const woundPenalty = html.find("#woundSelect")[0]?.value;
-          const woundPenaltyVal = this.actor.data.data.woundPenalties[woundPenalty]?.value;
-          const woundName = game.i18n.localize(
-            this.actor.data.data.woundPenalties[woundPenalty]?.name
-            );
           const modifier = parseInt(html.find("#inputMod")[0].value || 0);
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6);
           const specialty = parseInt(html.find("#specialty")[0]?.checked || false);
+          const applyWound = parseInt(html.find("#applyWound")[0]?.checked || false);
           const numDice = dataset.noability!=="true" ? abilityVal + parseInt(dataset.roll) + modifier : parseInt(dataset.roll) + modifier;
           
           rollDice(
@@ -199,7 +195,8 @@ export class MortalActorSheet extends CoterieActorSheet {
               : `${dataset.label}`,
             difficulty,
             specialty,
-            this.actor.data.data.health.state
+            this.actor.data.data.health.state,
+            applyWound
           )
           // this._vampireRoll(numDice, this.actor, `${dataset.label} + ${abilityName}`, difficulty)
         }
