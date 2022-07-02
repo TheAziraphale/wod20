@@ -12,24 +12,18 @@ export async function rollDice (
 ) {
   // console.log(wound, applyWounds)
   function healthModifier (wound) {
-    // pick health value from ordered key (see health.html for the order)
-    if(!applyWounds) {
-      return 0
-    } else if (wound === 'hurt') {
-      return -1
-    } else if (wound === 'injured') {
-      return -1
-    } else if (wound === 'wounded') {
-      return -2
-    } else if (wound === 'mauled') {
-      return -2
-    } else if (wound === 'crippled') {
-      return -5
-    } else if (wound === 'incapacitated') {
-      return -10000000
-    } else {
-      return 0
+    if(applyWounds) {   
+      if(wound.includes('-1'))
+        return -1
+      else if(wound.includes('-2'))
+        return -2
+      else if(wound.includes('-5'))
+        return -5
+      else if(wound.includes('Incapacitated'))
+        return -10000
     }
+
+    return 0
   }
   const chanceDie = numDice + healthModifier(wound) <= 0
   const dice = chanceDie ? 1 : parseInt(numDice) + healthModifier(wound)

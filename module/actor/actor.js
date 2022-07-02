@@ -5,15 +5,27 @@
  * @extends {Actor}
  */
 const WoundLevels = [
-  "healthy",
-  "bruised",
-  "hurt",
-  "injured",
-  "wounded",
-  "mauled",
-  "crippled",
-  "incapacitated",
+  "Healthy",
+  "Bruised",
+  "Hurt",
+  "Injured",
+  "Wounded",
+  "Mauled",
+  "Crippled",
+  "Incapacitated",
 ]
+
+const WoundModifierText = [
+  "",
+  "",
+  " (-1)",
+  " (-1)",
+  " (-2)",
+  " (-2)",
+  " (-5)",
+  "",
+]
+
 export class VampireActor extends Actor {
 
   prepareData () {
@@ -28,7 +40,7 @@ export class VampireActor extends Actor {
 
     const dmgSum = Math.max(actorData.health.superficial + actorData.health.aggravated + actorData.health.lethal - (actorData.health.max - 7), 0)
     console.log(dmgSum, WoundLevels[dmgSum])
-    actorData.health.state = WoundLevels[dmgSum] ? WoundLevels[dmgSum] : 'Outside Bounds'
+    actorData.health.state = WoundLevels[dmgSum] ? WoundLevels[dmgSum] + WoundModifierText[dmgSum] : 'Outside Bounds'
   }
 
   /**
