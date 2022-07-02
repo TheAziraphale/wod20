@@ -1,4 +1,4 @@
-<div class="resource flex-group-center health health-group">
+<div class="resource flex-group-center health relative-group">
     <div class="flexrow">
         <i class="fas fa-minus resource-control resource-minus" data-resource="health" data-action="minus"></i>
         <label for="data.data.health" class="resource-label">{{localize "VTM5E.Health"}}</label>
@@ -11,6 +11,6 @@
             <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
             {{/numLoop}}
         </div>
-         <span class="health-status-field"> {{data.data.health.state}} </span>
+         <span class="extra-status-label"> {{data.data.health.state}} </span>
     </div>
 </div>

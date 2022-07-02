@@ -1,4 +1,6 @@
-<div class="resource flex-group-center Bloodpool">
+<div class="resource flex-group-center Bloodpool relative-group">
+    {{setBloodFromGen "bloodPool" generation}}
+    {{setBloodPerTurnFromGen "bloodTurn" generation}}
     <div class="flexrow">
         <i class="fas fa-minus resource-control resource-minus" data-resource="bloodpool" data-action="minus"></i>
         <label for="data.data.bloodpool" class="resource-label blood-pool-label">{{localize "VTM5E.Bloodpool"}}</label>
@@ -10,5 +12,6 @@
             <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
             {{/numLoop}}
         </div>
+        <span class="extra-status-label"> {{../bloodPool}} blood - {{../bloodTurn}} per turn</span>
     </div>
 </div>

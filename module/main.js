@@ -125,6 +125,71 @@ Hooks.once("init", async function () {
     var val = parseInt(varValue);
     options.data.root[varName] = Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5);
   });
+  Handlebars.registerHelper("setBloodFromGen", function(varName, varValue, options) {
+    var gen = parseInt(varValue);
+    var bloodPool = 10
+    switch(gen) {
+      case 12:
+        bloodPool = 11
+        break;
+      case 11:
+        bloodPool = 12
+        break;
+      case 10:
+        bloodPool = 13
+        break;
+      case 9:
+        bloodPool = 14
+        break;
+      case 8:
+        bloodPool = 15
+        break;
+      case 7:
+        bloodPool = 20
+        break;
+      case 6:
+        bloodPool = 30
+        break;
+      case 5:
+        bloodPool = 40
+        break;
+      case 4:
+        bloodPool = 50
+        break;
+      case 3:
+        bloodPool = "??"
+        break;
+    }
+    options.data.root[varName] = bloodPool;
+  });
+  Handlebars.registerHelper("setBloodPerTurnFromGen", function(varName, varValue, options) {
+    var gen = parseInt(varValue);
+    var blood = 1
+    switch(gen) {
+      case 9:
+        blood = 2
+        break;
+      case 8:
+        blood = 3
+        break;
+      case 7:
+        blood = 4
+        break;
+      case 6:
+        blood = 6
+        break;
+      case 5:
+        blood = 8
+        break;
+      case 4:
+        blood = 10
+        break;
+      case 3:
+        blood = "??"
+        break;
+    }
+    options.data.root[varName] = blood;
+  });
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);

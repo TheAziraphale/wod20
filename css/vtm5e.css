@@ -612,13 +612,13 @@
   margin-top: -2px;
 }
 
-.health-status-field {
+.extra-status-label {
   position:absolute;
   right: 2px;
   bottom: 0;
 }
 
-.health-group {
+.relative-group {
   position:relative;
 }
 
