@@ -126,8 +126,8 @@ Hooks.once("init", async function () {
     console.log(valString)
     var val = parseInt(valString);
     console.log(val)
-    console.log(Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5))
-    options.data.root[varName] = Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5);
+    console.log(Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - val, 10), 5))
+    options.data.root[varName] = Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - val, 10), 5);
   });
   Handlebars.registerHelper("setBloodFromGen", function(varName, varValue, options) {
     var valString = varValue.replace(/\D/g, '')
