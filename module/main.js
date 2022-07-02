@@ -292,6 +292,9 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("equal", function (a, b, label) {
     return a == b ? label : "";
   });
+  Handlebars.registerHelper("notequal", function (a, b, label) {
+    return a == b ? "" : label;
+  });
   Handlebars.registerHelper("getDisciplineName", function (key, roll = false) {
     const disciplines = {
       abombwe: "VTM5E.Abombwe",
