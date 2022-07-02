@@ -5,12 +5,12 @@
         <i class="fas fa-plus resource-control resource-plus" data-resource="health" data-action="plus"></i>
     </div>
     <div class="resource-content flexrow flex-center flex-between">
-        <div class="resource-counter" data-states="/:superficial,x:aggravated,-:lethal"  data-max="{{data.data.health.max}}" 
+        <div class="resource-counter flex-display" data-states="/:superficial,x:aggravated,-:lethal"  data-max="{{data.data.health.max}}" 
         data-lethal="{{data.data.health.lethal}}" data-superficial="{{data.data.health.superficial}}" data-aggravated="{{data.data.health.aggravated}}" data-name="data.health">
             {{#numLoop data.data.health.max}}
-            <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+            <div class="resource-counter-step div-counter-step" data-index="{{this}}" data-state=""></div>
             {{/numLoop}}
         </div>
-         <span class="flex-zero health-status-field"> {{data.data.health.state}} </span>
+         <div class="flex-zero"> {{data.data.health.state}} </div>
     </div>
 </div>
