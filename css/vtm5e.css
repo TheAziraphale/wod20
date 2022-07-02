@@ -620,6 +620,10 @@
   margin-top: -2px;
 }
 
+.health-status-field {
+  width: 80px;
+}
+
 #sidebar.app {
   background: rgba(20, 0, 0, 0.9);
 }
