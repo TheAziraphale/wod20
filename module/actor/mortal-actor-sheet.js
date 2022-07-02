@@ -210,7 +210,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     }
 
     const abilities = Object.keys(this.actor.data.data.abilities)
-    console.log(abilities);
+    // console.log(abilities);
     renderTemplate(template, { noability: dataset.noability, abilities }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
@@ -232,7 +232,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     const dataset = element.dataset;
     const useHunger = this.hunger && dataset.useHunger === "1";
     const numDice = dataset.roll;
-    console.log(dataset.roll);
+    // console.log(dataset.roll);
     rollDice(numDice, this.actor, `${dataset.label}`, 6);
   }
 
@@ -281,7 +281,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     if (currentState < 0) {
       return;
     }
-    console.log(currentState)
+    // console.log(currentState)
     const newState = allStates[(currentState + 1) % allStates.length];
     steps[index].dataset.state = newState;
 
