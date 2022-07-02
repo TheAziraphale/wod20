@@ -122,7 +122,12 @@ Hooks.once("init", async function () {
     options.data.root[varName] = varValue;
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
+    console.log("varValue: ", varValue)
     var val = parseInt(varValue);
+    console.log("val: ", val)
+    console.log("val === NaN: ", val === NaN)
+    console.log("val === undefined: ", val === NaN)
+    console.log("val === null ", val === null)
     options.data.root[varName] = val === NaN || val <= 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5);
   });
   const capitalize = (s) => {
