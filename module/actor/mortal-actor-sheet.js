@@ -145,6 +145,7 @@ export class MortalActorSheet extends CoterieActorSheet {
   let wounded;
   let specialty;
   let selectAbility;
+  let applyWounds;
 
   //    If rolling Rötschreck, the pop up won't have any select Ability 
   if (dataset.noability=="true") 
@@ -152,7 +153,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     selectAbility =  ""
     specialty =  ``
     wounded = ""
- 
+    applyWounds = ''
   }
 
   else 
@@ -166,6 +167,7 @@ export class MortalActorSheet extends CoterieActorSheet {
                 <label>${game.i18n.localize("VTM5E.SelectWound")}</label>
                 <select id="woundSelect">${healthOptions}</select>
               </div>`
+    applyWounds =  `<input id="applyWound" type="checkbox">Apply wounds </input>`
   }
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
@@ -183,8 +185,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             );
           const modifier = parseInt(html.find("#inputMod")[0].value || 0);
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6);
-          const specialty = parseInt(html.find("#specialty")[0]?.checked || false);
-          const applyWound = parseInt(html.find("#applyWound")[0]?.checked || false);
+          const specialty = html.find("#specialty")[0]?.checked || false;
+          const applyWounds = html.find("#applyWounds")[0]?.checked || false;
           const numDice = dataset.noability!=="true" ? abilityVal + parseInt(dataset.roll) + modifier : parseInt(dataset.roll) + modifier;
           
           rollDice(
@@ -196,7 +198,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            applyWound
+            applyWounds
           )
           // this._vampireRoll(numDice, this.actor, `${dataset.label} + ${abilityName}`, difficulty)
         }

@@ -8,12 +8,12 @@ export async function rollDice (
   difficulty = 6,
   specialty,
   wound,
-  applyWound
+  applyWounds
 ) {
-  console.log(wound, applyWound)
+  console.log(wound, applyWounds)
   function healthModifier (wound) {
     // pick health value from ordered key (see health.html for the order)
-    if(!applyWound) {
+    if(!applyWounds) {
       return 0
     } else if (wound === 'hurt') {
       return -1
