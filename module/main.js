@@ -297,13 +297,10 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("notequalarray", function (a, b, label) {
     var splitted = b.split(',')
-    console.log(a, b, splitted)
     var foundMatch = false
 
     splitted.forEach((item) => {
-      console.log(item, a, item === a)
       if(item === a) {
-        console.log("inside")
         foundMatch = true
       }
     })

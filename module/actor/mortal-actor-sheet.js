@@ -183,11 +183,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.abilities[ability]?.value + (this.actor.data.data.abilities[ability]?.buff ? 
             this.actor.data.data.abilities[ability]?.buff : 
           0);
-          console.log(dataset.label.toLowerCase())
           const actorsOwnBuff = this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
-          console.log(actorsOwnBuff)
-          console.log(this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff)
-    
           const abilityName = game.i18n.localize(this.actor.data.data.abilities[ability]?.name);
           const modifier = parseInt(html.find("#inputMod")[0].value || 0);
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6);
