@@ -32,10 +32,17 @@
         <span class="resource-value-step" data-index="{{this}}"></span>
         {{/numLoop}}
       </div>
+    </div>
+    <div class="ability flexrow flex-center" style={{equal key "null" "display:none"}}  >
+      <label
+        for="data.data.abilities.{{key}}.buff"
+        class="resource-label"
+        data-label="Blood buff"
+        >Blood buff</label>
       <div 
         class="resource-value"
-        data-value="Blood buff"
-        data-name="data.bloodbuff.{{key}}.value"
+        data-value="{{ability.buff}}"
+        data-name="data.abilities.{{key}}.buff"
       >
         <span class="resource-value-empty"></span>
 
