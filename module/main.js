@@ -130,7 +130,8 @@ Hooks.once("init", async function () {
     options.data.root[varName] = Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - varValue, 10), 5);
   });
   Handlebars.registerHelper("setBloodFromGen", function(varName, varValue, options) {
-    var gen = parseInt(varValue);
+    var valString = varValue.replace(/\D/g, '')
+    var gen = parseInt(valString);
     var bloodPool = 10
     switch(gen) {
       case 12:
@@ -170,7 +171,7 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("setBloodPerTurnFromGen", function(varName, varValue, options) {
     var valString = varValue.replace(/\D/g, '')
-    var val = parseInt(valString);
+    var gen = parseInt(valString);
     var blood = 1
     switch(gen) {
       case 9:
@@ -201,7 +202,7 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("setGenLabelFromGen", function(varName, varValue, options) {
     var valString = varValue.replace(/\D/g, '')
-    var val = parseInt(valString);
+    var gen = parseInt(valString);
     var genLabel = Number.isNaN(gen) ? '' : gen
     switch(gen) {
       case 1:
