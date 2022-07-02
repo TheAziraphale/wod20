@@ -179,7 +179,11 @@ export class MortalActorSheet extends CoterieActorSheet {
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value;
-          const abilityVal = this.actor.data.data.abilities[ability]?.value;
+          console.log(html.find("#abilitySelect")[0]?.value)
+          console.log(this.actor.data.data.abilities[ability]?.value)
+          console.log(this.actor.data.data.abilities[ability]?.buff)
+          console.log(dataset.roll)
+          const abilityVal = this.actor.data.data.abilities[ability]?.value + this.actor.data.data.abilities[ability]?.buff;
           const abilityName = game.i18n.localize(
             this.actor.data.data.abilities[ability]?.name
             );
