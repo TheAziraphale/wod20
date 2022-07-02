@@ -9,9 +9,10 @@
     {{#each data.data.abilities as |ability key|}}
     <div>
     <div class="resource-label">    
-    {{equal key "strength" "Physical"}}
-    {{equal key "charisma" "Social"}}
-    {{equal key "perception" "Mental"}} </div>
+      {{equal key "strength" "Physical"}}
+      {{equal key "charisma" "Social"}}
+      {{equal key "perception" "Mental"}}
+    </div>
     <div class="ability flexrow flex-center" style={{equal key "null" "display:none"}}  >
       <label
         for="data.data.abilities.{{key}}.value"
@@ -19,21 +20,28 @@
         data-roll="{{ability.value}}"
         data-label="{{localize ability.name}}"
         data-ability="true"
-        >{{localize ability.name}}</label
-      >
-      <div
+        >{{localize ability.name}}</label>
+      <div 
         class="resource-value"
         data-value="{{ability.value}}"
         data-name="data.abilities.{{key}}.value"
       >
         <span class="resource-value-empty"></span>
-      
+
         {{#numLoop ../loopLength}}
         <span class="resource-value-step" data-index="{{this}}"></span>
         {{/numLoop}}
-        <div class="blood-buff-content">
-          <input class="blood-buff-input" name="data.{{key}}Buff.value" value="data.{{key}}Buff.value" />
-        </div>
+      </div>
+      <div 
+        class="resource-value"
+        data-value="Blood buff"
+        data-name="data.bloodbuff.{{key}}.value"
+      >
+        <span class="resource-value-empty"></span>
+
+        {{#numLoop ../loopLength}}
+        <span class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
       </div>
     </div>
     </div>
@@ -45,10 +53,9 @@
     {{#each data.data.skills as |skill key|}}
     <div>
     <div class="resource-label">
-    {{equal key "alertness" "Talents"}}
-    {{equal key "animal ken" "Skills"}}
-    {{equal key "academics" "Knowledges"}}
-
+      {{equal key "alertness" "Talents"}}
+      {{equal key "animal ken" "Skills"}}
+      {{equal key "academics" "Knowledges"}}
     </div>
 
     <div class="skill flexrow flex-center">
