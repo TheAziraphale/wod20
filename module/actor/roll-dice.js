@@ -34,12 +34,15 @@ export async function rollDice (
   await roll.evaluate()
   let difficultyResult = '<span></span>'
   let success = 0
+  let hadASuccess = false
+  let hadAOne = false
   let chanceDieSuccess = false
   console.log(dice, numDice, healthModifier(wound))
   roll.terms[0].results.forEach((dice) => {
     if (numDice + healthModifier(wound) <= 0 && dice.result === 10) {
       chanceDieSuccess = true
       success++
+      hadASuccess = true
     } else {
       if (dice.result >= difficulty && dice.result > 1) {
         if (specialty && dice.result === 10) {
@@ -47,9 +50,11 @@ export async function rollDice (
         } else {
           success++
         }
+        hadASuccess = true
       } else {
         if (dice.result === 1) {
           success--
+          hadAOne = true
         }
       }
     }
@@ -57,13 +62,18 @@ export async function rollDice (
 
   let successRoll = false
   if (difficulty !== 0) {
-    successRoll = success || chanceDieSuccess
+    successRoll = success > 0 || chanceDieSuccess
+    botch = !success
     difficultyResult = `( <span class="danger">${game.i18n.localize(
       'VTM5E.Fail'
     )}</span> )`
     if (successRoll) {
       difficultyResult = `( <span class="success">${game.i18n.localize(
         'VTM5E.Success'
+      )}</span> )`
+    } else if(!hadASuccess && hadAOne) {
+      difficultyResult = `( <span class="danger">${game.i18n.localize(
+        'VTM5E.BestialFailure'
       )}</span> )`
     }
   }
