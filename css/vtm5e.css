@@ -152,22 +152,6 @@
   justify-content: space-between;
 }
 
-.flex-zero {
-  flex: 0;
-}
-
-.flex-two {
-  flex: 2;
-}
-
-.flex-display {
-  display: flex;
-}
-
-.div-counter-step {
-  margin-right: 3px;
-}
-
 /* New Styles */
 .vtm5e .window-content {
   background: #faf5ed;
@@ -629,7 +613,17 @@
 }
 
 .health-status-field {
-  width: 80px;
+  position:absolute;
+  right: 2px;
+  bottom: 0;
+}
+
+.health-group {
+  position:relative;
+}
+
+.blood-pool-label {
+  flex: 2;
 }
 
 #sidebar.app {
