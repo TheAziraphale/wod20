@@ -157,10 +157,11 @@ Hooks.once("init", async function () {
         bloodPool = 50
         break;
       case 3:
+      case 2:
+      case 1:
         bloodPool = "??"
         break;
     }
-    console.log("bloodPool", bloodPool);
     options.data.root[varName] = bloodPool;
   });
   Handlebars.registerHelper("setBloodPerTurnFromGen", function(varName, varValue, options) {
@@ -186,11 +187,32 @@ Hooks.once("init", async function () {
         blood = 10
         break;
       case 3:
+      case 2:
+      case 1:
         blood = "??"
         break;
     }
-    console.log("blood", blood);
     options.data.root[varName] = blood;
+  });
+  Handlebars.registerHelper("setGenLabelFromGen", function(varName, varValue, options) {
+    var gen = parseInt(varValue);
+    var genLabel = Number.isNaN(gen) ? '' : gen
+    switch(gen) {
+      case 1:
+        genLabel += 'st'
+        break;
+      case 2:
+        genLabel += 'nd'
+        break;
+      case 3:
+        genLabel += 'rd'
+        break;
+      default:
+        genLabel += Number.isNaN(gen) ? '' : 'th'
+        break;
+    }
+    genLabel += Number.isNaN(gen) ? '' : ' Gen:'
+    options.data.root[varName] = genLabel;
   });
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
