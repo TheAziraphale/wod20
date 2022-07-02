@@ -91,6 +91,12 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
+.flex-group-exp {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1px;
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -175,6 +181,11 @@
 .vtm5e .resource-label {
   font-weight: bold;
 }
+
+.resource-label-exp {
+  padding-top: 5px;
+  text-align: center;
+  width: 160px;
 
 .vtm5e .window-content .resource-label {
   text-transform: initial;
