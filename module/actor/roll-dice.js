@@ -63,7 +63,6 @@ export async function rollDice (
   let successRoll = false
   if (difficulty !== 0) {
     successRoll = success > 0 || chanceDieSuccess
-    botch = !success
     difficultyResult = `( <span class="danger">${game.i18n.localize(
       'VTM5E.Fail'
     )}</span> )`
