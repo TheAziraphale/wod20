@@ -623,6 +623,12 @@
   flex: 3;
 }
 
+.aura-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 #sidebar.app {
   background: rgba(20, 0, 0, 0.9);
 }

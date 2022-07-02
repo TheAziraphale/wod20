@@ -214,6 +214,29 @@ Hooks.once("init", async function () {
     genLabel += Number.isNaN(gen) ? '' : ' Gen:'
     options.data.root[varName] = genLabel;
   });
+  Handlebars.registerHelper("setAuraStrength", function(varName, varValue, options) {
+    var road = parseInt(varValue);
+    var auraVal = ""
+    switch(road) {
+      case 10:
+        auraVal += "(-2 difficulty)"
+        break;
+      case 9:
+      case 8:
+        auraVal += "(-1 difficulty)"
+        break;
+      case 3:
+      case 2:
+        auraVal += '(+1 difficulty)'
+        break;
+      case 1:
+        auraVal += "(+2 difficulty)"
+        break;
+      default:
+        auraVal += "(no modifier)"
+    }
+    options.data.root[varName] = auraVal;
+  });
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);
