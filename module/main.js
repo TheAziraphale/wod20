@@ -122,8 +122,8 @@ Hooks.once("init", async function () {
     console.log("setVar", varName, varValue, options)
     options.data.root[varName] = varValue;
   });
-  Handlebars.registerHelper("logging", function(log, options) {
-    console.log("setVar", log)
+  Handlebars.registerHelper("logging", function(log) {
+    console.log("logging", log)
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
     var valString = varValue.replace(/\D/g, '')
