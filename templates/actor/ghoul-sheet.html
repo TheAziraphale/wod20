@@ -37,11 +37,12 @@
       </div>
       <div class="grid grid-3col flexrow">
         <div class="resource flex-group-center exp">
-          {{#dividedExp}}
+          {{setDividedExp}}
+          {{#unless isDividedExp}}
             {{> "systems/wod20/templates/actor/parts/dividedExp.html"}}
           {{else}}
             {{> "systems/wod20/templates/actor/parts/exp.html"}}
-          {{/dividedExp}}
+          {{/unless}}
         </div>
       </div>
     </div>
