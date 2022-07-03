@@ -68,6 +68,7 @@
         </select>
         <label class="resource-label">+</label>
         {{#if data.data.skill}}
+          {{log "data1" data}}
           {{#ifEquals sheettype "Vampire"}} 
             <select name="data.dice2" data-type="String">
               {{#select data.data.dice2}} {{>
