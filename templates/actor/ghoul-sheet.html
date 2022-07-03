@@ -37,7 +37,11 @@
       </div>
       <div class="grid grid-3col flexrow">
         <div class="resource flex-group-center exp">
-          {{> getExpHtml}}
+          {{#dividedExp}}
+            {{> "systems/wod20/templates/actor/parts/dividedExp.html"}}
+          {{else}}
+            {{> "systems/wod20/templates/actor/parts/exp.html"}}
+          {{/dividedExp}}
         </div>
       </div>
     </div>

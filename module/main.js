@@ -126,8 +126,8 @@ Hooks.once("init", async function () {
     var next =  arguments[arguments.length-1];
     return (a <= b) ? next.fn(this) : next.inverse(this);
   });
-  Handlebars.registerHelper("getExpHtml", function() {
-    return game.settings.get('wod20', 'useDividedExp') ? 'systems/wod20/templates/actor/parts/expandedExp.html' : 'systems/wod20/templates/actor/parts/exp.html'
+  Handlebars.registerHelper("dividedExp", function() {
+    return game.settings.get('wod20', 'useDividedExp')
   });
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
     options.data.root[varName] = varValue;
