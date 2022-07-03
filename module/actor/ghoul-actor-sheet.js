@@ -200,7 +200,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     const dice1 =
       item.data.data.dice1 === "discipline"
         ? disciplineValue
-        : this.actor.data.data.abilities[item.data.data.dice1].value;
+        : this.actor.data.data.abilities[item.data.data.dice1].value + this.actor.data.data.abilities[item.data.data.dice1].buff;
 
     let dice2;
     if (item.data.data.dice2 === "discipline") {
@@ -213,7 +213,7 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     const dicePool = dice1 + dice2;
     const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
-    console.log(dicePool, difficulty, item.data.data.applywounds)
+    console.log(disciplineValue, dicePool, difficulty, item.data.data.applywounds)
     rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
   }
 }

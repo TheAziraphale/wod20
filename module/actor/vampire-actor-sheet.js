@@ -91,10 +91,9 @@ export class VampireActorSheet extends GhoulActorSheet {
     if (item.data.data.discipline === "ceremonies") {
       disciplineValue = this.actor.data.data.disciplines.oblivion.value;
     } else {
-      disciplineValue =
-        this.actor.data.data.disciplines[item.data.data.discipline].value;
+      disciplineValue =this.actor.data.data.disciplines[item.data.data.discipline].value;
     }
-    disciplineValue += this.actor.bloodPotency.power; // Blood potency power adds dices to discipline rolls only
+    // disciplineValue += this.actor.bloodPotency.power; // Blood potency power adds dices to discipline rolls only
 
     const dice1 =
       item.data.data.dice1 === "discipline"
@@ -112,7 +111,7 @@ export class VampireActorSheet extends GhoulActorSheet {
 
     const dicePool = dice1 + dice2;
     const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
-    console.log(dicePool, difficulty, item.data.data.applywounds)
+    console.log(disciplineValue, dicePool, difficulty, item.data.data.applywounds)
     rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
   }
 }
