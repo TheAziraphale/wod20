@@ -203,7 +203,8 @@
   color: #790813;
   font-size: 16px;
   margin-bottom: 20px;
-  height: 41px;
+  height: 50px;
+  flex:unset
 }
 
 .vtm5e .window-content nav.sheet-tabs a.item.active {
@@ -644,4 +645,25 @@
 
 #sidebar.app {
   background: rgba(20, 0, 0, 0.9);
+}
+
+.mortal-sheet,
+.ghoul-sheet,
+.vampire-sheet {
+  justify-content: unset;
+}
+
+.mortal-sheet .sheet-header,
+.ghoul-sheet .sheet-header,
+.vampire-sheet .sheet-header {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: none;
+  margin-bottom: 0px;
+}
+
+.mortal-sheet .sheet-body,
+.ghoul-sheet .sheet-body,
+.vampire-sheet .sheet-body {
+  flex: none;
 }
