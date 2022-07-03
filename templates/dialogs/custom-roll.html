@@ -1,6 +1,6 @@
 <form>
     {{#unless noability}}
-        {{#if data.data.skill2}} 
+        {{#if data.skill2}} 
         <div class="form-group">
             <label> {{localize "VTM5E.SelectAbility"}} </label>
             <select id="abilitySelect" name="abilitySelect">
@@ -16,9 +16,7 @@
                 {{#select data.abilitySelect}} 
                     {{> "systems/wod20/templates/item/parts/attributes.html"}} 
                 {{/select}}
-                <option value="null">
-                    {{localize "VTM5E.None"}}
-                </option>
+                <option value="null">{{localize "VTM5E.None"}}</option>
                 </select>
             </div>
         {{/if}}
@@ -29,7 +27,7 @@
                 type="checkbox"
                 id="data.skill2"
                 name="data.skill2"
-                {{checked data.data.skill2}}
+                {{checked data.skill2}}
             />
         </div>
     {{/unless}}
