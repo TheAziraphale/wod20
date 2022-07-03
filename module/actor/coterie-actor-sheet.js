@@ -238,7 +238,9 @@ export class CoterieActorSheet extends ActorSheet {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
+    console.log(header)
     const type = header.dataset.type;
+    const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     if (type === "specialty") {
@@ -258,6 +260,7 @@ export class CoterieActorSheet extends ActorSheet {
       name: name,
       type: type,
       data: data,
+      sheettype: sheettype,
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data.type;
