@@ -26,12 +26,12 @@ Hooks.once("init", async function () {
     type: String,
   });
 
-  game.settings.register("wod20", "useExpandedExp", {
-      name: "Use expanded exp fields",
-      hint: "Enable if you want divided experience pools",
+  game.settings.register("wod20", "useDividedExp", {
+      name: "Use divided experience fields",
+      hint: "Enable this if you want to divide your experience assigned to different pools",
       scope: "world",
       config: true,
-      default: false,
+      default: true,
       type: Boolean,
   });
 
@@ -125,6 +125,9 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper('le', function( a, b ){
     var next =  arguments[arguments.length-1];
     return (a <= b) ? next.fn(this) : next.inverse(this);
+  });
+  Handlebars.registerHelper("getExpHtml", function() {
+    return game.settings.get('wod20', 'useDividedExp') ? 'systems/wod20/templates/actor/parts/expandedExp.html' : 'systems/wod20/templates/actor/parts/exp.html'
   });
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
     options.data.root[varName] = varValue;
