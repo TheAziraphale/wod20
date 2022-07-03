@@ -208,10 +208,12 @@ export class GhoulActorSheet extends MortalActorSheet {
     } else if (item.data.data.skill) {
       dice2 = this.actor.data.data.skills[item.data.data.dice2].value;
     } else {
-      dice2 = this.actor.data.data.abilities[item.data.data.dice2].value;
+      dice2 = this.actor.data.data.abilities[item.data.data.dice2].value + this.actor.data.data.abilities[item.data.data.dice2].buff;
     }
 
     const dicePool = dice1 + dice2;
-    rollDice(dicePool, this.actor, `${item.data.name}`, 6, this.hunger, false);
+    const difficulty = this.actor.data.data.difficulty ? parseInt(this.actor.data.data.difficulty) : 6
+    console.log(dicePool, difficulty, this.actor.data.data.applywounds)
+    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, this.actor.data.data.applywounds);
   }
 }

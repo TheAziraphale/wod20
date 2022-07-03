@@ -91,6 +91,21 @@ export class VampireItemSheet extends ItemSheet {
     }
 
     // Skill Checkbox Handler.
+    const applyWoundsCheckbox = document.querySelector(
+      'input[type="checkbox"][name="data.applywounds"]'
+    );
+
+    if (applyWoundsCheckbox != null) {
+      applyWoundsCheckbox.addEventListener("change", () => {
+        if (applyWoundsCheckbox.checked) {
+          this.item.update({ "data.applywounds": true });
+        } else {
+          this.item.update({ "data.applywounds": false });
+        }
+      });
+    }
+
+    // Skill Checkbox Handler.
     const useSkillCheckbox = document.querySelector(
       'input[type="checkbox"][name="data.useskills"]'
     );
@@ -102,6 +117,17 @@ export class VampireItemSheet extends ItemSheet {
         } else {
           this.item.update({ "data.useskills": false });
         }
+      });
+    }
+
+    // Skill Checkbox Handler.
+    const difficultyInput = document.querySelector(
+      'input[type="number"][name="data.difficulty"]'
+    );
+
+    if (difficultyInput != null) {
+      difficultyInput.addEventListener("change", () => {
+        this.item.update({ "data.difficulty": difficultyInput.value });
       });
     }
   }
