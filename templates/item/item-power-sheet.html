@@ -68,7 +68,7 @@
         </select>
         <label class="resource-label">+</label>
         {{#if data.data.skill}}
-          {{#ifEquals data.sheettype "Vampire"}} 
+          {{#ifEquals data.data.sheettype "Vampire"}} 
             <select name="data.dice2" data-type="String">
               {{#select data.data.dice2}} {{>
               "systems/wod20/templates/item/parts/skills.html"}} {{/select}}
