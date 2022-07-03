@@ -96,15 +96,17 @@ export class VampireDarkAgesSheet extends GhoulActorSheet {
     const dice1 =
       item.data.data.dice1 === "discipline"
         ? disciplineValue
-        : this.actor.data.data.abilities[item.data.data.dice1].value + this.actor.data.data.abilities[item.data.data.dice1].buff;
+        : (this.actor.data.data.abilities[item.data.data.dice1]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].value : 0) + 
+        (this.actor.data.data.abilities[item.data.data.dice1]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].buff : 0)
 
     let dice2;
     if (item.data.data.dice2 === "discipline") {
       dice2 = disciplineValue;
     } else if (item.data.data.skill) {
-      dice2 = this.actor.data.data.skills[item.data.data.dice2].value;
+      dice2 = (this.actor.data.data.abilities[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].value : 0);
     } else {
-      dice2 = this.actor.data.data.abilities[item.data.data.dice2].value + this.actor.data.data.abilities[item.data.data.dice2].buff;
+      dice2 = (this.actor.data.data.abilities[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].value : 0) + 
+      (this.actor.data.data.abilities[item.data.data.dice2]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].buff : 0)
     }
 
     const dicePool = dice1 + dice2;
