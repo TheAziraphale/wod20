@@ -197,12 +197,12 @@ export class MortalActorSheet extends CoterieActorSheet {
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value
-          const abilityVal = ability === 'null'|| ability === ''  ? 0 : 
+          const abilityVal = !ability || ability === 'null'|| ability === ''  ? 0 : 
             this.actor.data.data.skills[ability]?.value + (this.actor.data.data.skills[ability]?.buff ? 
             this.actor.data.data.skills[ability]?.buff : 
           0);
           const attributes = html.find("#attributesSelect")[0]?.value
-          const attributesVal = attributes === 'null' || attributes === '' ? 0 : 
+          const attributesVal = !attributes || attributes === 'null' || attributes === '' ? 0 : 
             this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
             this.actor.data.data.abilities[attributes]?.buff : 
           0);
@@ -216,7 +216,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier
-          
+          console.log(dataset.noability!=="true", abilityVal, attributesVal, parseInt(dataset.roll), parseInt(actorsOwnBuff ? actorsOwnBuff : 0), modifier)
           console.log(numDice, this.actor,dataset.noability !== 'true'
           ? `${dataset.label} + ${name}`
           : `${dataset.label}`, difficulty, 
