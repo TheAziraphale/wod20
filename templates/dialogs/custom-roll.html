@@ -3,7 +3,7 @@
     <div class="form-group">
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            {{#ifEquals sheettype "VTM5E.Vampire"}} 
+            {{#ifEquals sheettype "Vampire"}} 
                 <select id="abilitySelect" name="abilitySelect">
                     {{#select data.abilitySelect}} 
                         {{> "systems/wod20/templates/item/parts/skills.html"}} 
