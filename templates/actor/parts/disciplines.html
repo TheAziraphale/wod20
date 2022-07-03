@@ -4,7 +4,7 @@
             <div class="item-name">{{localize "VTM5E.Name"}}</div>
             <div class="item-name">{{localize "VTM5E.Level"}}</div>
             <div class="item-controls">
-                <a class="item-control discipline-create" title="{{localize 'VTM5E.Add'}}">
+                <a class="item-control discipline-create" title="{{localize 'VTM5E.Add'}}" data-sheettype="{{sheetType}}">
                     <i class="fas fa-plus"></i>
                     {{localize "VTM5E.Add"}}
                 </a>
@@ -23,7 +23,10 @@
                 {{/numLoop}}
             </div>
             {{else}}
-            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}">{{localize discipline.name}}
+            {{log sheettype}}
+            {{log ../sheettype}}
+            {{log ../../sheettype}}
+            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}" data-sheettype="{{sheetType}}">{{localize discipline.name}}
             </div>
             {{/if}}
             <div class="item-controls">
