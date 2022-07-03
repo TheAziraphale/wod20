@@ -119,6 +119,7 @@ Hooks.once("init", async function () {
     
   });
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
+    console.log("setVar", varName, varValue, options)
     options.data.root[varName] = varValue;
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
