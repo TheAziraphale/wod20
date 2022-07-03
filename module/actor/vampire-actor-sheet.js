@@ -111,9 +111,12 @@ export class VampireActorSheet extends GhoulActorSheet {
 
     const dicePool = dice1 + dice2;
     const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
-    console.log(difficulty)
-    console.log(Number.isNaN(difficulty))
-    console.log( item.data.data.difficulty)
-    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty && Number.isNaN(difficulty) ? 6 : difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
+    console.log(dicePool)
+    console.log(Number.isNaN(difficulty) ? 6 : difficulty)
+    console.log(`${item.data.name}`)
+    console.log(false)
+    console.log(this.actor.data.data.health.state)
+    console.log(item.data.data.applywounds)
+    rollDice(dicePool, this.actor, `${item.data.name}`, Number.isNaN(difficulty) ? 6 : difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
   }
 }
