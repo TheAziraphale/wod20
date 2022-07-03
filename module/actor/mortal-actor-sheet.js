@@ -127,9 +127,6 @@ export class MortalActorSheet extends CoterieActorSheet {
    */
   _onRollDialog(event) {
     event.preventDefault();
-    console.log("loggin start")
-    console.log(this.actor.data.data.abilities)
-    console.log(this.actor.data.data.skills)
     const element = event.currentTarget;
     const dataset = element.dataset;
     
@@ -207,22 +204,14 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.abilities[attributes]?.buff : 
           0);
 
-          console.log(abilities, attributes)
           const actorsOwnBuff = attributes && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
           const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
-          console.log("name", name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier
-          console.log(dataset.noability!=="true", abilityVal, attributesVal, parseInt(dataset.roll), parseInt(actorsOwnBuff ? actorsOwnBuff : 0), modifier)
-          console.log(numDice, this.actor,dataset.noability !== 'true'
-          ? `${dataset.label} + ${name}`
-          : `${dataset.label}`, difficulty, 
-          specialty,
-          this.actor.data.data.health.state,
-          applyWounds)
+
           rollDice(
             numDice,
             this.actor,
@@ -279,6 +268,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       const dice2 =
         this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
       dataset.roll = dice2 + 1; // specialty modifier
+      console.log("here", dataset.label, dataset.name)
       dataset.label = dataset.name;
       this._onRollDialog(event);
     } else {
