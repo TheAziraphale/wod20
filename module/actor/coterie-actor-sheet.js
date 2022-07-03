@@ -241,6 +241,7 @@ export class CoterieActorSheet extends ActorSheet {
     const type = header.dataset.type;
     const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.
+    console.log("dataset", header.dataset)
     const data = duplicate(header.dataset);
     if (type === "specialty") {
       data.skill = "alertness";

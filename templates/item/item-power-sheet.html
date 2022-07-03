@@ -68,8 +68,7 @@
         </select>
         <label class="resource-label">+</label>
         {{#if data.data.skill}}
-        {{log "data1" sheettype}}
-          {{#ifEquals sheettype "Vampire"}} 
+          {{#ifEquals data.sheettype "Vampire"}} 
             <select name="data.dice2" data-type="String">
               {{#select data.data.dice2}} {{>
               "systems/wod20/templates/item/parts/skills.html"}} {{/select}}
@@ -96,8 +95,7 @@
           type="checkbox"
           id="data.rollable"
           name="data.rollable"
-          {{checked
-          data.data.rollable}}
+          {{checked data.data.rollable}}
         />
 
         <label class="resource-label">{{localize "VTM5E.UseSkill"}}: </label>
@@ -105,8 +103,7 @@
           type="checkbox"
           id="data.skill"
           name="data.skill"
-          {{checked
-          data.data.skill}}
+          {{checked data.data.skill}}
         />
       </div>
     </div>
