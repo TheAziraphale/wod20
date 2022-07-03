@@ -187,6 +187,9 @@ export class MortalActorSheet extends CoterieActorSheet {
   
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
+    console.log("loggin start")
+    console.log(this.actor.data.data.abilities)
+    console.log(this.actor.data.data.attributes)
     let buttons = {};
     buttons = {
       
@@ -204,6 +207,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.attributes[attributes]?.value + (this.actor.data.data.attributes[attributes]?.buff ? 
             this.actor.data.data.attributes[attributes]?.buff : 
           0);
+
+          console.log(abilities, attributes)
           const actorsOwnBuff = this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
           const abilityName = game.i18n.localize(this.actor.data.data.abilities[ability]?.name);
           const modifier = parseInt(html.find("#inputMod")[0].value || 0);
@@ -211,7 +216,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           const specialty = html.find("#specialty")[0]?.checked || false;
           const applyWounds = html.find("#applyWounds")[0]?.checked || false;
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier;
-
+          
           rollDice(
             numDice,
             this.actor,
