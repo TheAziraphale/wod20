@@ -129,18 +129,18 @@ export class MortalActorSheet extends CoterieActorSheet {
     event.preventDefault();
     console.log("loggin start")
     console.log(this.actor.data.data.abilities)
-    console.log(this.actor.data.data.attributes)
+    console.log(this.actor.data.data.skills)
     const element = event.currentTarget;
     const dataset = element.dataset;
     
     let options = "";
-    for (const [key, value] of Object.entries(this.actor.data.data.abilities)) {
+    for (const [key, value] of Object.entries(this.actor.data.data.skills)) {
         options = options.concat(
           `<option value="${key}">${game.i18n.localize(value.name)}</option>`
           );
         }
     let attributesOptions = "";
-    for (const [key, value] of Object.entries(this.actor.data.data.attributes)) {
+    for (const [key, value] of Object.entries(this.actor.data.data.abilities)) {
         options = options.concat(
           `<option value="${key}">${game.i18n.localize(value.name)}</option>`
           );
@@ -198,13 +198,13 @@ export class MortalActorSheet extends CoterieActorSheet {
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value
           const abilityVal = ability === 'null'|| ability === ''  ? 0 : 
-            this.actor.data.data.abilities[ability]?.value + (this.actor.data.data.abilities[ability]?.buff ? 
-            this.actor.data.data.abilities[ability]?.buff : 
+            this.actor.data.data.skills[ability]?.value + (this.actor.data.data.skills[ability]?.buff ? 
+            this.actor.data.data.skills[ability]?.buff : 
           0);
           const attributes = html.find("#attributesSelect")[0]?.value
           const attributesVal = attributes === 'null' || attributes === '' ? 0 : 
-            this.actor.data.data.attributes[attributes]?.value + (this.actor.data.data.attributes[attributes]?.buff ? 
-            this.actor.data.data.attributes[attributes]?.buff : 
+            this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
+            this.actor.data.data.abilities[attributes]?.buff : 
           0);
 
           console.log(abilities, attributes)
