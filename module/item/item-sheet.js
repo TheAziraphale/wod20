@@ -65,6 +65,7 @@ export class VampireItemSheet extends ItemSheet {
       'input[type="checkbox"][name="data.rollable"]'
     );
 
+    console.log("rollCheckbox", rollCheckbox)
     if (rollCheckbox != null) {
       rollCheckbox.addEventListener("change", () => {
         if (rollCheckbox.checked) {
@@ -79,6 +80,7 @@ export class VampireItemSheet extends ItemSheet {
     const skillCheckbox = document.querySelector(
       'input[type="checkbox"][name="data.skill"]'
     );
+    console.log("skillCheckbox", skillCheckbox)
 
     if (skillCheckbox != null) {
       skillCheckbox.addEventListener("change", () => {
@@ -90,10 +92,11 @@ export class VampireItemSheet extends ItemSheet {
       });
     }
 
-    // Skill Checkbox Handler.
+    // Apply Wounds Checkbox Handler.
     const applyWoundsCheckbox = document.querySelector(
       'input[type="checkbox"][name="data.applywounds"]'
     );
+    console.log("applyWoundsCheckbox", applyWoundsCheckbox)
 
     if (applyWoundsCheckbox != null) {
       applyWoundsCheckbox.addEventListener("change", () => {
@@ -109,6 +112,7 @@ export class VampireItemSheet extends ItemSheet {
     const useSkillCheckbox = document.querySelector(
       'input[type="checkbox"][name="data.useskills"]'
     );
+    console.log("useSkillCheckbox", useSkillCheckbox)
 
     if (useSkillCheckbox != null) {
       useSkillCheckbox.addEventListener("change", () => {
@@ -120,10 +124,12 @@ export class VampireItemSheet extends ItemSheet {
       });
     }
 
-    // Skill Checkbox Handler.
+    // Difficulty Input Handler.
     const difficultyInput = document.querySelector(
       'input[type="number"][name="data.difficulty"]'
     );
+
+    console.log("diff", difficultyInput)
 
     if (difficultyInput != null) {
       difficultyInput.addEventListener("change", () => {
