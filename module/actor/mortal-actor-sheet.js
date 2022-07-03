@@ -211,8 +211,6 @@ export class MortalActorSheet extends CoterieActorSheet {
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier
 
-          console.log(dataset)
-          console.log(dataset.type)
           rollDice(
             numDice,
             this.actor,
@@ -235,7 +233,8 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const abilities = Object.keys(this.actor.data.data.abilities)
     // console.log(abilities);
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, abilities }).then((content) => {
+    console.log(dataset.sheettype, dataset)
+    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,

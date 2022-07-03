@@ -1,15 +1,8 @@
 <form>
-    {{logging ../sheetType}}
-    {{logging ../../sheetType}}
-    {{logging ../../../sheetType}}
     {{#unless noability}}
-    {{logging ../sheetType}}
     <div class="form-group">
-        {{logging ../sheetType}}
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            {{logging sheetType}}
-            {{logging ../sheetType}}
             {{#ifEquals sheetType "Vampire"}} 
                 <select id="abilitySelect" name="abilitySelect">
                     {{#select data.abilitySelect}} 
