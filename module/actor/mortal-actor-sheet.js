@@ -162,13 +162,20 @@ export class MortalActorSheet extends CoterieActorSheet {
       wounded = ``
       applyWounds = ``
     } else {
+      console.log(dataset)
+      console.log("dataset.ability", dataset.ability)
+      console.log("dataset.label", dataset.label)
+      console.log(dataset.ability=="true")
+      console.log(dataset.ability === "true")
       if (dataset.ability=="true") {
+        console.log("inside")
         selectAbility =  `<div class="form-group">
                             <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
                             <select id="abilitySelect">${options}</select>
                           </div>`;
         selectAttributes = ``;
       } else {
+        console.log("inside2")
         selectAttributes =  `<div class="form-group">
                         <label>${game.i18n.localize("VTM5E.SelectAttributes")}</label>
                         <select id="attributesSelect">${attributesOptions}</select>
@@ -185,8 +192,6 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
-    console.log(dataset)
-    console.log(dataset.label)
     let buttons = {};
     buttons = {
       
