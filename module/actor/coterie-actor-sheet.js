@@ -238,7 +238,6 @@ export class CoterieActorSheet extends ActorSheet {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
-    console.log(header)
     const type = header.dataset.type;
     const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.

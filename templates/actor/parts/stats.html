@@ -123,11 +123,15 @@
       <div class="item-name">{{localize "VTM5E.Specialty"}}</div>
       <div class="item-name">{{localize "VTM5E.Skill"}}</div>
       <div class="item-controls">
+        {{log sheetType}}
+        {{log ../sheetType}}
+        {{log ../../sheetType}}
+        {{log ../../../sheetType}}
         <a
           class="item-control item-create"
           title="{{localize 'VTM5E.AddItem'}}"
           data-type="specialty"
-          data-sheettype="{{../sheetType}}"
+          data-sheettype="{{../../sheetType}}"
           ><i class="fas fa-plus"></i> {{localize "VTM5E.AddItem"}}
         </a>
       </div>
