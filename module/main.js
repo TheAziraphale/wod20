@@ -18,12 +18,21 @@ Hooks.once("init", async function () {
   console.log("Initializing Schrecknet...");
 
   game.settings.register("vtm5e", "worldVersion", {
-    name: "world Version",
+    name: "World Version",
     hint: "Automatically upgrades data when the system.json is upgraded.",
     scope: "world",
     config: true,
     default: "1.5",
     type: String,
+  });
+
+  game.settings.register("wod20", "useExpandedExp", {
+      name: "Use expanded exp fields",
+      hint: "Enable if you want divided experience pools",
+      scope: "world",
+      config: true,
+      default: false,
+      type: Boolean,
   });
 
   game.vtm5e = {
