@@ -2,9 +2,9 @@
     {{#unless noability}}
     <div class="form-group">
         <label> {{localize "VTM5E.SelectAbility"}} </label>
-        <select name="abilitySelect" data-type="String">
+        <select id="abilitySelect" name="abilitySelect">
           {{#select data.abilitySelect}} {{>
-          "systems/wod20/templates/item/parts/skills.html"}} {{/select}}
+          "systems/wod20/templates/item/parts/attributes.html"}} {{/select}}
         </select>
     </div>
     {{/unless}}
