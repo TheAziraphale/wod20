@@ -162,7 +162,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     wounded = ""
     applyWounds = ''
   } else {
-    if (dataset.rollingattributes) {
+    if (dataset.rollingattributes=="true") {
       selectAbility =  `<div class="form-group">
                           <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
                           <select id="abilitySelect">${options}</select>
