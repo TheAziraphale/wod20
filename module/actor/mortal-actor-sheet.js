@@ -183,9 +183,10 @@ export class MortalActorSheet extends CoterieActorSheet {
       applyWounds =  `<input id="applyWound" type="checkbox">Apply wounds </input>`
     }
 
-  
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
+    console.log(dataset)
+    console.log(dataset.label)
     let buttons = {};
     buttons = {
       
@@ -268,7 +269,6 @@ export class MortalActorSheet extends CoterieActorSheet {
       const dice2 =
         this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
       dataset.roll = dice2 + 1; // specialty modifier
-      console.log("here", dataset.label, dataset.name)
       dataset.label = dataset.name;
       this._onRollDialog(event);
     } else {
