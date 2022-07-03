@@ -195,7 +195,14 @@ export class GhoulActorSheet extends MortalActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const item = this.actor.items.get(dataset.id);
-    const disciplineValue = 1;
+    let disciplineValue = 0;
+   
+    if (item.data.data.discipline === "ceremonies") {
+      disciplineValue = this.actor.data.data.disciplines.oblivion.value;
+    } else {
+      disciplineValue =
+        this.actor.data.data.disciplines[item.data.data.discipline].value;
+    }
 
     const dice1 =
       item.data.data.dice1 === "discipline"
@@ -213,7 +220,6 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     const dicePool = dice1 + dice2;
     const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
-    console.log(disciplineValue, dicePool, difficulty, item.data.data.applywounds)
-    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
+    rollDice(dicePool, this.actor, `${item.data.name}`, Number.isNaN(difficulty) ? 6 : difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
   }
 }
