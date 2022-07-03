@@ -212,8 +212,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     }
 
     const dicePool = dice1 + dice2;
-    const difficulty = this.actor.data.data.difficulty ? parseInt(this.actor.data.data.difficulty) : 6
-    console.log(dicePool, difficulty, this.actor.data.data.applywounds)
-    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, this.actor.data.data.applywounds);
+    const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
+    console.log(dicePool, difficulty, item.data.data.applywounds)
+    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
   }
 }
