@@ -44,7 +44,8 @@
           {{/select}}
         </select>
         <label class="resource-label">{{localize "VTM5E.Skill"}}: </label>
-        {{log "data3" data}}
+        {{log "data3" sheettype}}
+        {{log "data3" type}}
         {{#ifEquals sheettype "Vampire"}} 
           <select name="data.dice2" data-type="String">
             {{#select data.data.dice2}} {{>
