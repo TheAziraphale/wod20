@@ -270,7 +270,7 @@
 .vtm5e .sheet-header .profile-img-zone {
   max-width: 100px; /* .profile-img width */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   margin-right: 10px;
@@ -647,17 +647,9 @@
   background: rgba(20, 0, 0, 0.9);
 }
 
-.mortal-sheet,
-.ghoul-sheet,
-.vampire-sheet {
-  justify-content: unset;
-}
-
 .mortal-sheet .sheet-header,
 .ghoul-sheet .sheet-header,
 .vampire-sheet .sheet-header {
-  justify-content: flex-start;
-  align-items: flex-start;
   flex: none;
   margin-bottom: 0px;
 }
