@@ -136,6 +136,12 @@ export class MortalActorSheet extends CoterieActorSheet {
         `<option value="${key}">${game.i18n.localize(value.name)}</option>`
         );
       }
+    let attributesOptions = "";
+    for (const [key, value] of Object.entries(this.actor.data.data.attributes)) {
+        options = options.concat(
+          `<option value="${key}">${game.i18n.localize(value.name)}</option>`
+          );
+        }
   let healthOptions = ""
   for (const [key, value] of Object.entries(this.actor.data.data.woundPenalties)) {
         healthOptions = healthOptions.concat(
@@ -145,23 +151,31 @@ export class MortalActorSheet extends CoterieActorSheet {
   let wounded;
   let specialty;
   let selectAbility;
+  let selectAttributes;
   let applyWounds;
 
   //    If rolling Rötschreck, the pop up won't have any select Ability 
-  if (dataset.noability=="true") 
-   {
+  if (dataset.noability=="true") {
     selectAbility =  ""
+    selectAttributes = ""
     specialty =  ``
     wounded = ""
     applyWounds = ''
-  }
-
-  else 
-   {
-    selectAbility =  `<div class="form-group">
-                      <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
-                      <select id="abilitySelect">${options}</select>
+  } else {
+    if (dataset.rollingattributes) {
+      selectAbility =  `<div class="form-group">
+                          <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
+                          <select id="abilitySelect">${options}</select>
+                        </div>`;
+      selectAttributes = "";
+    } else 
+    {
+      selectAttributes =  `<div class="form-group">
+                      <label>${game.i18n.localize("VTM5E.SelectAttributes")}</label>
+                      <select id="attributesSelect">${attributesOptions}</select>
                     </div>`;
+      selectAbility = "";
+    }
     specialty =  `<input id="specialty" type="checkbox"> Specialty </input>`
     wounded = `<div class="form-group">
                 <label>${game.i18n.localize("VTM5E.SelectWound")}</label>
@@ -169,6 +183,8 @@ export class MortalActorSheet extends CoterieActorSheet {
               </div>`
     applyWounds =  `<input id="applyWound" type="checkbox">Apply wounds </input>`
   }
+
+  
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
     let buttons = {};
@@ -179,9 +195,14 @@ export class MortalActorSheet extends CoterieActorSheet {
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value;
-          const abilityVal = ability === 'null' ? 0 : 
+          const abilityVal = ability === 'null'|| ability === ''  ? 0 : 
             this.actor.data.data.abilities[ability]?.value + (this.actor.data.data.abilities[ability]?.buff ? 
             this.actor.data.data.abilities[ability]?.buff : 
+          0);
+          const attributes = html.find("#attributesSelect")[0]?.value;
+          const attributesVal = attributes === 'null' || attributes === '' ? 0 : 
+            this.actor.data.data.attributes[attributes]?.value + (this.actor.data.data.attributes[attributes]?.buff ? 
+            this.actor.data.data.attributes[attributes]?.buff : 
           0);
           const actorsOwnBuff = this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
           const abilityName = game.i18n.localize(this.actor.data.data.abilities[ability]?.name);
@@ -189,7 +210,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6);
           const specialty = html.find("#specialty")[0]?.checked || false;
           const applyWounds = html.find("#applyWounds")[0]?.checked || false;
-          const numDice = dataset.noability!=="true" ? abilityVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier;
+          const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier;
 
           rollDice(
             numDice,
