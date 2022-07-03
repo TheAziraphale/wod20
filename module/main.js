@@ -120,9 +120,6 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
     options.data.root[varName] = varValue;
   });
-  Handlebars.registerHelper("logging", function(log) {
-    console.log("logging", log)
-  });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
     var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var val = parseInt(valString);
