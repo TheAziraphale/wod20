@@ -89,5 +89,20 @@ export class VampireItemSheet extends ItemSheet {
         }
       });
     }
+
+    // Skill Checkbox Handler.
+    const useSkillCheckbox = document.querySelector(
+      'input[type="checkbox"][name="data.useskills"]'
+    );
+
+    if (useSkillCheckbox != null) {
+      useSkillCheckbox.addEventListener("change", () => {
+        if (useSkillCheckbox.checked) {
+          this.item.update({ "data.useskills": true });
+        } else {
+          this.item.update({ "data.useskills": false });
+        }
+      });
+    }
   }
 }
