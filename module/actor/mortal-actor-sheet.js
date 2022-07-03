@@ -163,14 +163,12 @@ export class MortalActorSheet extends CoterieActorSheet {
       applyWounds = ``
     } else {
       if (dataset.ability=="true") {
-        console.log("inside")
         selectAbility =  `<div class="form-group">
                             <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
                             <select id="abilitySelect">${options}</select>
                           </div>`;
         selectAttributes = ``;
       } else {
-        console.log("inside2")
         selectAttributes =  `<div class="form-group">
                         <label>${game.i18n.localize("VTM5E.SelectAttributes")}</label>
                         <select id="attributesSelect">${attributesOptions}</select>
@@ -204,13 +202,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
             this.actor.data.data.abilities[attributes]?.buff : 
           0);
-
-          console.log(dataset.label.toLowerCase())
-          console.log(this.actor.data.data.abilities[dataset.label.toLowerCase()])
-          console.log(this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff)
-          console.log(dataset.ability)
           const actorsOwnBuff = dataset.ability && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
-          console.log(actorsOwnBuff)
           const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
