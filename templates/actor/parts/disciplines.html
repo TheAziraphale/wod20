@@ -11,6 +11,10 @@
             </div>
         </li>
         {{#each data.data.disciplines as |discipline key|}}
+        {{log sheettype}}
+        {{log ../sheettype}}
+        {{log ../../sheettype}}
+        {{log ../../../sheettype}}
         {{#if discipline.visible}}
         <li class="flexrow item-header">
             {{#if (and (ne key "rituals") (ne key "ceremonies"))}}
@@ -23,16 +27,12 @@
                 {{/numLoop}}
             </div>
             {{else}}
-            {{log "test" sheettype}}
-            {{log "test2" ../sheettype}}
-            {{log "test3" ../../sheettype}}
-            {{log "test3" ../../../sheettype}}
-            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}" data-sheettype="{{sheetType}}">{{localize discipline.name}}
+            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}">{{localize discipline.name}}
             </div>
             {{/if}}
             <div class="item-controls">
                 <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"
-                    data-discipline="{{key}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
+                    data-discipline="{{key}}" data-sheettype="{{sheetType}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
                 <a class="item-control discipline-delete" title="{{localize 'VTM5E.Delete'}}"
                     data-discipline="{{key}}"><i class="fas fa-trash"></i></a>
             </div>
