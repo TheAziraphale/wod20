@@ -38,9 +38,16 @@ export class VampireActor extends Actor {
       actorData.health.max = 7
     }
 
-    const dmgSum = Math.max(actorData.health.superficial + actorData.health.aggravated + actorData.health.lethal - (actorData.health.max - 7), 0)
+    const allDamage = actorData.health.superficial + actorData.health.aggravated + actorData.health.lethal;
+    const dmgSum = Math.max(allDamage - (actorData.health.max - 7), 0)
     console.log(dmgSum, WoundLevels[dmgSum])
-    actorData.health.state = WoundLevels[dmgSum] ? WoundLevels[dmgSum] + WoundModifierText[dmgSum] : 'Outside Bounds'
+    if (dmgSum === 0 && allDamage !== 0) {
+      /* Forced bruised */
+      actorData.health.state = WoundLevels[1]
+    } else {
+      /* "Outside Bounds" should never happen */
+      actorData.health.state = WoundLevels[dmgSum] ? WoundLevels[dmgSum] + WoundModifierText[dmgSum] : 'Outside Bounds'
+    }
   }
 
   /**
