@@ -40,7 +40,7 @@ export class VampireActor extends Actor {
 
     const allDamage = actorData.health.superficial + actorData.health.aggravated + actorData.health.lethal;
     const dmgSum = Math.max(allDamage - (actorData.health.max - 7), 0)
-    console.log(dmgSum, WoundLevels[dmgSum])
+    // console.log(dmgSum, WoundLevels[dmgSum])
     if (dmgSum === 0 && allDamage !== 0) {
       /* Forced bruised */
       actorData.health.state = WoundLevels[1]

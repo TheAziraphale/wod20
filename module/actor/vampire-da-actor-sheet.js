@@ -44,7 +44,7 @@ export class VampireDarkAgesSheet extends GhoulActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    console.log(data);
+    // console.log(data);
     data.sheetType = `${game.i18n.localize("VTM5E.VampireDarkAges")}`;
 
     // Prepare items.
