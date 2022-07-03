@@ -308,7 +308,7 @@ Hooks.once("init", async function () {
         foundMatch = true
       }
     })
-
+    console.log(a, b, foundMatch, label)
     return foundMatch ? "" : label;
   });
   Handlebars.registerHelper("getDisciplineName", function (key, roll = false) {
