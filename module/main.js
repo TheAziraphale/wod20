@@ -297,7 +297,6 @@ Hooks.once("init", async function () {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
   Handlebars.registerHelper("equal", function (a, b, label) {
-    console.log(a, b, label, a == b)
     return a == b ? label : "";
   });
   Handlebars.registerHelper("notequal", function (a, b, label) {

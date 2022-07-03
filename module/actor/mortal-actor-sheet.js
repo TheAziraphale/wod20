@@ -211,6 +211,8 @@ export class MortalActorSheet extends CoterieActorSheet {
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier
 
+          console.log(dataset)
+          console.log(dataset.type)
           rollDice(
             numDice,
             this.actor,
