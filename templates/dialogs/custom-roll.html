@@ -3,17 +3,17 @@
 
     <div class="form-group">
         {{#if rollingattributes}} 
-            <label> {{localize "VTM5E.SelectAbility"}}: {{data.data.type}}</label>
-            {{#ifEquals data.data.type "vampire-da"}} 
+            <label> {{localize "VTM5E.SelectAbility"}}:</label>
+            {{#ifEquals data.data.type "vampire"}} 
                 <select id="abilitySelect" name="abilitySelect">
                     {{#select data.abilitySelect}} 
-                        {{> "systems/wod20/templates/item/parts/skills-da.html"}} 
+                        {{> "systems/wod20/templates/item/parts/skills.html"}} 
                     {{/select}}
                 </select>
             {{else}}
                 <select id="abilitySelect" name="abilitySelect">
                     {{#select data.abilitySelect}} 
-                        {{> "systems/wod20/templates/item/parts/skills.html"}} 
+                        {{> "systems/wod20/templates/item/parts/skills-da.html"}} 
                     {{/select}}
                 </select>
             {{/ifEquals}}
@@ -45,5 +45,8 @@
     <div class="form-group">
         <label>Apply wounds?</label>
         <input id="applyWounds" type="checkbox" checked />
+    </div>
+    <div class="form-group">
+        <label> {{data.data.type}}  {{data.type}}  {{data.data}}</label>
     </div>
 </form>
