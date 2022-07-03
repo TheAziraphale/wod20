@@ -81,6 +81,7 @@ export class VampireActorSheet extends GhoulActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log(dataset)
     const item = this.actor.items.get(dataset.id);
     let disciplineValue = 0;
     // if (item.data.data.discipline === "rituals") {
@@ -98,7 +99,7 @@ export class VampireActorSheet extends GhoulActorSheet {
     const dice1 =
       item.data.data.dice1 === "discipline"
         ? disciplineValue
-        : this.actor.data.data.abilities[item.data.data.dice1].value;
+        : this.actor.data.data.abilities[item.data.data.dice1].value + this.actor.data.data.abilities[item.data.data.dice1].buff;
 
     let dice2;
     if (item.data.data.dice2 === "discipline") {
@@ -106,10 +107,12 @@ export class VampireActorSheet extends GhoulActorSheet {
     } else if (item.data.data.skill) {
       dice2 = this.actor.data.data.skills[item.data.data.dice2].value;
     } else {
-      dice2 = this.actor.data.data.abilities[item.data.data.dice2].value;
+      dice2 = this.actor.data.data.abilities[item.data.data.dice2].value + this.actor.data.data.abilities[item.data.data.dice2].buff;
     }
 
     const dicePool = dice1 + dice2;
-    rollDice(dicePool, this.actor, `${item.data.name}`, 6, false, this.actor.data.data.health.state, false);
+    const difficulty = this.actor.data.data.difficulty ? parseInt(this.actor.data.data.difficulty) : 6
+    console.log(dicePool, difficulty, this.actor.data.data.applywounds)
+    rollDice(dicePool, this.actor, `${item.data.name}`, difficulty, false, this.actor.data.data.health.state, this.actor.data.data.applywounds);
   }
 }
