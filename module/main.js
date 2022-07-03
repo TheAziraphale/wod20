@@ -126,12 +126,12 @@ Hooks.once("init", async function () {
     console.log("logging", log)
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
-    var valString = varValue.replace(/\D/g, '')
+    var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var val = parseInt(valString);
     options.data.root[varName] = Number.isNaN(val) || val <= 0 ? 5 : Math.max(Math.min(13 - val, 10), 5);
   });
   Handlebars.registerHelper("setBloodFromGen", function(varName, varValue, options) {
-    var valString = varValue.replace(/\D/g, '')
+    var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var gen = parseInt(valString);
     var bloodPool = 10
     switch(gen) {
@@ -171,7 +171,7 @@ Hooks.once("init", async function () {
     options.data.root[varName] = bloodPool;
   });
   Handlebars.registerHelper("setBloodPerTurnFromGen", function(varName, varValue, options) {
-    var valString = varValue.replace(/\D/g, '')
+    var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var gen = parseInt(valString);
     var blood = 1
     switch(gen) {
@@ -202,7 +202,7 @@ Hooks.once("init", async function () {
     options.data.root[varName] = blood;
   });
   Handlebars.registerHelper("setGenLabelFromGen", function(varName, varValue, options) {
-    var valString = varValue.replace(/\D/g, '')
+    var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var gen = parseInt(valString);
     var genLabel = Number.isNaN(gen) ? '' : gen
     switch(gen) {
