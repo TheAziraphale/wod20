@@ -208,19 +208,26 @@ export class MortalActorSheet extends CoterieActorSheet {
           0);
 
           console.log(abilities, attributes)
-          const actorsOwnBuff = this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
-          const abilityName = game.i18n.localize(this.actor.data.data.abilities[ability]?.name)
+          const actorsOwnBuff = attributes && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
+          const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
+          console.log("name", name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + parseInt(dataset.roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : parseInt(dataset.roll) + modifier
           
+          console.log(numDice, this.actor,dataset.noability !== 'true'
+          ? `${dataset.label} + ${name}`
+          : `${dataset.label}`, difficulty, 
+          specialty,
+          this.actor.data.data.health.state,
+          applyWounds)
           rollDice(
             numDice,
             this.actor,
             dataset.noability !== 'true'
-              ? `${dataset.label} + ${abilityName}`
+              ? `${dataset.label} + ${name}`
               : `${dataset.label}`,
             difficulty,
             specialty,
