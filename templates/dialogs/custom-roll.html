@@ -1,35 +1,33 @@
 <form>
     {{#unless noability}}
-        {{#if data.skill2}} 
-        <div class="form-group">
-            <label> {{localize "VTM5E.SelectAbility"}} </label>
+
+    <div class="form-group">
+        <label class="resource-label">{{localize "VTM5E.UseSkill"}}: </label>
+        <input
+            type="checkbox"
+            id="data.useskills"
+            name="data.useskills"
+            checked
+        />
+    </div>
+    <div class="form-group">
+        {{#if data.data.useskills}} 
+            <label> {{localize "VTM5E.SelectAbility"}}: </label>
             <select id="abilitySelect" name="abilitySelect">
                 {{#select data.abilitySelect}} 
                     {{> "systems/wod20/templates/item/parts/skills.html"}} 
                 {{/select}}
             </select>
-        </div>
         {{else}}
-            <div class="form-group">
-                <label> {{localize "VTM5E.SelectAttributes"}} </label>
-                <select id="abilitySelect" name="abilitySelect">
-                {{#select data.abilitySelect}} 
-                    {{> "systems/wod20/templates/item/parts/attributes.html"}} 
-                {{/select}}
-                <option value="null">{{localize "VTM5E.None"}}</option>
-                </select>
-            </div>
+            <label> {{localize "VTM5E.SelectAttributes"}}: </label>
+            <select id="abilitySelect" name="abilitySelect">
+            {{#select data.abilitySelect}} 
+                {{> "systems/wod20/templates/item/parts/attributes.html"}} 
+            {{/select}}
+            <option value="null">{{localize "VTM5E.None"}}</option>
+            </select>
         {{/if}}
-
-        <div class="form-group">
-            <label class="resource-label">{{localize "VTM5E.UseSkill"}}: </label>
-            <input
-                type="checkbox"
-                id="data.skill2"
-                name="data.skill2"
-                {{checked data.skill2}}
-            />
-        </div>
+    </div>
     {{/unless}}
     <div class="form-group">
         <label>{{localize "VTM5E.Modifier"}}</label>
