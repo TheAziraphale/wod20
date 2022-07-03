@@ -213,6 +213,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const abilities = Object.keys(this.actor.data.data.abilities)
     // console.log(abilities);
+    console.log("here", dataset.rollingattributes)
     renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.rollingattributes, abilities }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,

@@ -2,20 +2,20 @@
     {{#unless noability}}
 
     <div class="form-group">
-        {{#if chooseattributes}} 
+        {{#if rollingattributes}} 
+            <label> {{localize "VTM5E.SelectAbility"}}:</label>
+            <select id="abilitySelect" name="abilitySelect">
+                {{#select data.abilitySelect}} 
+                    {{> "systems/wod20/templates/item/parts/skills.html"}} 
+                {{/select}}
+            </select>
+        {{else}}
             <label> {{localize "VTM5E.SelectAttributes"}}: </label>
             <select id="abilitySelect" name="abilitySelect">
                 {{#select data.abilitySelect}} 
                     {{> "systems/wod20/templates/item/parts/attributes.html"}} 
                 {{/select}}
                 <option value="null">{{localize "VTM5E.None"}}</option>
-            </select>
-        {{else}}
-            <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            <select id="abilitySelect" name="abilitySelect">
-                {{#select data.abilitySelect}} 
-                    {{> "systems/wod20/templates/item/parts/skills.html"}} 
-                {{/select}}
             </select>
         {{/if}}
     </div>
