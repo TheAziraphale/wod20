@@ -162,11 +162,6 @@ export class MortalActorSheet extends CoterieActorSheet {
       wounded = ``
       applyWounds = ``
     } else {
-      console.log(dataset)
-      console.log("dataset.ability", dataset.ability)
-      console.log("dataset.label", dataset.label)
-      console.log(dataset.ability=="true")
-      console.log(dataset.ability === "true")
       if (dataset.ability=="true") {
         console.log("inside")
         selectAbility =  `<div class="form-group">
@@ -210,7 +205,11 @@ export class MortalActorSheet extends CoterieActorSheet {
             this.actor.data.data.abilities[attributes]?.buff : 
           0);
 
+          console.log(dataset.label.toLowerCase())
+          console.log(this.actor.data.data.abilities[dataset.label.toLowerCase()])
+          console.log(this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff)
           const actorsOwnBuff = attributes && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
+          console.log(actorsOwnBuff)
           const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
