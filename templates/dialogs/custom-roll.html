@@ -1,12 +1,24 @@
 <form>
     {{#unless noability}}
-    <div class="form-group">
-        <label> {{localize "VTM5E.SelectAbility"}} </label>
-        <select id="abilitySelect" name="abilitySelect">
-          {{#select data.abilitySelect}} {{>
-          "systems/wod20/templates/item/parts/attributes.html"}} {{/select}}
-        </select>
-    </div>
+        {{#if data.data.skill}} 
+            <select id="abilitySelect" name="abilitySelect">
+                {{#select data.abilitySelect}} 
+                    {{> "systems/wod20/templates/item/parts/skills.html"}} 
+                {{/select}}
+            </select>
+        {{else}}
+            <div class="form-group">
+                <label> {{localize "VTM5E.SelectAbility"}} </label>
+                <select id="abilitySelect" name="abilitySelect">
+                {{#select data.abilitySelect}} 
+                    {{> "systems/wod20/templates/item/parts/attributes.html"}} 
+                {{/select}}
+                <option value="null">
+                    {{localize null}}
+                </option>
+                </select>
+            </div>
+        {{/if}}
     {{/unless}}
     <div class="form-group">
         <label>{{localize "VTM5E.Modifier"}}</label>
@@ -26,4 +38,13 @@
         <label>Apply wounds?</label>
         <input id="applyWounds" type="checkbox" checked />
     </div>
+
+    <label class="resource-label">{{localize "VTM5E.UseSkill"}}: </label>
+    <input
+      type="checkbox"
+      id="data.skill"
+      name="data.skill"
+      {{checked
+      data.data.skill}}
+    />
 </form>
