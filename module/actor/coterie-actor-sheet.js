@@ -242,7 +242,7 @@ export class CoterieActorSheet extends ActorSheet {
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     if (type === "specialty") {
-      data.skill = "academics";
+      data.skill = "alertness";
     }
     if (type === "boon") {
       data.boontype = "Trivial";
