@@ -1,12 +1,9 @@
 <div class="tab disciplines" data-group="primary" data-tab="disciplines">
-    {{log data}}
-    {{log sheetType}}
     <ol class="items-list">
         <li class="item flexrow item-header">
             <div class="item-name">{{localize "VTM5E.Name"}}</div>
             <div class="item-name">{{localize "VTM5E.Level"}}</div>
             <div class="item-controls">
-                {{log sheetType}}
                 <a class="item-control discipline-create" title="{{localize 'VTM5E.Add'}}" data-sheettype="{{sheetType}}">
                     <i class="fas fa-plus"></i>
                     {{localize "VTM5E.Add"}}
@@ -30,8 +27,6 @@
             </div>
             {{/if}}
             <div class="item-controls">
-                {{log ../sheetType}}
-                {{log key}}
                 <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"
                     data-discipline="{{key}}" data-sheettype="{{../sheetType}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
                 <a class="item-control discipline-delete" title="{{localize 'VTM5E.Delete'}}"
