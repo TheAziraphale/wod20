@@ -20,6 +20,7 @@
         data-roll="{{ability.value}}"
         data-label="{{localize ability.name}}"
         data-ability="true"
+        data-skills="{{#equal data.data.type 'da-vampire' 'true'}}"
         >{{localize ability.name}}</label>
       <div 
         class="resource-value"

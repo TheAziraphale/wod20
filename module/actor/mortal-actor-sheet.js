@@ -153,6 +153,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     let selectAbility;
     let selectAttributes;
     let applyWounds;
+    console.log(dataset)
 
     //    If rolling Rötschreck, the pop up won't have any select Ability 
     if (dataset.noability=="true") {
