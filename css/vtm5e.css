@@ -262,9 +262,7 @@
   margin-bottom: 10px;
 }
 
-.vtm5e .coterie-sheet .sheet-header,
-.vtm5e .mortal-sheet .sheet-header,
-.vtm5e .ghoul-sheet .sheet-header {
+.vtm5e .coterie-sheet .sheet-header {
   flex: 0 0 155px;
 }
 
