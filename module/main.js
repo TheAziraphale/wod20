@@ -116,10 +116,8 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper('le', function( a, b ){
     var next =  arguments[arguments.length-1];
     return (a <= b) ? next.fn(this) : next.inverse(this);
-    
   });
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
-    console.log("setVar", varName, varValue, options)
     options.data.root[varName] = varValue;
   });
   Handlebars.registerHelper("logging", function(log) {
