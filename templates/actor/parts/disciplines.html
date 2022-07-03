@@ -11,10 +11,6 @@
             </div>
         </li>
         {{#each data.data.disciplines as |discipline key|}}
-        {{log sheettype}}
-        {{log ../sheettype}}
-        {{log ../../sheettype}}
-        {{log ../../../sheettype}}
         {{#if discipline.visible}}
         <li class="flexrow item-header">
             {{#if (and (ne key "rituals") (ne key "ceremonies"))}}
