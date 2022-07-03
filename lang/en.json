@@ -9,10 +9,8 @@
   "VTM5E.Ghoul": "Ghoul",
   "VTM5E.Mortal": "Mortal",
   "VTM5E.Domitor": "Domitor",
-  "VTM5E.Vampire-Da": "Vampire Dark Ages1",
-  "VTM5E.Vampire-da": "Vampire Dark Ages2",
-  "VTM5E.vampire-da": "Vampire Dark Ages3",
-  "VTM5E.VampireDa": "Vampire Dark Ages4",
+
+  "VTM5E.Vampire-da": "Vampire Dark Ages",
   
   "WOD20.Darkages": "Dark Ages",
 
@@ -256,15 +254,4 @@
   "VTM5E.ResistingFrenzy": "Resisting Frenzy", 
   "VTM5E.Healthy" : "Healthy",
   
-  "strength": "Strength",
-  "dexterity": "Dexterity",
-  "stamina": "Stamina",
-  "charisma": "Charisma",
-  "manipulation": "Manipulation",
-  "appearance": "Appearance",
-  "perception": "Perception",
-  "intelligence": "Intelligence",
-  "wits": "Wits",
-  "null": "None"
-
 }
