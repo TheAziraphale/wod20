@@ -30,10 +30,8 @@
             </div>
             {{/if}}
             <div class="item-controls">
-                {{log sheetType}}
-                {{log data}}
                 {{log ../sheetType}}
-                {{log ../../sheetType}}
+                {{log key}}
                 <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"
                     data-discipline="{{key}}" data-sheettype="{{../sheetType}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
                 <a class="item-control discipline-delete" title="{{localize 'VTM5E.Delete'}}"
