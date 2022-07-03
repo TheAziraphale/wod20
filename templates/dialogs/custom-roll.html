@@ -4,8 +4,7 @@
     <div class="form-group">
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}: {{data.data.type}}</label>
-            {{log 'type' data.data.type}}
-            {{#if (data.data.type=="vampire-da")}} 
+            {{#ifEquals data.data.type "vampire-da"}} 
                 <select id="abilitySelect" name="abilitySelect">
                     {{#select data.abilitySelect}} 
                         {{> "systems/wod20/templates/item/parts/skills-da.html"}} 

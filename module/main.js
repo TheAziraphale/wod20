@@ -293,6 +293,9 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("minus", function (a, b) {
     return a - b;
   });
+  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
   Handlebars.registerHelper("equal", function (a, b, label) {
     return a == b ? label : "";
   });
