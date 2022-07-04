@@ -194,23 +194,39 @@ export class MortalActorSheet extends CoterieActorSheet {
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value
-          const abilityVal = !ability || ability === 'null'|| ability === ''  ? 0 : 
+          let abilityVal = parseInt(!ability || ability === 'null'|| ability === ''  ? '0' : 
             this.actor.data.data.skills[ability]?.value + (this.actor.data.data.skills[ability]?.buff ? 
             this.actor.data.data.skills[ability]?.buff : 
-          0);
+          0))
+          if(Number.isNaN(abilityVal)) {
+            abilityVal = 0
+          }
+
           const attributes = html.find("#attributesSelect")[0]?.value
-          const attributesVal = !attributes || attributes === 'null' || attributes === '' ? 0 : 
+          let attributesVal = parseInt(!attributes || attributes === 'null' || attributes === '' ? '0' : 
             this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
             this.actor.data.data.abilities[attributes]?.buff : 
-          0);
-          const actorsOwnBuff = dataset.ability && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : 0
+          0))
+          if(Number.isNaN(attributesVal)) {
+            attributesVal = 0
+          }
+
+          let actorsOwnBuff = parseInt(dataset.ability && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : '0')
+          if(Number.isNaN(actorsOwnBuff)) {
+            actorsOwnBuff = 0
+          }
+
           const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
-          const roll = dataset.roll && dataset.roll !== '' ? parseInt(dataset.roll) : 0
-          const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + (Number.isNaN(roll) ? 0 : roll) + parseInt(actorsOwnBuff ? actorsOwnBuff : 0) + modifier : (Number.isNaN(roll) ? 0 : roll) + modifier
+          let roll = dataset.roll && dataset.roll !== '' ? parseInt(dataset.roll) : 0
+          if(Number.isNaN(roll)) {
+            roll = 0
+          }
+
+          const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + roll + actorsOwnBuff + modifier : roll + modifier
 
           rollDice(
             numDice,
