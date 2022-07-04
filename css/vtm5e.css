@@ -306,6 +306,9 @@
   font-family: "cormorantlight", sans-serif;
   font-weight: bold;
   border: none;
+  margin: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .vtm5e .sheet-header .profile-img {
@@ -317,6 +320,8 @@
   height: auto;
   width: 100px;
   margin-right: 0;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .vtm5e .sheet-header .profile-img-zone h1 {
