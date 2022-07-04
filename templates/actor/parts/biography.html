@@ -47,10 +47,14 @@
         {{/if}}
     </div>
     {{/if}}
-    {{#if isCharacter}}   
-    <label class="resource-label flex-center">{{localize "VTM5E.Biography"}}</label>
-    {{else}}
-    <label class="resource-label flex-center">{{localize "VTM5E.History"}}</label>
-    {{/if}}
-    {{editor content=data.data.biography target="data.biography" button=true owner=owner editable=editable}}
+    <div class="flex-group full-height">
+        <div class="resource-container full-height">
+            {{#if isCharacter}}   
+                <label class="resource-label flex-center">{{localize "VTM5E.Biography"}}</label>
+            {{else}}
+                <label class="resource-label flex-center">{{localize "VTM5E.History"}}</label>
+            {{/if}}
+            {{editor content=data.data.biography target="data.biography" button=true owner=owner editable=editable}}
+        </div>
+    </div>
 </div>
