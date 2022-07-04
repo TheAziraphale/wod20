@@ -96,6 +96,14 @@
   flex-direction: row;
   margin-bottom: 1px;
 }
+.flex-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.resource-container {
+  flex: 1;
+}
 
 .flex-group-center,
 .flex-group-left,
@@ -236,6 +244,15 @@
   display: block;
   text-transform: uppercase;
 }
+
+.vtm5e .window-content .sheet-body .tab .resource-container > .resource-label {
+  color: #790813;
+  border-bottom: 1px solid #790813;
+  width: 100%;
+  display: block;
+  text-transform: uppercase;
+}
+
 
 /* Styles limited to vtm5e sheets */
 
