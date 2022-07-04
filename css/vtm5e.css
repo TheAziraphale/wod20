@@ -218,7 +218,9 @@
 
 .vtm5e .window-content nav.sheet-tabs a.item.active {
   background: #faf5ed;
-  text-decoration: none;
+  text-decoration: underline;
+  border-radius: 10px;
+  margin: 0 10px;
 }
 
 .vtm5e .resource .resource-control:hover,
@@ -377,7 +379,7 @@
 }
 
 .vtm5e .tabs .item {
-  line-height: 40px;
+  line-height: 35px;
   font-weight: bold;
   flex: 1;
 }
