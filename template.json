@@ -104,7 +104,7 @@
             "value": 1,
             "name": "VTM5E.Stamina"
           },
-          "appearance": {
+          "Appearance": {
             "value": 1,
             "name": "VTM5E.Appearance"
           },
@@ -415,7 +415,7 @@
             "value": 1,
             "name": "VTM5E.Stamina"
           },
-          "appearance": {
+          "Appearance": {
             "value": 1,
             "name": "VTM5E.Appearance"
           },
