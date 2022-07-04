@@ -672,11 +672,12 @@
   background: rgba(20, 0, 0, 0.9);
 }
 
-.mortal-sheet .sheet-header,
-.ghoul-sheet .sheet-header,
-.vampire-sheet .sheet-header {
+.vtm5e .mortal-sheet .sheet-header,
+.vtm5e .ghoul-sheet .sheet-header,
+.vtm5e .vampire-sheet .sheet-header {
   flex: none;
   margin-bottom: 0px;
+  align-items: flex-start;
 }
 
 .mortal-sheet .sheet-body,
