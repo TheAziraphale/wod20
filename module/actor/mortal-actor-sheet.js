@@ -199,30 +199,42 @@ export class MortalActorSheet extends CoterieActorSheet {
         icon: '<i class="fas fa-check"></i>',
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
-          let stamina = parseInt(this.actor.data.data.abilities['stamina']?.value + this.actor.data.data.abilities['stamina']?.buff)
-          if(Number.isNaN(stamina)) {
-            stamina = 0
+
+          const rollStamina = html.find("#rollstamina")[0]?.checked || false
+          const rollFortitude = html.find("#rollfortitude")[0]?.checked || false
+          const rollArmor = html.find("#rollarmor")[0]?.checked || false
+          let numDice = 0
+
+          if(rollStamina) {
+            let stamina = parseInt(this.actor.data.data.abilities['stamina']?.value + this.actor.data.data.abilities['stamina']?.buff)
+            if(Number.isNaN(stamina)) {
+              stamina = 0
+            }
+            numDice += stamina
           }
 
-          console.log(this.actor.data.data.disciplines)
-          console.log("val", this.actor.data.data.disciplines['fortitude']?.value)
-          let fortitude = parseInt(this.actor.data.data.disciplines['fortitude']?.value);
-          console.log('fortitude', fortitude)
-          if(Number.isNaN(fortitude)) {
-            fortitude = 0
+          if(rollFortitude) {
+            let fortitude = parseInt(this.actor.data.data.disciplines['fortitude']?.value);
+            if(Number.isNaN(fortitude)) {
+              fortitude = 0
+            }
+            numDice += fortitude
           }
 
+          if(rollArmor) {
+            let armor = parseInt(this.actor.data.data.armor.rating?.value);
+            if(Number.isNaN(armor)) {
+              armor = 0
+            }
+            numDice += armor
+          }
 
           const name = game.i18n.localize("VTM5E.Soak")
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
           const specialty = html.find("#specialty")[0]?.checked || false
-          const applyWounds = html.find("#applyWounds")[0]?.checked || false
-          const rollStamina = html.find("#rollstamina")[0]?.checked || false
-          const rollFortitude = html.find("#rollfortitude")[0]?.checked || false
 
-          
-          const numDice = modifier + (rollStamina ? stamina : 0) + (rollFortitude ? fortitude : 0)
+          numDice += modifier
 
           rollDice(
             numDice,
@@ -231,7 +243,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            applyWounds
+            false
           )
         }
       },

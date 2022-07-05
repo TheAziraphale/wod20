@@ -3,10 +3,12 @@
         <label>{{localize "VTM5E.RollStamina"}}:</label>
         <input id="rollstamina" type="checkbox" checked>
     </div>
+    {{unless sheettype "Mortal"}}
     <div class="form-group">
         <label>{{localize "VTM5E.RollFortitude"}}:</label>
         <input id="rollfortitude" type="checkbox" checked>
     </div>
+    {{/unless}}
     <div class="form-group">
         <label>{{localize "VTM5E.Modifier"}}:</label>
         <input type="text" id="inputMod" value="0">
@@ -18,9 +20,5 @@
     <div class="form-group">
         <label>{{localize "VTM5E.Specialty"}}:</label>
         <input id="specialty" type="checkbox" />
-    </div>
-    <div class="form-group">
-        <label>{{localize "VTM5E.ApplyWounds"}}:</label>
-        <input id="applyWounds" type="checkbox" checked />
     </div>
 </form>

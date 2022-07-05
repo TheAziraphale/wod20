@@ -33,6 +33,7 @@
   "VTM5E.Soak": "Soak",
   "VTM5E.RollStamina": "Roll Stamina",
   "VTM5E.RollFortitude": "Roll Fortitude (if any)",
+  "VTM5E.RollArmor": "Roll Armor rating (if any)",
   "VTM5E.SpecialtyDexterity": "Dexterity specialty",
   "VTM5E.SpecialtyWits": "Wits specialty",
 
