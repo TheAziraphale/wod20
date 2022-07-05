@@ -98,3 +98,36 @@ export async function rollDice (
     content: label,
   })
 }
+
+// Function to roll dice
+export async function rollInit (
+  modifier,
+  actor,
+  specialty,
+  specialty2,
+) {
+
+  const dice = 1
+  const roll = new Roll(dice + 'dvcs>11 + ' + 0 + 'dhcs>11', actor.data.data)
+  await roll.evaluate()
+
+  let finalValue = modifier + (specialty ? 1 : 0) + (specialty2 ? 1 : 0)
+  roll.terms[0].results.forEach((dice) => {
+    finalValue += dice.result
+  })
+
+  let label = `<p class="roll-label result-success">${game.i18n.localize('VTM5E.Initiative')}: ${finalValue}</p>`
+
+  roll.terms[0].results.forEach((dice) => {
+    label =
+      label +
+      `<img src="systems/wod20/assets/images/diceimg_${dice.result}.png" alt="Normal Fail" class="roll-img normal-dice" />`
+  })
+
+  label = label + '<br>'
+
+  roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor: actor }),
+    content: label,
+  })
+}

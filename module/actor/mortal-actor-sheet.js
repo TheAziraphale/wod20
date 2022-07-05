@@ -2,7 +2,7 @@
 
 // Export this function to be used in other scripts
 import { CoterieActorSheet } from "./coterie-actor-sheet.js";
-import { rollDice } from "./roll-dice.js";
+import { rollDice, rollInit } from "./roll-dice.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -119,8 +119,137 @@ export class MortalActorSheet extends CoterieActorSheet {
       .click(this._onCustomVampireRoll.bind(this));
     // Rollable abilities.
     html.find(".vrollable").click(this._onRollDialog.bind(this));
+    html.find(".soakrollable").click(this._onSoakRollDialog.bind(this));
+    html.find(".initrollable").click(this._onInitRollDialog.bind(this));
   }
   
+  /**   * Handle clickable Vampire rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   _onInitRollDialog(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    const template = 'systems/wod20/templates/dialogs/init-roll.html'
+
+    let buttons = {};
+    buttons = {
+      
+      draw: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize("VTM5E.Roll"),
+        callback: async (html) => {
+          let dexterity = parseInt(this.actor.data.data.abilities['dexterity']?.value + this.actor.data.data.abilities['dexterity']?.buff)
+          if(Number.isNaN(dexterity)) {
+            dexterity = 0
+          }
+
+          let wits =  parseInt(this.actor.data.data.disciplines['wits']?.value);
+          if(Number.isNaN(wits)) {
+            wits = 0
+          }
+
+          const modifier = dexterity + wits
+          const specialty = html.find("#specialty")[0]?.checked || false
+          const specialty2 = html.find("#specialty2")[0]?.checked || false
+
+          rollInit(
+            modifier,
+            this.actor,
+            specialty,
+            specialty2
+          )
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: game.i18n.localize('VTM5E.Cancel')
+      }
+    }
+
+    const abilities = Object.keys(this.actor.data.data.abilities)
+    // console.log(abilities);
+    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
+      new Dialog({
+        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
+        content,
+        buttons: buttons,
+        default: 'draw'
+      }).render(true)
+    })
+  }
+
+  /**   * Handle clickable Vampire rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   _onSoakRollDialog(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    const template = 'systems/wod20/templates/dialogs/soak-roll.html'
+
+    let buttons = {};
+    buttons = {
+      
+      draw: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize("VTM5E.Roll"),
+        callback: async (html) => {
+          let stamina = parseInt(this.actor.data.data.abilities['stamina']?.value + this.actor.data.data.abilities['stamina']?.buff)
+          if(Number.isNaN(stamina)) {
+            stamina = 0
+          }
+
+          let fortitude = parseInt(this.actor.data.data.disciplines['fortitude']?.value);
+          if(Number.isNaN(fortitude)) {
+            fortitude = 0
+          }
+
+
+          const name = game.i18n.localize("VTM5E.Soak")
+          const modifier = parseInt(html.find("#inputMod")[0].value || 0)
+          const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          const specialty = html.find("#specialty")[0]?.checked || false
+          const applyWounds = html.find("#applyWounds")[0]?.checked || false
+          const rollStamina = html.find("#rollstamina")[0]?.checked || false
+          const rollFortitude = html.find("#rollfortitude")[0]?.checked || false
+
+          
+          const numDice = modifier + (rollStamina ? stamina : 0) + (rollFortitude ? fortitude : 0)
+
+          rollDice(
+            numDice,
+            this.actor,
+            name,
+            difficulty,
+            specialty,
+            this.actor.data.data.health.state,
+            applyWounds
+          )
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: game.i18n.localize('VTM5E.Cancel')
+      }
+    }
+
+    const abilities = Object.keys(this.actor.data.data.abilities)
+    // console.log(abilities);
+    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
+      new Dialog({
+        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
+        content,
+        buttons: buttons,
+        default: 'draw'
+      }).render(true)
+    })
+  }
+
   /**   * Handle clickable Vampire rolls.
    * @param {Event} event   The originating click event
    * @private

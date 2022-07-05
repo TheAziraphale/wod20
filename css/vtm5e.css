@@ -13,6 +13,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.soakrollable:hover,
+.soakrollable:focus,
+.initrollable:hover,
+.initrollable:focus,
 .rollable:hover,
 .rollable:focus,
 .vrollable:hover,
@@ -200,8 +204,14 @@
 .resource-label-exp {
   padding-top: 5px;
   text-align: center;
-  width: 160px;
+  width: 190px;
 }
+
+.resource-label-exp-small {
+  padding-top: 7px;
+  font-size: 14px;
+}
+
 
 .vtm5e .window-content .resource-label {
   text-transform: initial;

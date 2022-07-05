@@ -14,14 +14,9 @@
   
   "WOD20.Darkages": "Dark Ages",
 
-
   "VTM5E.Health": "Health",
   "VTM5E.Willpower": "Willpower",
   "VTM5E.WillpowerReroll": "Willpower Reroll",
-  "VTM5E.Exp": "Exp",
-  "VTM5E.ExpAttributes": "Attributes",
-  "VTM5E.ExpAbilities": "Abilities",
-  "VTM5E.ExpOther": "Other",
   "VTM5E.Humanity": "Humanity",
   "VTM5E.Bloodpool": "Blood Pool",
   "VTM5E.Hunger": "Hunger",
@@ -34,6 +29,18 @@
   "VTM5E.Value": "Value",
   "VTM5E.Stains": "Stains",
   "VTM5E.Max": "Max",
+  "VTM5E.Initiative": "Initiative",
+  "VTM5E.Soak": "Soak",
+  "VTM5E.RollStamina": "Roll stamina",
+  "VTM5E.RollFortitude": "Roll Fortitude (if any)",
+
+  "VTM5E.Exp": "Exp",
+  "VTM5E.ExpAttributes": "Attributes",
+  "VTM5E.ExpAbilities": "Abilities",
+  "VTM5E.ExpOther": "Other",
+  "VTM5E.ExpGroup": "Group",
+  "VTM5E.ExpSpent": "Spent",
+  "VTM5E.ExpEarned": "Earned",
 
   "VTM5E.Stats": "Stats",
   "VTM5E.Disciplines": "Disciplines",
