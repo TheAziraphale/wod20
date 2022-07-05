@@ -141,9 +141,9 @@ export class MortalActorSheet extends CoterieActorSheet {
         icon: '<i class="fas fa-check"></i>',
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
-          let dexterity = this.actor.data.data.skills['dexterity']?.value + (this.actor.data.data.skills['dexterity']?.buff ? 
-          this.actor.data.data.skills['dexterity']?.buff :  0)
-          console.log("buff", this.actor.data.data.skills['dexterity']?.buff)
+          let dexterity = this.actor.data.data.abilities['dexterity']?.value + (this.actor.data.data.abilities['dexterity']?.buff ? 
+          this.actor.data.data.abilities['dexterity']?.buff :  0)
+          console.log("buff", this.actor.data.data.abilities['dexterity']?.buff)
           if(Number.isNaN(dexterity)) {
             dexterity = 0
           }
@@ -209,9 +209,9 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           console.log(rollStamina, rollFortitude, rollArmor)
           if(rollStamina) {
-            let stamina = this.actor.data.data.skills['stamina']?.value + (this.actor.data.data.skills['stamina']?.buff ? 
-              this.actor.data.data.skills['stamina']?.buff : 0)
-              console.log("buff", this.actor.data.data.skills['stamina']?.buff)
+            let stamina = this.actor.data.data.abilities['stamina']?.value + (this.actor.data.data.abilities['stamina']?.buff ? 
+              this.actor.data.data.abilities['stamina']?.buff : 0)
+              console.log("buff", this.actor.data.data.abilities['stamina']?.buff)
             if(Number.isNaN(stamina)) {
               stamina = 0
             }
