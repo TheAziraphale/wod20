@@ -355,9 +355,9 @@ export class MortalActorSheet extends CoterieActorSheet {
       const states = parseCounterStates(data.states);
       const humanity = data.name === "data.humanity";
 
-      const fulls = Number(data[states["-"]]) || 0;
-      const halfs = Number(data[states["/"]]) || 0;
-      const crossed = Number(data[states.x]) || 0;
+      const fulls = Math.max(Number(data[states["-"]]) || 0,0);
+      const halfs = Math.max(Number(data[states["/"]]) || 0);
+      const crossed = Math.max(Number(data[states.x]) || 0);
 
       const values = humanity
         ? new Array(fulls + halfs)
@@ -368,9 +368,8 @@ export class MortalActorSheet extends CoterieActorSheet {
         values.fill("/", fulls, fulls + halfs);
       } else {
         values.fill("/", 0, halfs);
-        values.fill("-", halfs, halfs + fulls )
-        values.fill("x", halfs + fulls, halfs + fulls + crossed);
-
+        values.fill("-", fulls + halfs, halfs)
+        values.fill("x", crossed + fulls + halfs, fulls + halfs);
       }
 
       $(this)
