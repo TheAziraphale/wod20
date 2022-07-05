@@ -78,6 +78,7 @@
         "abilities": {
           "strength": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Strength"
           },
           "charisma": {
@@ -90,6 +91,7 @@
           },
           "dexterity": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Dexterity"
           },
           "manipulation": {
@@ -102,6 +104,7 @@
           },
           "stamina": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Stamina"
           },
           "Appearance": {
@@ -389,6 +392,7 @@
         "abilities": {
           "strength": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Strength"
           },
           "charisma": {
@@ -401,6 +405,7 @@
           },
           "dexterity": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Dexterity"
           },
           "manipulation": {
@@ -413,6 +418,7 @@
           },
           "stamina": {
             "value": 1,
+            "buff": 0,
             "name": "VTM5E.Stamina"
           },
           "Appearance": {
