@@ -131,6 +131,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log("init dataset", dataset)
 
     const template = 'systems/wod20/templates/dialogs/init-roll.html'
 
@@ -173,7 +174,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const abilities = Object.keys(this.actor.data.data.abilities)
     // console.log(abilities);
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
+    renderTemplate(template, {sheettype: dataset.sheettype }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
@@ -191,6 +192,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log("soak dataset", dataset)
 
     const template = 'systems/wod20/templates/dialogs/soak-roll.html'
 
@@ -261,7 +263,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const abilities = Object.keys(this.actor.data.data.abilities)
     // console.log(abilities);
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
+    renderTemplate(template, {sheettype: dataset.sheettype}).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
