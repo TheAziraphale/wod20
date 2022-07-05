@@ -205,11 +205,13 @@ export class MortalActorSheet extends CoterieActorSheet {
           const rollArmor = html.find("#rollarmor")[0]?.checked || false
           let numDice = 0
 
+          console.log(rollStamina, rollFortitude, rollArmor)
           if(rollStamina) {
             let stamina = parseInt(this.actor.data.data.abilities['stamina']?.value + this.actor.data.data.abilities['stamina']?.buff)
             if(Number.isNaN(stamina)) {
               stamina = 0
             }
+            console.log('stamina', stamina)
             numDice += stamina
           }
 
@@ -218,6 +220,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             if(Number.isNaN(fortitude)) {
               fortitude = 0
             }
+            console.log('fortitude', fortitude)
             numDice += fortitude
           }
 
@@ -226,8 +229,12 @@ export class MortalActorSheet extends CoterieActorSheet {
             if(Number.isNaN(armor)) {
               armor = 0
             }
+            console.log('this.actor.data.data.armor', this.actor.data.data.armor)
+            console.log('armor', armor)
             numDice += armor
           }
+
+          console.log(numDice)
 
           const name = game.i18n.localize("VTM5E.Soak")
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
