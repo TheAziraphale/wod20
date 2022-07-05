@@ -103,15 +103,13 @@ export async function rollDice (
 export async function rollInit (
   modifier,
   actor,
-  specialty,
-  specialty2,
 ) {
 
   const dice = 1
   const roll = new Roll(dice + 'dvcs>11 + ' + 0 + 'dhcs>11', actor.data.data)
   await roll.evaluate()
 
-  let finalValue = modifier + (specialty ? 1 : 0) + (specialty2 ? 1 : 0)
+  let finalValue = modifier
   roll.terms[0].results.forEach((dice) => {
     finalValue += dice.result
   })

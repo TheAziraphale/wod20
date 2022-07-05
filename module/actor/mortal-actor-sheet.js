@@ -146,20 +146,20 @@ export class MortalActorSheet extends CoterieActorSheet {
             dexterity = 0
           }
 
-          let wits =  parseInt(this.actor.data.data.disciplines['wits']?.value);
+          let wits = parseInt(this.actor.data.data.abilities['wits']?.value);
           if(Number.isNaN(wits)) {
             wits = 0
           }
 
-          const modifier = dexterity + wits
+          let modifier = dexterity + wits + parseInt(html.find("#inputMod")[0].value || 0)
           const specialty = html.find("#specialty")[0]?.checked || false
           const specialty2 = html.find("#specialty2")[0]?.checked || false
+
+          modifier += (specialty ? 1 : 0) + (specialty2 ? 1 : 0)
 
           rollInit(
             modifier,
             this.actor,
-            specialty,
-            specialty2
           )
         }
       },
@@ -204,7 +204,10 @@ export class MortalActorSheet extends CoterieActorSheet {
             stamina = 0
           }
 
+          console.log(this.actor.data.data.disciplines)
+          console.log("val", this.actor.data.data.disciplines['fortitude']?.value)
           let fortitude = parseInt(this.actor.data.data.disciplines['fortitude']?.value);
+          console.log('fortitude', fortitude)
           if(Number.isNaN(fortitude)) {
             fortitude = 0
           }

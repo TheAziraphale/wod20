@@ -31,8 +31,10 @@
   "VTM5E.Max": "Max",
   "VTM5E.Initiative": "Initiative",
   "VTM5E.Soak": "Soak",
-  "VTM5E.RollStamina": "Roll stamina",
+  "VTM5E.RollStamina": "Roll Stamina",
   "VTM5E.RollFortitude": "Roll Fortitude (if any)",
+  "VTM5E.SpecialtyDexterity": "Dexterity specialty",
+  "VTM5E.SpecialtyWits": "Wits specialty",
 
   "VTM5E.Exp": "Exp",
   "VTM5E.ExpAttributes": "Attributes",
