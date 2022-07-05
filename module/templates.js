@@ -24,7 +24,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/wod20/templates/actor/parts/stats.html',
     'systems/wod20/templates/actor/parts/willpower.html',
     'systems/wod20/templates/actor/parts/combat.html',
-    'systems/wod20/templates/actor/parts/frenzy-root-combined.html',
+    'systems/wod20/templates/actor/parts/frenzy-rot-combined.html',
     'systems/wod20/templates/actor/parts/soak-init-combined.html',
 
     // Item Sheet Partials
