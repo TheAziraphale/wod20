@@ -3,12 +3,13 @@
         <label>{{localize "VTM5E.RollStamina"}}:</label>
         <input id="rollstamina" type="checkbox" checked>
     </div>
-    {{#unless sheettype "Mortal"}}
+    {{#ifEquals sheettype "Mortal"}}
+    {{else}}
     <div class="form-group">
         <label>{{localize "VTM5E.RollFortitude"}}:</label>
         <input id="rollfortitude" type="checkbox" checked>
     </div>
-    {{/unless}}
+    {{/ifEquals}}
     <div class="form-group">
         <label>{{localize "VTM5E.RollArmor"}}:</label>
         <input id="rollarmor" type="checkbox" checked>
