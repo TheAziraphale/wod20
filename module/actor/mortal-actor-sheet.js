@@ -207,11 +207,11 @@ export class MortalActorSheet extends CoterieActorSheet {
           const rollArmor = html.find("#rollarmor")[0]?.checked || false
           let numDice = 0
 
-          console.log(rollStamina, rollFortitude, rollArmor)
           if(rollStamina) {
             let stamina = this.actor.data.data.abilities['stamina']?.value + (this.actor.data.data.abilities['stamina']?.buff ? 
               this.actor.data.data.abilities['stamina']?.buff : 0)
-            console.log(stamina)
+            console.log('stamina', stamina)
+            console.log('buff', this.actor.data.data.abilities['stamina']?.buff)
             if(Number.isNaN(stamina)) {
               stamina = 0
             }
@@ -228,7 +228,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           }
 
           if(rollArmor) {
-            let armor = this.actor.data.data.armor.rating ? parseInt(this.actor.data.data.armor.rating?.value) : 0
+            let armor = this.actor.data.data.armor.rating ? parseInt(this.actor.data.data.armor.rating) : 0
             if(Number.isNaN(armor)) {
               armor = 0
             }
