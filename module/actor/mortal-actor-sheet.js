@@ -129,60 +129,6 @@ export class MortalActorSheet extends CoterieActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    
-    let options = "";
-    for (const [key, value] of Object.entries(this.actor.data.data.skills)) {
-        options = options.concat(
-          `<option value="${key}">${game.i18n.localize(value.name)}</option>`
-          );
-        }
-    let attributesOptions = "";
-    for (const [key, value] of Object.entries(this.actor.data.data.abilities)) {
-        options = options.concat(
-          `<option value="${key}">${game.i18n.localize(value.name)}</option>`
-          );
-        }
-    let healthOptions = ""
-    for (const [key, value] of Object.entries(this.actor.data.data.woundPenalties)) {
-          healthOptions = healthOptions.concat(
-            `<option value="${key}">${game.i18n.localize(value.name)}</option>`
-            );
-    }
-    let wounded;
-    let specialty;
-    let selectAbility;
-    let selectAttributes;
-    let applyWounds;
-    console.log(dataset)
-
-    //    If rolling Rötschreck, the pop up won't have any select Ability 
-    if (dataset.noability=="true") {
-      selectAbility =  ``
-      selectAttributes = ``
-      specialty =  ``
-      wounded = ``
-      applyWounds = ``
-    } else {
-      if (dataset.ability=="true") {
-        selectAbility =  `<div class="form-group">
-                            <label>${game.i18n.localize("VTM5E.SelectAbility")}</label>
-                            <select id="abilitySelect">${options}</select>
-                          </div>`;
-        selectAttributes = ``;
-      } else {
-        selectAttributes =  `<div class="form-group">
-                        <label>${game.i18n.localize("VTM5E.SelectAttributes")}</label>
-                        <select id="attributesSelect">${attributesOptions}</select>
-                      </div>`;
-        selectAbility = ``;
-      }
-      specialty =  `<input id="specialty" type="checkbox"> Specialty </input>`
-      wounded = `<div class="form-group">
-                  <label>${game.i18n.localize("VTM5E.SelectWound")}</label>
-                  <select id="woundSelect">${healthOptions}</select>
-                </div>`
-      applyWounds =  `<input id="applyWound" type="checkbox">Apply wounds </input>`
-    }
 
     const template = 'systems/wod20/templates/dialogs/custom-roll.html'
 
@@ -296,7 +242,6 @@ export class MortalActorSheet extends CoterieActorSheet {
   }
 
   _onSquareCounterChange(event) {
-
     event.preventDefault();
     const element = event.currentTarget;
     const index = Number(element.dataset.index);
@@ -376,7 +321,6 @@ export class MortalActorSheet extends CoterieActorSheet {
         values.fill("-", 0, fulls);
         values.fill("x", fulls, fulls + crossed )
         values.fill("/", fulls + crossed, fulls + crossed + halfs);
-
       }
 
       $(this)
@@ -388,8 +332,6 @@ export class MortalActorSheet extends CoterieActorSheet {
           }
         });
     });
-    
- 
   }
 
   _onResourceChange(event) {
