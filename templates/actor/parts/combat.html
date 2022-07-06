@@ -3,12 +3,12 @@
     <tr>
       <th class="rollable-button-table"></th>
       <th>{{ localize "VTM5E.Weapon"}}</th>
-      <th>{{ localize "VTM5E.Diff"}}</th>
-      <th>{{ localize "VTM5E.Damage"}}</th>
+      <th class="number-width-table">{{ localize "VTM5E.Diff"}}</th>
+      <th class="number-width-table">{{ localize "VTM5E.Damage"}}</th>
       <th class="rollable-button-table"></th>
       <th>{{ localize "VTM5E.Range"}}</th>
-      <th>{{ localize "VTM5E.Rate"}}</th>
-      <th>{{ localize "VTM5E.Clip"}}</th>
+      <th class="number-width-table">{{ localize "VTM5E.Rate"}}</th>
+      <th class="number-width-table">{{ localize "VTM5E.Clip"}}</th>
       <th>{{ localize "VTM5E.Conceal"}}</th>
     </tr>
     {{log data}}
@@ -27,7 +27,7 @@
           placeholder="{{localize 'VTM5E.Weapon'}}"
         />
       </td>
-      <td>
+      <td class="number-width-table">
         <input
           name="data.weapons.{{@key}}.diff"
           type="text"
@@ -35,7 +35,7 @@
           placeholder="{{localize 'VTM5E.Diff'}}"
         />
       </td>
-      <td>
+      <td class="number-width-table">
         <input
           name="data.weapons.{{@key}}.damage"
           type="text"
@@ -44,7 +44,7 @@
         />
       </td>
       <td class="rollable-button-table">
-        <div class="item-image power-rollable" data-id="{{this.id}}" data-type="damage" data-label="Damage">
+        <div class="item-image damage-rollable" data-id="{{this.id}}" data-type="damage" data-label="Damage">
           <img src="icons/svg/d10-grey.svg" title="{{this.damage}}" width="24" height="24" alt="{{this.damage}}" />
         </div>
       </td>
@@ -57,7 +57,7 @@
           placeholder="{{localize 'VTM5E.Range'}}"
         />
       </td>
-      <td>
+      <td class="number-width-table">
         <input
           name="data.weapons.{{@key}}.rate"
           type="text"
@@ -65,7 +65,7 @@
           placeholder="{{localize 'VTM5E.Rate'}}"
         />
       </td>
-      <td>
+      <td  class="number-width-table">
         <input
           name="data.weapons.{{@key}}.clip"
           type="text"

@@ -36,6 +36,8 @@
   "VTM5E.RollArmor": "Roll Armor rating (if any)",
   "VTM5E.SpecialtyDexterity": "Dexterity specialty",
   "VTM5E.SpecialtyWits": "Wits specialty",
+  "VTM5E.RollStrength" : "Roll Strength",
+  "VTM5E.RollPotence" : "Roll Potence (if any)",
 
   "VTM5E.Exp": "Exp",
   "VTM5E.ExpAttributes": "Attributes",

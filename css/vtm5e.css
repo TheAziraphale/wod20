@@ -703,6 +703,10 @@
   cursor: pointer;
 }
 
-.vtm5e .weapon-rollable .item-image {
+.vtm5e .weapon-rollable img {
   padding: 3px;
+}
+
+.vtm5e .number-width-table {
+  width: 50px;
 }
