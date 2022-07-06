@@ -207,15 +207,16 @@
   width: 190px;
 }
 
-.resource-label-exp-small {
-  padding-top: 7px;
-  font-size: 14px;
-}
 
 
 .vtm5e .window-content .resource-label {
   text-transform: initial;
   font-size: 16px;
+}
+
+.vtm5e .window-content .resource-label-exp-small {
+  padding-top: 7px;
+  font-size: 14px;
 }
 
 .vtm5e .window-content .abilities .ability .resource-label {
