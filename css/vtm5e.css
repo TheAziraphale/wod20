@@ -710,5 +710,13 @@
 }
 
 .vtm5e .number-width-table {
-  width: 50px;
+  width: 60px;
+}
+
+.vtm5e .number-width-table {
+  width: 60px;
+}
+
+.vtm5e .mid-width-table {
+  max-width: 160px;
 }

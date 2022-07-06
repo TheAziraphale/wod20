@@ -6,10 +6,10 @@
       <th class="number-width-table">{{ localize "VTM5E.Diff"}}</th>
       <th class="number-width-table">{{ localize "VTM5E.Damage"}}</th>
       <th class="rollable-button-table"></th>
-      <th>{{ localize "VTM5E.Range"}}</th>
+      <th class="mid-width-table">{{ localize "VTM5E.Range"}}</th>
       <th class="number-width-table">{{ localize "VTM5E.Rate"}}</th>
       <th class="number-width-table">{{ localize "VTM5E.Clip"}}</th>
-      <th>{{ localize "VTM5E.Conceal"}}</th>
+      <th class="mid-width-table">{{ localize "VTM5E.Conceal"}}</th>
     </tr>
     {{log data}}
     {{#each data.data.weapons}}
@@ -49,7 +49,7 @@
         </div>
       </td>
       </td>
-      <td>
+      <td class="mid-width-table">
         <input
           name="data.weapons.{{@key}}.range"
           type="text"
@@ -73,7 +73,7 @@
           placeholder="{{localize 'VTM5E.Clip'}}"
         />
       </td>
-      <td>
+      <td class="mid-width-table">
         <input
           name="data.weapons.{{@key}}.conceal"
           type="text"
