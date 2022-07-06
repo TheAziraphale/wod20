@@ -699,10 +699,12 @@
   align-items: flex-start;
 }
 
+.vtm5e .damage-rollable,
 .vtm5e .weapon-rollable {
   cursor: pointer;
 }
 
+.vtm5e .damage-rollable img,
 .vtm5e .weapon-rollable img {
   padding: 3px;
 }

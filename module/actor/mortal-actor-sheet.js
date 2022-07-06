@@ -150,6 +150,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           const rollPotence = html.find("#rollpotence")[0]?.checked || false
           let numDice = 0
 
+          console.log(rollStrength, rollPotence)
           if(rollStrength) {
             let strength = this.actor.data.data.abilities['strength']?.value + (this.actor.data.data.abilities['strength']?.buff ? 
               this.actor.data.data.abilities['strength']?.buff : 0)
@@ -157,6 +158,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             if(Number.isNaN(strength)) {
               strength = 0
             }
+            console.log(strength)
             numDice += strength
           }
 
@@ -166,14 +168,29 @@ export class MortalActorSheet extends CoterieActorSheet {
               potence = 0
             }
 
+            console.log(potence)
             numDice += potence
           }
 
+          let weaponDamage = parseInt(html.find("#weaponDamage")[0].value || 0) 
+          if(Number.isNaN(weaponDamage)) {
+            weaponDamage = 0
+          }
+          numDice = weaponDamage
+
           const name = game.i18n.localize("VTM5E.Damage")
-          const modifier = parseInt(html.find("#inputMod")[0].value || 0)
-          const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          let modifier = parseInt(html.find("#inputMod")[0].value || 0) 
+          if(Number.isNaN(modifier)) {
+            modifier = 0
+          }
+
+          let difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          if(Number.isNaN(difficulty)) {
+            difficulty = 6
+          }
           const specialty = html.find("#specialty")[0]?.checked || false
 
+          console.log(numDice, modifier, difficulty, specialty)
           numDice += modifier
 
           rollDice(
@@ -193,8 +210,13 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
+    let damageNumber = dataset.dmg ? parseInt(dataset.dmg.replace(/\D/g, '')) : '0'
+    if(Number.isNaN(damageNumber)) {
+      damageNumber = 0
+    }
+
     // console.log(abilities);
-    renderTemplate(template, {sheettype: dataset.sheettype}).then((content) => {
+    renderTemplate(template, {sheettype: dataset.sheettype,  damage: damageNumber}).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
@@ -242,8 +264,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           const attributesLabel = game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) 
           const abilitiesLabel = game.i18n.localize(this.actor.data.data.skills[ability]?.name)
-          
-          console.log(attributesVal, attributesLabel, abilityVal, abilitiesLabel)
+
           let modifier = parseInt(html.find("#inputMod")[0].value || 0) 
           if(Number.isNaN(modifier)) {
             modifier = 0
@@ -257,7 +278,6 @@ export class MortalActorSheet extends CoterieActorSheet {
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
 
-          console.log(modifier, difficulty, specialty, applyWounds)
           const numDice = abilityVal + attributesVal + modifier
 
           rollDice(
@@ -278,7 +298,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    let difficultyNumber = parseInt(dataset.diff)
+    let difficultyNumber = dataset.diff ? parseInt(dataset.diff.replace(/\D/g, '')) : '6'
     if(Number.isNaN(difficultyNumber)) {
       difficultyNumber = 6
     }
