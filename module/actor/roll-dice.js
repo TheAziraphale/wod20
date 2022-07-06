@@ -129,20 +129,20 @@ export async function rollInit (
     content: label,
   })
   
-  let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
   let foundToken = false
+  let foundEncounter = true
+  let tokenAdded = false
+
+  let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
   if (token) {
    foundToken = true
   }
 
-  let foundEncounter = true
   if (game.combat == null) {
     foundEncounter = false
   }
   
-  let tokenAdded = false;
-  
-  console.log(token, foundEncounter, foundEncounter)
+  console.log(token, foundToken, foundEncounter, tokenAdded)
   if (foundToken && foundEncounter) {
     if (_inTurn(token)) {
       await token.toggleCombat();
