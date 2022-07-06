@@ -207,7 +207,9 @@
   width: 190px;
 }
 
-
+.rollable-button-table {
+  width: 30px;
+}
 
 .vtm5e .window-content .resource-label {
   text-transform: initial;

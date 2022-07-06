@@ -121,8 +121,85 @@ export class MortalActorSheet extends CoterieActorSheet {
     html.find(".vrollable").click(this._onRollDialog.bind(this));
     html.find(".soakrollable").click(this._onSoakRollDialog.bind(this));
     html.find(".initrollable").click(this._onInitRollDialog.bind(this));
+    html.find(".weapon-rollable").click(this._onWeaponRollDialog.bind(this));
   }
   
+  /**   * Handle clickable Vampire rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   _onWeaponRollDialog(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    console.log("weapon dataset", dataset)
+
+    const template = 'systems/wod20/templates/dialogs/weapon-roll.html'
+
+    let buttons = {};
+    buttons = {
+      
+      draw: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize("VTM5E.Roll"),
+        callback: async (html) => {
+
+          const attributes = html.find("#attributesSelect")[0]?.value
+          let attributesVal = parseInt(!attributes || attributes === 'null' || attributes === '' ? '0' : 
+            this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
+            this.actor.data.data.abilities[attributes]?.buff : 
+          0))
+          if(Number.isNaN(attributesVal)) {
+            attributesVal = 0
+          }
+
+          const ability = html.find("#abilitySelect")[0]?.value
+          let abilityVal = parseInt(!ability || ability === 'null'|| ability === ''  ? '0' : 
+            this.actor.data.data.skills[ability]?.value)
+          if(Number.isNaN(abilityVal)) {
+            abilityVal = 0
+          }
+
+          const attributesLabel = game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) 
+          const abilitiesLabel = game.i18n.localize(this.actor.data.data.skills[ability]?.name)
+          
+          console.log(attributesVal, attributesLabel, abilityVal, abilitiesLabel)
+          const modifier = parseInt(html.find("#inputMod")[0].value || 0)
+          const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          const specialty = html.find("#specialty")[0]?.checked || false
+          const applyWounds = html.find("#applyWounds")[0]?.checked || false
+
+          console.log(modifier, difficulty, specialty, applyWounds)
+          const numDice = abilityVal + attributesVal + modifier
+
+          rollDice(
+            numDice,
+            this.actor,
+            `${attributesLabel} + ${abilitiesLabel}`,
+            difficulty,
+            specialty,
+            this.actor.data.data.health.state,
+            applyWounds
+          )
+
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: game.i18n.localize('VTM5E.Cancel')
+      }
+    }
+
+    renderTemplate(template, {sheettype: dataset.sheettype, difficulty: dataset.diff }).then((content) => {
+      new Dialog({
+        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
+        content,
+        buttons: buttons,
+        default: 'draw'
+      }).render(true)
+    })
+  }
+
   /**   * Handle clickable Vampire rolls.
    * @param {Event} event   The originating click event
    * @private

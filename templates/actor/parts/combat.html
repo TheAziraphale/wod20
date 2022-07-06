@@ -1,16 +1,24 @@
 <div class="tab combat" data-group="primary" data-tab="combat">
   <table>
     <tr>
+      <th class="rollable-button-table"></th>
       <th>{{ localize "VTM5E.Weapon"}}</th>
       <th>{{ localize "VTM5E.Diff"}}</th>
       <th>{{ localize "VTM5E.Damage"}}</th>
+      <th class="rollable-button-table"></th>
       <th>{{ localize "VTM5E.Range"}}</th>
       <th>{{ localize "VTM5E.Rate"}}</th>
       <th>{{ localize "VTM5E.Clip"}}</th>
       <th>{{ localize "VTM5E.Conceal"}}</th>
     </tr>
+    {{log data}}
     {{#each data.data.weapons}}
     <tr>
+      <td class="rollable-button-table">
+        <div class="item-image weapon-rollable" data-id="{{this.id}}" data-type="attack" data-label="{{this.attack}}" data-diff="data.weapons.{{@key}}.diff">
+          <img src="{{this.icon}}" title="{{this.attack}}" width="24" height="24" alt="{{this.attack}}" />
+        </div>
+      </td>
       <td>
         <input
           name="data.weapons.{{@key}}.attack"
@@ -34,6 +42,12 @@
           value="{{this.damage}}"
           placeholder="{{localize 'VTM5E.Damage'}}"
         />
+      </td>
+      <td class="rollable-button-table">
+        <div class="item-image power-rollable" data-id="{{this.id}}">
+          <img src="{{this.icon}}" title="{{this.damage}}" width="24" height="24" alt="{{this.damage}}" />
+        </div>
+      </td>
       </td>
       <td>
         <input
