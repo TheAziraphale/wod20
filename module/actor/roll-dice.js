@@ -130,6 +130,7 @@ export async function rollInit (
   })
   
   let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
+  let foundToken = false
   if (token) {
    foundToken = true
   }
