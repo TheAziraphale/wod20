@@ -128,4 +128,33 @@ export async function rollInit (
     speaker: ChatMessage.getSpeaker({ actor: actor }),
     content: label,
   })
+  
+  let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
+  let foundEncounter = true;
+  if (game.combat == null) {
+    foundEncounter = false;
+  }
+  
+  if (foundToken && foundEncounter) {
+    if (!this._inTurn(token)) {
+      await token.toggleCombat();
+
+      if (token.combatant.data.initiative == undefined) {      
+        await token.combatant.update({initiative: finalValue});
+        rolledInitiative = true;
+      }
+      
+      tokenAdded = true;
+    }
+  }		
+}
+
+_inTurn(token) {
+  for (let count = 0; count < game.combat.combatants.size; count++) {
+    if (token.id == game.combat.combatants.contents[count].token.id) {
+      return true;
+    }
+  }
+
+  return false;
 }
