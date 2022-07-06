@@ -130,16 +130,24 @@ export async function rollInit (
   })
   
   let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
-  let foundEncounter = true;
+  if (token) {
+   foundToken = true
+  }
+
+  let foundEncounter = true
   if (game.combat == null) {
-    foundEncounter = false;
+    foundEncounter = false
   }
   
+  let tokenAdded = false;
+  
+  console.log(token, foundEncounter, foundEncounter)
   if (foundToken && foundEncounter) {
     if (!this._inTurn(token)) {
       await token.toggleCombat();
 
-      if (token.combatant.data.initiative == undefined) {      
+      if (token.combatant.data.initiative == undefined) {
+        console.log("Updating token init to", finalValue)
         await token.combatant.update({initiative: finalValue});
         rolledInitiative = true;
       }
@@ -147,14 +155,17 @@ export async function rollInit (
       tokenAdded = true;
     }
   }		
+  console.log(tokenAdded, rolledInitiative)
 }
 
 _inTurn(token) {
   for (let count = 0; count < game.combat.combatants.size; count++) {
     if (token.id == game.combat.combatants.contents[count].token.id) {
+      console.log("Found token in encounter")
       return true;
     }
   }
 
+  console.log("Didn't find token in encounter ")
   return false;
 }
