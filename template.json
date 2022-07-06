@@ -135,9 +135,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_1",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -146,9 +144,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_2",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -157,9 +153,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_3",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -168,9 +162,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_4",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -179,9 +171,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_5",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }    
 
         ], 
@@ -459,9 +449,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_1",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -470,9 +458,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_2",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -481,9 +467,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_3",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -492,9 +476,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_4",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }, 
           {
             "attack" : "", 
@@ -503,9 +485,7 @@
             "range" : "", 
             "rate" : "", 
             "clip": "", 
-            "conceal" : "",
-            "id": "weapon_5",
-            "icon":"icons/svg/d10-grey.svg"
+            "conceal" : ""
           }    
 
         ], 
