@@ -150,7 +150,7 @@ export async function rollInit (
 
       console.log(token.combatant)
       console.log(token.combatant.data.initiativ)
-      if (token.combatant.data.initiative == undefined) {
+      if (token.combatant && token.combatant.data.initiative == undefined) {
         console.log("Updating token init to", finalValue)
         console.log(finalValue)
         await token.combatant.update({initiative: finalValue});
@@ -167,6 +167,7 @@ export async function rollInit (
 function _inTurn(token) {
   for (let count = 0; count < game.combat.combatants.size; count++) {
     if (token.id == game.combat.combatants.contents[count].token.id) {
+      console.log(game.combat.combatants.contents[count].token)
       console.log("Found token in encounter")
       return true;
     }
