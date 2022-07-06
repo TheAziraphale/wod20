@@ -150,7 +150,6 @@ export class MortalActorSheet extends CoterieActorSheet {
           const rollPotence = html.find("#rollpotence")[0]?.checked || false
           let numDice = 0
 
-          console.log(rollStrength, rollPotence)
           if(rollStrength) {
             let strength = this.actor.data.data.abilities['strength']?.value + (this.actor.data.data.abilities['strength']?.buff ? 
               this.actor.data.data.abilities['strength']?.buff : 0)
@@ -158,7 +157,6 @@ export class MortalActorSheet extends CoterieActorSheet {
             if(Number.isNaN(strength)) {
               strength = 0
             }
-            console.log(strength)
             numDice += strength
           }
 
@@ -168,7 +166,6 @@ export class MortalActorSheet extends CoterieActorSheet {
               potence = 0
             }
 
-            console.log(potence)
             numDice += potence
           }
 
@@ -176,7 +173,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           if(Number.isNaN(weaponDamage)) {
             weaponDamage = 0
           }
-          numDice = weaponDamage
+          numDice += weaponDamage
 
           const name = game.i18n.localize("VTM5E.Damage")
           let modifier = parseInt(html.find("#inputMod")[0].value || 0) 

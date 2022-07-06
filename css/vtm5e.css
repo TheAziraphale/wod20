@@ -614,11 +614,20 @@
 .roll-img {
   max-width: 80%;
   margin: 1px;
-  background: rgba(255, 255, 255, 0.5);
+  /*background: rgba(255, 255, 255, 0.5);*/
   border-radius: 3px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) !important;
   border: unset !important;
+}
 
+.roll-die {
+  position: relative;
+}
+
+.roll-die .roll-die-background {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .roll-img.hunger-dice {
@@ -718,5 +727,5 @@
 }
 
 .vtm5e .mid-width-table {
-  max-width: 160px;
+  width: 120px;
 }
