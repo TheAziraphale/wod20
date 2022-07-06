@@ -132,6 +132,7 @@ export async function rollInit (
   let foundToken = false
   let foundEncounter = true
   let tokenAdded = false
+  let rolledInitiative = false;
 
   let token = await canvas.tokens.placeables.find(t => t.data.actorId === actor.id);
   if (token) {
@@ -142,7 +143,7 @@ export async function rollInit (
     foundEncounter = false
   }
   
-  console.log(token, foundToken, foundEncounter, tokenAdded)
+  console.log(token, foundToken, foundEncounter, rolledInitiative, tokenAdded)
   if (foundToken && foundEncounter) {
     if (_inTurn(token)) {
       await token.toggleCombat();
