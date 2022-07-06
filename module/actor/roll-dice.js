@@ -146,10 +146,13 @@ export async function rollInit (
   console.log(token, foundToken, foundEncounter, rolledInitiative, tokenAdded)
   if (foundToken && foundEncounter) {
     if (_inTurn(token)) {
+      console.log(token.combatant)
       await token.toggleCombat();
 
       console.log(token.combatant)
-      console.log(token.combatant.data.initiativ)
+      if(token.combat) 
+        console.log(token.combatant.data.initiativ)
+      }
       if (token.combatant && token.combatant.data.initiative == undefined) {
         console.log("Updating token init to", finalValue)
         console.log(finalValue)
