@@ -15,7 +15,7 @@
     {{#each data.data.weapons}}
     <tr>
       <td class="rollable-button-table">
-        <div class="item-image weapon-rollable" data-id="weapon_{{@key}}" data-type="attack" data-label="{{this.attack}}" data-diff="this.diff">
+        <div class="item-image weapon-rollable" data-id="weapon_{{@key}}" data-type="attack" data-label="Attack with {{this.attack}}" data-diff="{{this.diff}}">
           <img src="icons/svg/d10-grey.svg" width="24" height="24" alt="{{this.attack}}" />
         </div>
       </td>
@@ -44,8 +44,8 @@
         />
       </td>
       <td class="rollable-button-table">
-        <div class="item-image power-rollable" data-id="{{this.id}}">
-          <img src="{{this.icon}}" title="{{this.damage}}" width="24" height="24" alt="{{this.damage}}" />
+        <div class="item-image power-rollable" data-id="{{this.id}}" data-type="damage" data-label="Damage">
+          <img src="icons/svg/d10-grey.svg" title="{{this.damage}}" width="24" height="24" alt="{{this.damage}}" />
         </div>
       </td>
       </td>

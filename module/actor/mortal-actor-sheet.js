@@ -164,8 +164,16 @@ export class MortalActorSheet extends CoterieActorSheet {
           const abilitiesLabel = game.i18n.localize(this.actor.data.data.skills[ability]?.name)
           
           console.log(attributesVal, attributesLabel, abilityVal, abilitiesLabel)
-          const modifier = parseInt(html.find("#inputMod")[0].value || 0)
-          const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          let modifier = parseInt(html.find("#inputMod")[0].value || 0) 
+          if(Number.isNaN(modifier)) {
+            modifier = 0
+          }
+
+          let difficulty = parseInt(html.find("#inputDif")[0].value || 6)
+          if(Number.isNaN(difficulty)) {
+            difficulty = 6
+          }
+
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
 
@@ -190,7 +198,12 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    renderTemplate(template, {sheettype: dataset.sheettype, difficulty: dataset.diff }).then((content) => {
+    let difficultyNumber = parseInt(dataset.diff)
+    if(Number.isNaN(difficultyNumber)) {
+      difficultyNumber = 6
+    }
+
+    renderTemplate(template, {sheettype: dataset.sheettype, difficulty: difficultyNumber }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,

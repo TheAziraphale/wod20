@@ -698,3 +698,11 @@
   margin-bottom: 0px;
   align-items: flex-start;
 }
+
+.vtm5e .weapon-rollable {
+  cursor: pointer;
+}
+
+.vtm5e .weapon-rollable .item-image {
+  padding: 3px;
+}
