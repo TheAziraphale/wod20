@@ -143,7 +143,7 @@ export async function rollInit (
   
   console.log(token, foundEncounter, foundEncounter)
   if (foundToken && foundEncounter) {
-    if (!this._inTurn(token)) {
+    if (_inTurn(token)) {
       await token.toggleCombat();
 
       if (token.combatant.data.initiative == undefined) {
@@ -158,7 +158,7 @@ export async function rollInit (
   console.log(tokenAdded, rolledInitiative)
 }
 
-_inTurn(token) {
+function _inTurn(token) {
   for (let count = 0; count < game.combat.combatants.size; count++) {
     if (token.id == game.combat.combatants.contents[count].token.id) {
       console.log("Found token in encounter")
