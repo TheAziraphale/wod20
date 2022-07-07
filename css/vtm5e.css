@@ -663,6 +663,10 @@
   cursor: default;
 }
 
+.resource-value-background-margin {
+  margin-left: -17px;
+}
+
 .willpowerReroll .die {
   margin-left: 3px;
 }
