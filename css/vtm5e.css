@@ -636,13 +636,13 @@
 .roll-group .roll-die .roll-die-background {
   border: unset;
   position: absolute;
-  top: 0;
+  top: -6px;
   left: 1px;
   width: 35px;
-  height: 35px;
+  height: 40px;
 }
 
-.roll-die .roll-img {
+.chat-message .roll-group .roll-die .roll-img {
   background: unset;
   max-width:27px;
 }
