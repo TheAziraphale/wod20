@@ -94,7 +94,6 @@ export async function rollDice (
   })
 
   label +=  `</div>`
-  label = label + '<br>'
 
   roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor: actor }),
