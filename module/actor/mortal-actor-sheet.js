@@ -188,7 +188,6 @@ export class MortalActorSheet extends CoterieActorSheet {
           const specialty = html.find("#specialty")[0]?.checked || false
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
 
-          console.log(numDice, modifier, difficulty, specialty)
           numDice += modifier
 
           rollDice(
@@ -213,7 +212,6 @@ export class MortalActorSheet extends CoterieActorSheet {
       damageNumber = 0
     }
 
-    // console.log(abilities);
     renderTemplate(template, {sheettype: dataset.sheettype,  damage: damageNumber}).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
@@ -332,7 +330,6 @@ export class MortalActorSheet extends CoterieActorSheet {
         callback: async (html) => {
           let dexterity = this.actor.data.data.abilities['dexterity']?.value + (this.actor.data.data.abilities['dexterity']?.buff ? 
           this.actor.data.data.abilities['dexterity']?.buff :  0)
-          console.log("buff", this.actor.data.data.abilities['dexterity']?.buff)
           if(Number.isNaN(dexterity)) {
             dexterity = 0
           }
@@ -360,8 +357,6 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    const abilities = Object.keys(this.actor.data.data.abilities)
-    // console.log(abilities);
     renderTemplate(template, {sheettype: dataset.sheettype }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
@@ -449,7 +444,6 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    // console.log(abilities);
     renderTemplate(template, {sheettype: dataset.sheettype}).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,

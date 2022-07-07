@@ -118,16 +118,16 @@ export async function rollInit (
 
   let label = `<p class="roll-label result-success">${game.i18n.localize('VTM5E.Initiative')}: ${finalValue}</p>`
 
+  label +=  `<div class="roll-group">`
   roll.terms[0].results.forEach((dice) => {
-    label =
-      label +
+    label +=
       `<div class="roll-die">
         <img src="icons/svg/d10-grey.svg" alt="none" class="roll-die-background" />
         <img src="systems/wod20/assets/images/diceimg_${dice.result}.png" alt="Normal Fail" class="roll-img normal-dice" />
       </div>`
   })
 
-  label = label + '<br>'
+  label +=  `</div>`
 
   roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor: actor }),
