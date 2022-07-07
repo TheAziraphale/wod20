@@ -186,6 +186,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty = 6
           }
           const specialty = html.find("#specialty")[0]?.checked || false
+          const applyWounds = html.find("#applyWounds")[0]?.checked || false
 
           console.log(numDice, modifier, difficulty, specialty)
           numDice += modifier
@@ -197,7 +198,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            false
+            applyWounds
           )
         }
       },
