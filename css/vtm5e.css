@@ -636,15 +636,13 @@
 .roll-group .roll-die .roll-die-background {
   border: unset;
   position: absolute;
-  top: -6px;
-  left: 1px;
-  width: 35px;
-  height: 40px;
+  top: 0;
+  left: 0;
 }
 
 .chat-message .roll-group .roll-die .roll-img {
   background: unset;
-  max-width:27px;
+  max-width:30px;
 }
 
 .roll-img.hunger-dice {
