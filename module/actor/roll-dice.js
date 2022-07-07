@@ -134,7 +134,7 @@ export async function rollInit (
   }		
 }
 
-function _getRollContentStyle (header, roll, finalValue) {
+function _getRollContentStyle (header, finalValue, roll) {
   let label = `<p class="roll-label result-success">${header}: ${finalValue}</p>`
 
   label +=  `<div class="roll-group">`
