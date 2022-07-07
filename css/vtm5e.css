@@ -611,26 +611,40 @@
   text-transform: uppercase;
 }
 
+.roll-group {
+  display:flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .roll-img {
   max-width: 80%;
   margin: 1px;
-  /*background: rgba(255, 255, 255, 0.5);*/
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 3px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) !important;
   border: unset !important;
 }
 
-.roll-die {
+.roll-group .roll-die {
   position: relative;
+  width: fit-content;
+  height: 35px;
+  margin-right: 2px;
 }
 
-.roll-die .roll-die-background {
+.roll-group .roll-die .roll-die-background {
   border: unset;
   position: absolute;
-  top: -3px;
-  left: -3px;
+  top: 0;
+  left: 1px;
   width: 35px;
   height: 35px;
+}
+
+.roll-die .roll-img {
+  background: unset;
+  max-width:27px;
 }
 
 .roll-img.hunger-dice {
