@@ -73,29 +73,25 @@
           {{equal key "animal ken" "Skills"}}
           {{equal key "academics" "Knowledges"}}
         </div>
-        {{#each data.data.skills  as |skill2 key2|}}
-          {{#ifEquals key key2}}
-          <div class="skill flexrow flex-center">
-            <label
-              for="data.data.skills.{{key}}.value"
-              class="resource-label vrollable"
-              data-roll="{{skill2.value}}"
-              data-label="{{localize skill.loc}}"
-              >{{localize skill.name}}</label
-            >
-            <div
-              class="resource-value"
-              data-value="{{skill2.value}}"
-              data-name="data.skills.{{key}}.value"
-            >
-              <span class="resource-value-empty"></span>
-              {{#numLoop ../loopLength}}
-              <span class="resource-value-step" data-index="{{this}}"></span>
-              {{/numLoop}}
-            </div>
+        <div class="skill flexrow flex-center">
+          <label
+            for="data.data.skills.{{key}}.value"
+            class="resource-label vrollable"
+            data-roll="{{getSkillValue key data.data.skills}}"
+            data-label="{{localize skill.loc}}"
+            >{{localize skill.name}}</label
+          >
+          <div
+            class="resource-value"
+            data-value="{{getSkillValue key data.data.skills}}"
+            data-name="data.skills.{{key}}.value"
+          >
+            <span class="resource-value-empty"></span>
+            {{#numLoop ../loopLength}}
+            <span class="resource-value-step" data-index="{{this}}"></span>
+            {{/numLoop}}
           </div>
-          {{/ifEquals}}
-        {{/each}}
+        </div>
       </div>
     {{/each}}
   </div>

@@ -508,120 +508,123 @@
             "value": 0,
             "name": "VTM5E.Alertness"
           },
-          "athletics": {
-            "value": 0,
-            "name": "VTM5E.Athletics"
-          },
-          "awareness": {
-            "value": 0,
-            "name": "VTM5E.Awareness"
-          },
-          "brawl": {
-            "value": 0,
-            "name": "VTM5E.Brawl"
-          },
-          "empathy": {
-            "value": 0,
-            "name": "VTM5E.Empathy"
-          },
-          "expression": {
-            "value": 0,
-            "name": "VTM5E.Expression"
-          },
-          "intimidation": {
-            "value": 0,
-            "name": "VTM5E.Intimidation"
-          },
-          "leadership": {
-            "value": 0,
-            "name": "VTM5E.Leadership"
-          },
-          "streetwise": {
-            "value": 0,
-            "name": "VTM5E.Streetwise"
-          },
-          "subterfuge": {
-            "value": 0,
-            "name": "VTM5E.Subterfuge"
-          },
-
           "animal ken": {
             "value": 0,
             "name": "VTM5E.AnimalKen"
+          },
+          
+           "academics": {
+            "value": 0,
+            "name": "VTM5E.Academics"
+          },
+          "athletics": {
+            "value": 0,
+            "name": "VTM5E.Athletics"
           },
           "craft": {
             "value": 0,
             "name": "VTM5E.Craft"
           },
-          "drive": {
-            "value": 0,
-            "name": "VTM5E.Drive"
-          },
-          "etiquette": {
-            "value": 0,
-            "name": "VTM5E.Etiquette"
-          },
-          "firearms": {
-            "value": 0,
-            "name": "VTM5E.Firearms"
-          },
-          "larceny": {
-            "value": 0,
-            "name": "VTM5E.Larceny"
-          },
-          "melee": {
-            "value": 0,
-            "name": "VTM5E.Melee"
-          },
-          "performance": {
-            "value": 0,
-            "name": "VTM5E.Performance"
-          },
-          "stealth": {
-            "value": 0,
-            "name": "VTM5E.Stealth"
-          },
-          "survival": {
-            "value": 0,
-            "name": "VTM5E.Survival"
-          },
 
-          "academics": {
-            "value": 0,
-            "name": "VTM5E.Academics"
-          },
           "computer": {
             "value": 0,
             "name": "VTM5E.Computer"
+          },
+
+          "awareness": {
+            "value": 0,
+            "name": "VTM5E.Awareness"
+          },
+          "drive": {
+            "value": 0,
+            "name": "VTM5E.Drive"
           },
           "finance": {
             "value": 0,
             "name": "VTM5E.Finance"
           },
+          "brawl": {
+            "value": 0,
+            "name": "VTM5E.Brawl"
+          },
+         
+          "etiquette": {
+            "value": 0,
+            "name": "VTM5E.Etiquette"
+          },
           "investigation": {
             "value": 0,
             "name": "VTM5E.Investigation"
+          },
+          "empathy": {
+            "value": 0,
+            "name": "VTM5E.Empathy"
+          },
+          "firearms": {
+            "value": 0,
+            "name": "VTM5E.Firearms"
           },
           "law": {
             "value": 0,
             "name": "VTM5E.Law"
           },
+          "expression": {
+            "value": 0,
+            "name": "VTM5E.Expression"
+          },
+          "larceny": {
+            "value": 0,
+            "name": "VTM5E.Larceny"
+          },
           "medicine": {
             "value": 0,
             "name": "VTM5E.Medicine"
+          },
+          "intimidation": {
+            "value": 0,
+            "name": "VTM5E.Intimidation"
+          },
+          "melee": {
+            "value": 0,
+            "name": "VTM5E.Melee"
           },
           "occult": {
             "value": 0,
             "name": "VTM5E.Occult"
           },
+          "leadership": {
+            "value": 0,
+            "name": "VTM5E.Leadership"
+          },
+          "performance": {
+            "value": 0,
+            "name": "VTM5E.Performance"
+          },
           "politics": {
             "value": 0,
             "name": "VTM5E.Politics"
+          },
+          "streetwise": {
+            "value": 0,
+            "name": "VTM5E.Streetwise"
+          },
+          "stealth": {
+            "value": 0,
+            "name": "VTM5E.Stealth"
           },
           "Science": {
             "value": 0,
             "name": "VTM5E.Science"
           },
+          "subterfuge": {
+            "value": 0,
+            "name": "VTM5E.Subterfuge"
+          },
+          "survival": {
+            "value": 0,
+            "name": "VTM5E.Survival"
+          },
+      
           "technology": {
             "value": 0,
             "name": "VTM5E.Technology"

@@ -269,7 +269,19 @@ Hooks.once("init", async function () {
         .join("")
     );
   });
+  Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
+    var value = 0
+    console.log(skillName)
+    console.log(skillList)
+    skillList.forEach((skill) => {
+      if(skill && skill.name === skillName) {
+        value = skill.value
+      }
+    })
 
+    return value
+  });
+  
   // TODO: there exist math helpers for handlebars
   Handlebars.registerHelper(
     "frenzy",
