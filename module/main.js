@@ -273,7 +273,7 @@ Hooks.once("init", async function () {
     var value = 0
     console.log(skillName)
     console.log(skillList)
-    skillList.forEach((skill) => {
+    skillList && skillList.forEach((skill) => {
       if(skill && skill.name === skillName) {
         value = skill.value
       }
