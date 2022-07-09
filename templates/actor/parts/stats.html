@@ -62,28 +62,28 @@
   <label class="resource-label">{{localize "VTM5E.Skills"}}</label>
   <div class="skills grid grid-{{colNum}}col flex-group-center">
     {{log data.data.headers.sheetsystem}}
-    {{#each skillsModern as |name loc|}}
-      {{log this}}
-      {{log name}}
-
+    {{#each skillsModern as |skill|}}
+      {{log skill}}
+      {{log skill.name}}
+      {{log skill.loc}}
       <div>
         <div class="resource-label">
-          {{equal name "alertness" "Talents"}}
-          {{equal name "animal ken" "Skills"}}
-          {{equal name "academics" "Knowledges"}}
+          {{equal skill.name "alertness" "Talents"}}
+          {{equal skill.name "animal ken" "Skills"}}
+          {{equal skill.name "academics" "Knowledges"}}
         </div>
         <div class="skill flexrow flex-center">
           <label
-            for="data.data.skills.{{name}}.value"
+            for="data.data.skills.{{skill.name}}.value"
             class="resource-label vrollable"
-            data-roll="{{getSkillValue name ../data.data.skills}}"
-            data-label="{{localize loc}}"
-            >{{localize loc}}</label
+            data-roll="{{getSkillValue skill.name ../data.data.skills}}"
+            data-label="{{localize skill.loc}}"
+            >{{localize skill.loc}}</label
           >
           <div
             class="resource-value"
-            data-value="{{getSkillValue name ../data.data.skills}}"
-            data-name="data.skills.{{name}}.value"
+            data-value="{{getSkillValue skill.name ../data.data.skills}}"
+            data-name="data.skills.{{skill.name}}.value"
           >
             <span class="resource-value-empty"></span>
             {{#numLoop ../loopLength}}
