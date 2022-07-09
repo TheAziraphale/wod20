@@ -36,7 +36,12 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/wod20/templates/item/parts/virtues.html',
 
     // Dialogs
-    'systems/wod20/templates/dialogs/custom-roll.html'
+    'systems/wod20/templates/dialogs/custom-roll.html',
+
+    // Skills json
+    'systems/wod20/assets/skills/skills-modern.json',
+    'systems/wod20/assets/skills/skills-da.json',
+    'systems/wod20/assets/skills/skills-wild.json'
   ]
 
   /* Load the template parts
