@@ -63,13 +63,11 @@
   <div class="skills grid grid-{{colNum}}col flex-group-center">
     {{log data.data.headers.sheetsystem}}
     {{log data}}
-    {{setVar currentSavedSkills data.data.skills}}
     {{#each skillsModern as |skill key|}}
       {{log key}}
       {{log data}}
       {{log ../data}}
-      {{log currentSavedSkills}}
-      {{log ../currentSavedSkills}}
+      {{log ../data.data.skills}}
       <div>
         <div class="resource-label">
           {{equal key "alertness" "Talents"}}
@@ -80,13 +78,13 @@
           <label
             for="data.data.skills.{{key}}.value"
             class="resource-label vrollable"
-            data-roll="{{getSkillValue key data.data.skills}}"
+            data-roll="{{getSkillValue key ../data.data.skills}}"
             data-label="{{localize skill.loc}}"
             >{{localize skill.name}}</label
           >
           <div
             class="resource-value"
-            data-value="{{getSkillValue key data.data.skills}}"
+            data-value="{{getSkillValue key ../data.data.skills}}"
             data-name="data.skills.{{key}}.value"
           >
             <span class="resource-value-empty"></span>
