@@ -62,11 +62,10 @@
   <label class="resource-label">{{localize "VTM5E.Skills"}}</label>
   <div class="skills grid grid-{{colNum}}col flex-group-center">
     {{log data.data.headers.sheetsystem}}
+    {{log data}}
     {{#each skillsModern as |skill key|}}
       {{log key}}
-      {{log data}}
-      {{log data.data}}
-      {{log data.data.skills}}
+      {{log ../data}}
       <div>
         <div class="resource-label">
           {{equal key "alertness" "Talents"}}
