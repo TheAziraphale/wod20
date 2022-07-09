@@ -1,5 +1,8 @@
 /* global game, mergeObject */
 
+import skillsDa from '../../assets/skills/skills-da.json' assert { type: "json" };
+import skillsModern from '../../assets/skills/skills-wild.json' assert { type: "json" };
+import skillsWild from '../../assets/skills/skills-modern.json' assert { type: "json" };
 import { GhoulActorSheet } from "./ghoul-actor-sheet.js";
 import { getBloodPotencyValues, getBloodPotencyText } from "./blood-potency.js";
 import { rollDice } from "./roll-dice.js";
@@ -46,6 +49,11 @@ export class VampireActorSheet extends GhoulActorSheet {
     const data = super.getData();
 
     data.sheetType = `${game.i18n.localize("VTM5E.Vampire")}`;
+
+    data.skillsDa = skillsDa
+    data.skillsModern = skillsModern
+    data.skillsWild = skillsWild
+
 
     // Prepare items.
     if (
