@@ -63,7 +63,7 @@
   <div class="skills grid grid-{{colNum}}col flex-group-center">
     {{log data.data.headers.sheetsystem}}
 
-    {{#setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
+    {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
     {{log skillArray}}
     {{#each skillArray as |skill|}}
       {{log skill}}
