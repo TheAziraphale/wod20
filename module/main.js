@@ -271,13 +271,13 @@ Hooks.once("init", async function () {
   });
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
     var value = 0
-    console.log(skillName)
+
     console.log(skillList)
-    skillList && skillList.forEach((skill) => {
-      if(skill && skill.name === skillName) {
-        value = skill.value
-      }
-    })
+    if(skillList && skillList[skillName]) {
+      console.log(skillList[skillName])
+      console.log(skillList[skillName].value)
+      value = skillList[skillName].value
+    }
 
     return value
   });

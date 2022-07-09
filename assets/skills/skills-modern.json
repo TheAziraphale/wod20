@@ -25,7 +25,7 @@
   "politics": { "loc": "VTM5E.Politics" },
   "streetwise": { "loc": "VTM5E.Streetwise" },
   "stealth": { "loc": "VTM5E.Stealth" },
-  "science": { "loc": "VTM5E.Science" },
+  "Science": { "loc": "VTM5E.Science" },
   "subterfuge": { "loc": "VTM5E.Subterfuge" },
   "survival": { "loc": "VTM5E.Survival" },
   "technology": { "loc": "VTM5E.Technology" }
