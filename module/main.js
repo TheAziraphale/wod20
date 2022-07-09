@@ -132,6 +132,21 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("setVar", function(varName, varValue, options) {
     options.data.root[varName] = varValue;
   });
+  
+  Handlebars.registerHelper("setSkillArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
+    console.log(varName)
+    console.log(sheetsystem)
+    console.log(skillsModern)
+    console.log(skillsDa)
+    console.log(skillsWild)
+    if(sheetsystem === 'modern') {
+      options.data.root[varName] = skillsModern;
+    } else if(sheetsystem === 'darkages') {
+      options.data.root[varName] = skillsDa;
+    } else if(sheetsystem === 'modwildwestern') {
+      options.data.root[varName] = skillsWild;
+    }
+  });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
     var valString = varValue ? varValue.replace(/\D/g, '') : ''
     var val = parseInt(valString);

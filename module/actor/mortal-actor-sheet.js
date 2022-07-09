@@ -1,6 +1,7 @@
 /* global DEFAULT_TOKEN, Dialog, duplicate, game, mergeObject */
 
 // Export this function to be used in other scripts
+import { skillsModern, skillsDa, skillsWild} from "../../assets/skills/skills.js";
 import { CoterieActorSheet } from "./coterie-actor-sheet.js";
 import { rollDice, rollInit } from "./roll-dice.js";
 
@@ -47,6 +48,9 @@ export class MortalActorSheet extends CoterieActorSheet {
     const data = super.getData();
     // TODO: confirm that I can finish and use this list
     data.sheetType = `${game.i18n.localize("VTM5E.Mortal")}`;
+    data.skillsModern = skillsModern
+    data.skillsDa = skillsDa
+    data.skillsWild = skillsWild
 
     // Prepare items.
     if (this.actor.data.type === "mortal") {

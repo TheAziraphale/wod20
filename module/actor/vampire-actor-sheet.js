@@ -3,7 +3,6 @@
 import { GhoulActorSheet } from "./ghoul-actor-sheet.js";
 import { getBloodPotencyValues, getBloodPotencyText } from "./blood-potency.js";
 import { rollDice } from "./roll-dice.js";
-import { skillsModern } from '../../assets/skills/skills.js';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -49,7 +48,6 @@ export class VampireActorSheet extends GhoulActorSheet {
     data.sheetType = `${game.i18n.localize("VTM5E.Vampire")}`;
 
     //data.skillsDa = skillsDa
-    data.skillsModern = skillsModern
     //data.skillsWild = skillsWild
 
 
