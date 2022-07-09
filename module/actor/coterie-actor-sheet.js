@@ -5,6 +5,10 @@
  * @extends {ActorSheet}
  */
 
+import skillsDa from '../../assets/skills/skills-da.json'
+import skillsModern from '../../assets/skills/skills-wild.json'
+import skillsWild from '../../assets/skills/skills-modern.json'
+
 export class CoterieActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -44,6 +48,10 @@ export class CoterieActorSheet extends ActorSheet {
     data.locked = this.locked;
     data.isCharacter = this.isCharacter;
     data.sheetType = `${game.i18n.localize("VTM5E.Coterie")}`;
+
+    data.skillsDa = skillsDa
+    data.skillsModern = skillsModern
+    data.skillsWild = skillsWild
 
     data.dtypes = ["String", "Number", "Boolean"];
 
