@@ -61,33 +61,41 @@
 
   <label class="resource-label">{{localize "VTM5E.Skills"}}</label>
   <div class="skills grid grid-{{colNum}}col flex-group-center">
-    {{#each data.data.skills as |skill key|}}
-    <div>
-    <div class="resource-label">
-      {{equal key "alertness" "Talents"}}
-      {{equal key "animal ken" "Skills"}}
-      {{equal key "academics" "Knowledges"}}
-    </div>
+    {{log headers}}
+    {{log data.headers}}
+    {{log sheetsystem}}
 
-    <div class="skill flexrow flex-center">
-      <label
-        for="data.data.skills.{{key}}.value"
-        class="resource-label vrollable"
-        data-roll="{{skill.value}}"
-        data-label="{{localize skill.name}}"
-        >{{localize skill.name}}</label
-      >
-      <div
-        class="resource-value"
-        data-value="{{skill.value}}"
-        data-name="data.skills.{{key}}.value"
-      >
-        <span class="resource-value-empty"></span>
-        {{#numLoop ../loopLength}}
-        <span class="resource-value-step" data-index="{{this}}"></span>
-        {{/numLoop}}
+    {{#each "systems/wod20/assets/skills/skills-modern.json" as |skill key|}}
+    {{log this}}
+    {{log skill}}
+    {{log key}}
+    {{log data.data.skills.(key).value}}
+    <div>
+      <div class="resource-label">
+        {{equal key "alertness" "Talents"}}
+        {{equal key "animal ken" "Skills"}}
+        {{equal key "academics" "Knowledges"}}
       </div>
-    </div>
+
+      <div class="skill flexrow flex-center">
+        <label
+          for="data.data.skills.{{key}}.value"
+          class="resource-label vrollable"
+          data-roll="{{data.data.skills.(key).value}}"
+          data-label="{{localize skill.loc}}"
+          >{{localize skill.name}}</label
+        >
+        <div
+          class="resource-value"
+          data-value="{{data.data.skills.(key).value}}"
+          data-name="data.skills.{{key}}.value"
+        >
+          <span class="resource-value-empty"></span>
+          {{#numLoop ../loopLength}}
+          <span class="resource-value-step" data-index="{{this}}"></span>
+          {{/numLoop}}
+        </div>
+      </div>
     </div>
     {{/each}}
   </div>

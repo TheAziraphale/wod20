@@ -101,6 +101,8 @@ export class CoterieActorSheet extends ActorSheet {
     // lock button
     html.find(".lock-btn").click(this._onToggleLocked.bind(this));
 
+    html.find(".sheet-system").select(this._onSheetSystemSelect.bind(this))
+
     // ressource dots
     html
       .find(".resource-value > .resource-value-step")
@@ -187,6 +189,11 @@ export class CoterieActorSheet extends ActorSheet {
   _onToggleLocked(event) {
     event.preventDefault();
     this.locked = !this.locked;
+    this._render();
+  }
+
+  _onSheetSystemSelect(event) {
+    event.preventDefault();
     this._render();
   }
 

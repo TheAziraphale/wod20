@@ -9,6 +9,10 @@
   "VTM5E.Ghoul": "Ghoul",
   "VTM5E.Mortal": "Mortal",
   "VTM5E.Domitor": "Domitor",
+  
+  "VTM5E.Modern": "Modern",
+  "VTM5E.DarkAges": "Dark ages",
+  "VTM5E.WildWest": "Wild west",
 
   "VTM5E.Vampire-da": "Vampire Dark Ages",
   
@@ -83,6 +87,7 @@
   "VTM5E.Etiquette": "Etiquette",
   "VTM5E.Awareness": "Awareness",
   "VTM5E.Craft": "Craft",
+  "VTM5E.Culture": "Culture",
   "VTM5E.Insight": "Insight",
   "VTM5E.Finance": "Finance",
   "VTM5E.Alertness": "Alertness",
@@ -105,6 +110,7 @@
   "VTM5E.Larceny": "Larceny",
   "VTM5E.Persuasion": "Persuasion",
   "VTM5E.Politics": "Politics",
+  "VTM5E.Smithwork": "Smithwork",
   "VTM5E.Stealth": "Stealth",
   "VTM5E.Streetwise": "Streetwise",
   "VTM5E.Science": "Science",

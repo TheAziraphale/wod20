@@ -30,6 +30,7 @@ export const preloadHandlebarsTemplates = async function () {
     // Item Sheet Partials
     'systems/wod20/templates/item/parts/skills.html',
     'systems/wod20/templates/item/parts/skills-da.html',
+    'systems/wod20/templates/item/parts/skills-wild.html',
     'systems/wod20/templates/item/parts/disciplines.html',
     'systems/wod20/templates/item/parts/attributes.html',
     'systems/wod20/templates/item/parts/virtues.html',

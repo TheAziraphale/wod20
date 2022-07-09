@@ -114,10 +114,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     // Rollable abilities.
     html.find(".rollable").click(this._onRoll.bind(this));
     html.find(".custom-rollable").click(this._onCustomVampireRoll.bind(this));
-    html
-      .find(".specialty-rollable")
-      .click(this._onCustomVampireRoll.bind(this));
-    // Rollable abilities.
+    html.find(".specialty-rollable").click(this._onCustomVampireRoll.bind(this));
     html.find(".vrollable").click(this._onRollDialog.bind(this));
     html.find(".soakrollable").click(this._onSoakRollDialog.bind(this));
     html.find(".initrollable").click(this._onInitRollDialog.bind(this));

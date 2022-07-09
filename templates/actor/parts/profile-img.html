@@ -8,5 +8,12 @@
         {{ else }}
         <i class="fa fa-lock-open"></i>
         {{/if}}
-    </button>    
+    </button>
+    <select name="data.headers.sheetsystem" data-type="String">
+        {{#select data.headers.sheetsystem}}
+        <option value="modern">{{localize "VTM5E.Modern"}}</option>
+        <option value="darkages">{{localize "VTM5E.DarkAges"}}</option>
+        <option value="wildwest">{{localize "VTM5E.WildWest"}}</option>
+        {{/select}}
+    </select>
 </div> 
