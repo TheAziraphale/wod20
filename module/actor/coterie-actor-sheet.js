@@ -5,9 +5,9 @@
  * @extends {ActorSheet}
  */
 
-import { skillsDa } from '../../assets/skills/skills-da.json' assert { type: "json" };
-import { skillsModern } from '../../assets/skills/skills-wild.json' assert { type: "json" };
-import { skillsWild } from '../../assets/skills/skills-modern.json' assert { type: "json" };
+import skillsDa from '../../assets/skills/skills-da.json' assert { type: "json" };
+import skillsModern from '../../assets/skills/skills-wild.json' assert { type: "json" };
+import skillsWild from '../../assets/skills/skills-modern.json' assert { type: "json" };
 
 export class CoterieActorSheet extends ActorSheet {
   /** @override */
