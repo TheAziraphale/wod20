@@ -125,27 +125,11 @@ export class GhoulActorSheet extends MortalActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Make Discipline visible
+    // Make Discipline visible or create custom ones
     html.find(".discipline-create").click(this._onShowDiscipline.bind(this));
 
-    // Make Discipline hidden
-    html.find(".discipline-delete").click((ev) => {
-      const data = $(ev.currentTarget)[0].dataset;
-
-      console.log(this.actor.data)
-      if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
-        console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
-        delete this.actor.data.data.disciplines[data.discipline]
-        console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
-        this.actor.update({
-          [`data.disciplines`]: {...this.actor.data.data.disciplines},
-        });
-      } else {
-        this.actor.update({
-          [`data.disciplines.${data.discipline}.visible`]: false,
-        });
-      }
-    });
+    // Make Discipline hidden or delete custom ones
+    html.find(".discipline-delete").click(this._deleteDisciplineButton.bind(this));
 
     // Rollable Vampire/Ghouls powers
     html.find(".power-rollable").click(this._onVampireRoll.bind(this));
@@ -212,6 +196,26 @@ export class GhoulActorSheet extends MortalActorSheet {
     };
 
     super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
+  }
+  
+  _deleteDisciplineButton(ev) {
+    ev.preventDefault()
+    const data = $(ev.currentTarget)[0].dataset
+
+    console.log(this.actor.data)
+    if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
+      console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
+      delete this.actor.data.data.disciplines[data.discipline]
+      console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
+      this.actor.update({
+        [`data.disciplines`]: {...this.actor.data.data.disciplines},
+      })
+    } else {
+      this.actor.update({
+        [`data.disciplines.${data.discipline}.visible`]: false,
+      })
+    }
+    this._render();
   }
 
   _makeid(length) {
