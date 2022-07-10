@@ -563,22 +563,12 @@ export class MortalActorSheet extends CoterieActorSheet {
         (attributes[dataset.dice1.toLowerCase()]?.buff !== undefined ? attributes[dataset.dice1.toLowerCase()].buff : 0)
 
       const dice2 = skills[dataset.dice2.toLowerCase()]?.value !== undefined ? skills[dataset.dice2.toLowerCase()].value : 0;
-
-      console.log(dice1);
-      console.log(dice2);
-
       const dicePool = dice1 + dice2;
 
       const difficulty = dataset.difficulty ? parseInt(dataset.difficulty) : 6
 
-      console.log(this.actor.data.data.skills[dataset.dice2.toLowerCase()].value)
-      console.log(dataset)
-      console.log(Number.isNaN(difficulty) ? 6 : difficulty)
-      console.log(this.actor.data.data.health.state)
-      console.log(dataset.applywounds)
-      console.log(dicePool)
-      console.log(dataset.name)
-      rollDice(dicePool, this.actor, `${dataset.name}`, Number.isNaN(difficulty) ? 6 : difficulty, this.actor.data.data.health.state, dataset.applywounds);
+      console.log(dataset, dicePool)
+      rollDice(dicePool, this.actor, `${dataset.name}`, Number.isNaN(difficulty) ? 6 : difficulty, dataset.specialty, this.actor.data.data.health.state, dataset.applywounds);
     }
   }
 
