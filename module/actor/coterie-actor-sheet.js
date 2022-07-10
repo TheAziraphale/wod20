@@ -142,6 +142,7 @@ export class CoterieActorSheet extends ActorSheet {
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
       console.log("editing an inventoryItem")
       console.log(item)
+      console.log(item.data)
       item.sheet.render(true);
     });
 
