@@ -1,6 +1,7 @@
 /* global DEFAULT_TOKEN, Dialog, duplicate, game, mergeObject */
 
 // Export this function to be used in other scripts
+import { skillsDa, skillsModern, skillsWild } from "../../assets/skills/skills.js";
 import { CoterieActorSheet } from "./coterie-actor-sheet.js";
 import { rollDice, rollInit } from "./roll-dice.js";
 
@@ -524,11 +525,18 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    console.log(dataset, this.actor.data.data.headers)
-    console.log(dataset, this.actor.data)
+    let skillArray = skillsModern
+    switch(this.actor.data.data.headers.sheettype) {
+      case "darkages":
+        skillArray = skillsDa
+        break;
+      case "wildwest":
+        skillArray = skillsWild
+        break;
+    }
+
     const abilities = Object.keys(this.actor.data.data.abilities)
-    // console.log(abilities);
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
+    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillArray, abilities }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
