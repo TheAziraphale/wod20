@@ -318,7 +318,7 @@ export class CoterieActorSheet extends ActorSheet {
         console.log(value)
         console.log(actorData.data.skills[fields[2]])
         
-        actorData.data.skills[fields[2]] = _getNewSkillDefinition(fields[2], value)
+        actorData.data.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
         console.log(actorData.data.skills[fields[2]])
       }
     } else {
