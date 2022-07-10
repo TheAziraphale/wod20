@@ -141,16 +141,8 @@ export class CoterieActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
 
-      let skillsArray = skillsModern
-      switch(this.actor.data.data.headers.sheetsystem) {
-        case "darkages":
-          skillsArray = skillsDa
-          break;
-        case "wildwest":
-          skillsArray = skillsWild
-          break;
-      }
-      item.data.data.skillsArray = skillsArray
+      item.data.data.skillsArray = this._getSkillArray() 
+      console.log("editing")
       item.sheet.render(true);
     });
 
@@ -176,6 +168,19 @@ export class CoterieActorSheet extends ActorSheet {
         }
       });
     }
+  }
+
+  _getSkillArray() {
+    let skillsArray = skillsModern
+    switch(this.actor.data.data.headers.sheetsystem) {
+      case "darkages":
+        skillsArray = skillsDa
+        break;
+      case "wildwest":
+        skillsArray = skillsWild
+        break;
+    }
+    return skillsArray
   }
 
   _setupDotCounters(html) {
@@ -275,6 +280,9 @@ export class CoterieActorSheet extends ActorSheet {
       data.dice1 = "strength";
       data.dice2 = "athletics";
     }
+
+    data.skillsArray = this.this._getSkillArray() 
+    console.log("creating")
   
     // Initialize a default name.
     const name = this.getItemDefaultName(type, data);
