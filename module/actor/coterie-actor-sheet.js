@@ -140,6 +140,8 @@ export class CoterieActorSheet extends ActorSheet {
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
+      console.log("editing an inventoryItem")
+      console.log(item)
       item.sheet.render(true);
     });
 
