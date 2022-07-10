@@ -203,9 +203,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     const data = $(ev.currentTarget)[0].dataset
     if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
       console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
-      this.actor.data.data.disciplines[data.discipline].delete()
       //delete this.actor.data.data.disciplines[data.discipline]
-      console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
+      //console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
       /*
       
       const li = $(ev.currentTarget).parents(".item");
@@ -213,9 +212,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       li.slideUp(200, () => this.render(false));
       */
     
-      this.actor.update({
-        [`data.disciplines`]: {...this.actor.data.data.disciplines},
-      })
+      this.actor.update({[`data.disciplines.${data.discipline}`]: undefined,})
       console.log("2", data.discipline, this.actor.data.data.disciplines)
       console.log("3", data.discipline, this.actor)
     } else {
