@@ -4,11 +4,11 @@
         <div class="sheetsystem-label-group">
             <label class="sheetsystem-label">Sheet:</label>
             {{#if_eq data.data.headers.sheetsystem "darkages"}} 
-                <label class="sheetsystem-label">{{localize "VTM5E.DarkAges"}}</label>
+                <label class="sheetsystem-label sheetsystem-select-label ">{{localize "VTM5E.DarkAges"}}</label>
             {{else if_eq data.data.headers.sheetsystem "wildwest"}} 
-                <label class="sheetsystem-label">{{localize "VTM5E.WildWest"}}</label>
+                <label class="sheetsystem-label sheetsystem-select-label ">{{localize "VTM5E.WildWest"}}</label>
             {{else}} 
-                <label class="sheetsystem-label">{{localize "VTM5E.Modern"}}</label>
+                <label class="sheetsystem-label sheetsystem-select-label ">{{localize "VTM5E.Modern"}}</label>
             {{/if_eq}}
         </div>
     {{else }}

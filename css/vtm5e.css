@@ -772,5 +772,10 @@
   font-family: "cormorantlight", sans-serif;
   font-weight: bold;
   margin-top: 5px;
+  margin-right: 5px;
   flex: 0;
+}
+
+.vtm5e .sheet-header .profile-img-zone .sheetsystem-label-group .sheetsystem-select-label {
+  flex: 1
 }
