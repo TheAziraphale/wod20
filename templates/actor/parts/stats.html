@@ -61,7 +61,6 @@
 
   <label class="resource-label">{{localize "VTM5E.Skills"}}</label>
   <div class="skills grid grid-{{colNum}}col flex-group-center">
-    {{log sheetType}}
     {{setSkillsArray "skillsArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
 
     {{#each skillsArray as |skill|}}
@@ -205,7 +204,6 @@
       </div>
     </li>
     {{#each actor.customRolls as |roll id|}}
-    {{log roll}}
     <li class="item flexrow" data-item-id="{{roll._id}}">
       <div
         class="item-image custom-rollable"

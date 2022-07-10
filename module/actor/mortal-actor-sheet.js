@@ -567,7 +567,6 @@ export class MortalActorSheet extends CoterieActorSheet {
 
       const difficulty = dataset.difficulty ? parseInt(dataset.difficulty) : 6
 
-      console.log(dataset, dicePool)
       rollDice(dicePool, this.actor, `${dataset.name}`, Number.isNaN(difficulty) ? 6 : difficulty, dataset.specialty, this.actor.data.data.health.state, dataset.applywounds);
     }
   }
