@@ -184,9 +184,11 @@ export class GhoulActorSheet extends MortalActorSheet {
               visible: true,
               isCustom: true,
             }
-            this.actor.update({
-              [`data.disciplines.${randomKey}.visible`]: true,
-            });
+            this.actor.update({[`data.disciplines.${randomKey}.name`]: "Unknown discipline"})
+            this.actor.update({[`data.disciplines.${randomKey}.power`]: []})
+            this.actor.update({[`data.disciplines.${randomKey}.value`]: 0})
+            this.actor.update({[`data.disciplines.${randomKey}.visible`]: true})
+            this.actor.update({[`data.disciplines.${randomKey}.isCustom`]: true})
 
             console.log(discipline)
             console.log(this.actor)
