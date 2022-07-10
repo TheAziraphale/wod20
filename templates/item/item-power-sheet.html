@@ -70,7 +70,7 @@
         {{#if data.data.skill}}
           <select name="data.dice2" data-type="String">
               {{#select data.data.dice2}}                        
-                  {{#each skillsArray as |skill|}}
+                  {{#each item.skillsArray as |skill|}}
                       <option value={{skill.name}}>{{localize skill.loc}}</option>
                   {{/each}}
               {{/select}}
