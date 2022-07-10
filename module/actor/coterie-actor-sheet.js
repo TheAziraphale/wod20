@@ -252,7 +252,7 @@ export class CoterieActorSheet extends ActorSheet {
     const type = header.dataset.type;
     const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.
-    console.log("dataset", header.dataset)
+
     const data = duplicate(header.dataset);
     if (type === "specialty") {
       data.skill = "alertness";
@@ -265,15 +265,6 @@ export class CoterieActorSheet extends ActorSheet {
       data.dice2 = "athletics";
     }
   
-    data.skillsArray = skillsModern
-    switch(this.actor.data.data.headers.sheetsystem) {
-      case "darkages":
-        data.skillsArray = skillsDa
-        break;
-      case "wildwest":
-        data.skillsArray = skillsWild
-        break;
-    }
     // Initialize a default name.
     const name = this.getItemDefaultName(type, data);
     // Prepare the item object.

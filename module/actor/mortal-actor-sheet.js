@@ -210,24 +210,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       damageNumber = 0
     }
 
-    let skillsArray = skillsModern
-    switch(this.actor.data.data.headers.sheetsystem) {
-      case "darkages":
-        skillsArray = skillsDa
-        break;
-      case "wildwest":
-        skillsArray = skillsWild
-        break;
-    }
-
-    renderTemplate(template, {skillsArray, damage: damageNumber}).then((content) => {
-      new Dialog({
-        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
-        content,
-        buttons: buttons,
-        default: 'draw'
-      }).render(true)
-    })
+    this._onRenderDialog(template, {damage: damageNumber, skillsArray: this._getSkillArray() })
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -307,24 +290,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       difficultyNumber = 6
     }
 
-    let skillsArray = skillsModern
-    switch(this.actor.data.data.headers.sheetsystem) {
-      case "darkages":
-        skillsArray = skillsDa
-        break;
-      case "wildwest":
-        skillsArray = skillsWild
-        break;
-    }
-
-    renderTemplate(template, {difficulty: difficultyNumber, skillsArray }).then((content) => {
-      new Dialog({
-        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
-        content,
-        buttons: buttons,
-        default: 'draw'
-      }).render(true)
-    })
+    this._onRenderDialog(template, {difficulty: difficultyNumber, skillsArray: this._getSkillArray() })
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -375,14 +341,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    renderTemplate(template, {sheettype: dataset.sheettype }).then((content) => {
-      new Dialog({
-        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
-        content,
-        buttons: buttons,
-        default: 'draw'
-      }).render(true)
-    })
+    this._onRenderDialog(template, {sheettype: dataset.sheettype})
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -462,14 +421,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    renderTemplate(template, {sheettype: dataset.sheettype}).then((content) => {
-      new Dialog({
-        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
-        content,
-        buttons: buttons,
-        default: 'draw'
-      }).render(true)
-    })
+    this._onRenderDialog(template, {sheettype: dataset.sheettype})
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -556,7 +508,24 @@ export class MortalActorSheet extends CoterieActorSheet {
     }
 
     const abilities = Object.keys(this.actor.data.data.abilities)
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray, abilities }).then((content) => {
+    this._onRenderDialog(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray: this._getSkillArray(), abilities })
+  }
+
+  _getSkillArray() {
+    let skillsArray = skillsModern
+    switch(this.actor.data.data.headers.sheetsystem) {
+      case "darkages":
+        skillsArray = skillsDa
+        break;
+      case "wildwest":
+        skillsArray = skillsWild
+        break;
+    }
+    return skillsArray
+  }
+
+  _onRenderDialog(template, extraFields) {
+    renderTemplate(template, extraFields).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
