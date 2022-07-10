@@ -2,9 +2,9 @@
     <h1>{{ sheetType }}</h1>
 
     {{#if locked}}
-        <label class="sheetsystem-select-label">{{"data.data.headers.sheetsystem"}}</label>
+        <label class="sheetsystem-select-label">{{data.data.headers.sheetsystem}}</label>
     {{else }}
-    <select class="sheetsystem-selectabel" name="data.headers.sheetsystem" data-type="String">
+    <select class="sheetsystem-select" name="data.headers.sheetsystem" data-type="String">
         {{#select data.data.headers.sheetsystem}}
             <option value="modern">{{localize "VTM5E.Modern"}}</option>
             <option value="darkages">{{localize "VTM5E.DarkAges"}}</option>
