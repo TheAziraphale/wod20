@@ -135,6 +135,8 @@
       </div>
     </li>
     {{#each actor.specialties as |item id|}}
+    {{log item}}
+    {{log id}}
     <li class="item flexrow" data-item-id="{{item._id}}">
       {{#if item.data.useattributes}}
       <div
