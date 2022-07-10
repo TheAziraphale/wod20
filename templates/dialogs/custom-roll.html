@@ -5,7 +5,7 @@
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
             <select id="abilitySelect" name="abilitySelect">
                 {{#select data.abilitySelect}}
-                    {{#each skillArray as |skill|}}
+                    {{#each skillsArray as |skill|}}
                         <option value={{skill.name}}>{{localize skill.loc}}</option>
                     {{/each}}
                 {{/select}}

@@ -68,10 +68,9 @@
         </select>
         <label class="resource-label">+</label>
         {{#if data.data.skill}}
-          {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
           <select name="data.dice2" data-type="String">
               {{#select data.data.dice2}}                        
-                  {{#each skillArray as |skill|}}
+                  {{#each skillsArray as |skill|}}
                       <option value={{skill.name}}>{{localize skill.loc}}</option>
                   {{/each}}
               {{/select}}

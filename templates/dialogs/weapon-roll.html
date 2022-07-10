@@ -8,14 +8,11 @@
             <option value="null">{{localize "VTM5E.None"}}</option>
         </select>
     </div>
-    {{log sheettype}}
-    {{log difficulty}}
     <div class="form-group">
         <label> {{localize "VTM5E.SelectAbility"}}:</label>
-        {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
         <select id="abilitySelect" name="abilitySelect" selected="melee">
             {{#select data.abilitySelect}}                        
-                {{#each skillArray as |skill|}}
+                {{#each skillsArray as |skill|}}
                     <option value={{skill.name}}>{{localize skill.loc}}</option>
                 {{/each}}
             {{/select}}

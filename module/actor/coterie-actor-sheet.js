@@ -264,6 +264,16 @@ export class CoterieActorSheet extends ActorSheet {
       data.dice1 = "strength";
       data.dice2 = "athletics";
     }
+  
+    let skillsArray = skillsModern
+    switch(this.actor.data.data.headers.sheetsystem) {
+      case "darkages":
+        skillsArray = skillsDa
+        break;
+      case "wildwest":
+        skillsArray = skillsWild
+        break;
+    }
     // Initialize a default name.
     const name = this.getItemDefaultName(type, data);
     // Prepare the item object.
@@ -272,6 +282,7 @@ export class CoterieActorSheet extends ActorSheet {
       type: type,
       data: data,
       sheettype: sheettype,
+      skillsArray: skillsArray,
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data.type;

@@ -133,7 +133,7 @@ Hooks.once("init", async function () {
     options.data.root[varName] = varValue;
   });
   
-  Handlebars.registerHelper("setSkillArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
+  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
     if(sheetsystem === 'modern') {
       options.data.root[varName] = skillsModern;
     } else if(sheetsystem === 'darkages') {
@@ -340,7 +340,7 @@ Hooks.once("init", async function () {
       
       return allEqual ? options.fn(this) : options.inverse(this);
   });
-  
+
   Handlebars.registerHelper("numLoop", function (num, options) {
     let ret = "";
 

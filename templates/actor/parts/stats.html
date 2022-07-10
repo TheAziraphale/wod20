@@ -61,9 +61,9 @@
 
   <label class="resource-label">{{localize "VTM5E.Skills"}}</label>
   <div class="skills grid grid-{{colNum}}col flex-group-center">
-    {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
+    {{setSkillsArray "skillsArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
 
-    {{#each skillArray as |skill|}}
+    {{#each skillsArray as |skill|}}
       <div>
         <div class="resource-label">
           {{equal skill.name "alertness" "Talents"}}

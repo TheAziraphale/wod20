@@ -210,7 +210,17 @@ export class MortalActorSheet extends CoterieActorSheet {
       damageNumber = 0
     }
 
-    renderTemplate(template, {sheettype: dataset.sheettype,  damage: damageNumber}).then((content) => {
+    let skillsArray = skillsModern
+    switch(this.actor.data.data.headers.sheetsystem) {
+      case "darkages":
+        skillsArray = skillsDa
+        break;
+      case "wildwest":
+        skillsArray = skillsWild
+        break;
+    }
+
+    renderTemplate(template, {skillsArray, damage: damageNumber}).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
@@ -297,7 +307,17 @@ export class MortalActorSheet extends CoterieActorSheet {
       difficultyNumber = 6
     }
 
-    renderTemplate(template, {sheettype: dataset.sheettype, difficulty: difficultyNumber }).then((content) => {
+    let skillsArray = skillsModern
+    switch(this.actor.data.data.headers.sheetsystem) {
+      case "darkages":
+        skillsArray = skillsDa
+        break;
+      case "wildwest":
+        skillsArray = skillsWild
+        break;
+    }
+
+    renderTemplate(template, {difficulty: difficultyNumber, skillsArray }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
@@ -525,18 +545,18 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    let skillArray = skillsModern
+    let skillsArray = skillsModern
     switch(this.actor.data.data.headers.sheetsystem) {
       case "darkages":
-        skillArray = skillsDa
+        skillsArray = skillsDa
         break;
       case "wildwest":
-        skillArray = skillsWild
+        skillsArray = skillsWild
         break;
     }
 
     const abilities = Object.keys(this.actor.data.data.abilities)
-    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillArray, abilities }).then((content) => {
+    renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray, abilities }).then((content) => {
       new Dialog({
         title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
         content,
