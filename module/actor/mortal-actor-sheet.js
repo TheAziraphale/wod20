@@ -486,9 +486,27 @@ export class MortalActorSheet extends CoterieActorSheet {
           let specialtyLabel = ''
           if(specialty) {
             console.log(this.actor)
-            console.log(this.actor.data)
-            console.log(this.actor.data.data)
+            this.actor.specialties.forEach((specialty) => {
+              console.log(specialty, attributes, dataset.label.toLowerCase())
+              if (specialty.data.useattributes) {
+                if(specialty.data.attribute === attributes) {
+                  if(specialtyLabel !== '') {
+                    specialtyLabel += ', '
+                  }                  
+                  specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[attributes]?.name)
+                }
+              } else {
+                if(specialty.datas.skill === dataset.label.toLowerCase()) {
+                  if(specialtyLabel !== '') {
+                    specialtyLabel += ', '
+                  }                  
+                  specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[attributes]?.name)
+                }
+              }
+            })
           }
+
+          console.log(specialtyLabel)
 
           rollDice(
             numDice,
