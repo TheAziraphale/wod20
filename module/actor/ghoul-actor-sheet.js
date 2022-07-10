@@ -170,6 +170,9 @@ export class GhoulActorSheet extends MortalActorSheet {
           if(discipline === 'custom-discipline') {
             console.log(discipline)
             console.log(this.actor)
+            if(this.actor) {
+              console.log(this.actor.data)
+            }
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
