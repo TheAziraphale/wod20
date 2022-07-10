@@ -138,6 +138,7 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     // Rollable Vampire/Ghouls powers
     html.find(".power-rollable").click(this._onVampireRoll.bind(this));
+
   }
 
   /**
@@ -194,7 +195,21 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     const dataset = {label:"VTM5E.AddDiscipline"}
 
-    super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)
+    super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
+    
+    const disciplineSelect = document.querySelector(
+      'select[name="disciplineSelect"]'
+    );
+    const secondary = document.getElementById('disciplineSelect"]');
+
+    console.log(disciplineSelect)
+    console.log(secondary)
+    if(disciplineSelect) {
+      disciplineSelect.addEventListener("change", function() {
+        console.log("change happened", this.value)
+        this.item.update({ "data.disciplineSelect": this.value });
+      });
+    }
   }
 
   _onVampireRoll(event) {
