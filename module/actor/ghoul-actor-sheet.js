@@ -169,7 +169,7 @@ export class GhoulActorSheet extends MortalActorSheet {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
             console.log(discipline)
-            console.log(data.disciplines)
+            console.log(this.actor.data)
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
