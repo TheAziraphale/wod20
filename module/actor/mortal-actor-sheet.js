@@ -465,8 +465,9 @@ export class MortalActorSheet extends CoterieActorSheet {
           if(Number.isNaN(attributesVal)) {
             attributesVal = 0
           }
+          const clickedRollName = dataset.label.toLowerCase()
 
-          let actorsOwnBuff = parseInt(dataset.ability && this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff ? this.actor.data.data.abilities[dataset.label.toLowerCase()]?.buff : '0')
+          let actorsOwnBuff = parseInt(dataset.ability && this.actor.data.data.abilities[clickedRollName]?.buff ? this.actor.data.data.abilities[clickedRollName]?.buff : '0')
           if(Number.isNaN(actorsOwnBuff)) {
             actorsOwnBuff = 0
           }
@@ -484,27 +485,27 @@ export class MortalActorSheet extends CoterieActorSheet {
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + roll + actorsOwnBuff + modifier : roll + modifier
 
           let specialtyLabel = ''
-          if(specialty) {
-            console.log(this.actor)
-            this.actor.specialties.forEach((specialty) => {
-              console.log(specialty, attributes, dataset.label.toLowerCase())
-              if (specialty.data.useattributes) {
-                if(specialty.data.attribute === attributes) {
-                  if(specialtyLabel !== '') {
-                    specialtyLabel += ', '
-                  }                  
-                  specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[attributes]?.name)
-                }
-              } else {
-                if(specialty.datas.skill === dataset.label.toLowerCase()) {
-                  if(specialtyLabel !== '') {
-                    specialtyLabel += ', '
-                  }                  
-                  specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[attributes]?.name)
-                }
+          console.log(this.actor)
+          this.actor.specialties.forEach((specialty) => {
+            console.log(specialty, attributes, dataset.label.toLowerCase())
+            if (specialty.data.useattributes) {
+              const isAttributeMatch = specialty.data.attribute === attributes
+              if(isAttributeMatch || specialty.data.attribute === clickedRollName) {
+                if(specialtyLabel !== '') {
+                  specialtyLabel += ', '
+                }                  
+                specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[isAttributeMatch === attributes ? attributes : clickedRollName]?.name)
               }
-            })
-          }
+            } else {
+              const isAbilityMatch = specialty.data.skill === ability
+              if(isAbilityMatch || specialty.data.skill === clickedRollName) {
+                if(specialtyLabel !== '') {
+                  specialtyLabel += ', '
+                }                  
+                specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[isAbilityMatch ? ability : clickedRollName]?.name)
+              }
+            }
+          })
 
           console.log(specialtyLabel)
 
