@@ -132,7 +132,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     html.find(".discipline-delete").click((ev) => {
       const data = $(ev.currentTarget)[0].dataset;
 
-      if(this.actor.data.data.disciplines[data.discipline].isCustom) {
+      console.log(this.actor.data)
+      if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
         delete this.actor.data.data.disciplines[data.discipline]
       } else {
         this.actor.update({
@@ -175,7 +176,7 @@ export class GhoulActorSheet extends MortalActorSheet {
         label: game.i18n.localize("VTM5E.Add"),
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
-          if(discipline === 'custom-discipline') {
+          if(true || discipline === 'custom-discipline') {
             const randomKey = this._makeid(10)
             this.actor.data.data.disciplines[randomKey] = {
               name: "Unknown discipline",
@@ -192,6 +193,7 @@ export class GhoulActorSheet extends MortalActorSheet {
 
             console.log(discipline)
             console.log(this.actor)
+            console.log(this.actor.data)
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
