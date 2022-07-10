@@ -47,6 +47,10 @@ export class VampireDarkAgesSheet extends GhoulActorSheet {
     // console.log(data);
     data.sheetType = `${game.i18n.localize("VTM5E.VampireDarkAges")}`;
 
+    console.log("da", data.data)
+    if(data?.data?.data?.headers?.sheetsystem === undefined || data.data.data.headers.sheetsystem === "") {
+      data.data.data.headers.sheetsystem = "darkages"
+    }
     // Prepare items.
     if (
       this.actor.data.type === "vampire-da" ||
