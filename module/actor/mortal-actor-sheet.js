@@ -561,6 +561,8 @@ export class MortalActorSheet extends CoterieActorSheet {
       const dice2 =
         this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
       const dicePool = dice1 + dice2;
+
+      console.log(this.actor.data.data.skills[dataset.dice2.toLowerCase()].value)
       rollDice(dicePool, this.actor, `${dataset.name}`, 6);
     }
   }
