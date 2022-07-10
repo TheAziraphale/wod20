@@ -595,6 +595,12 @@
   font-size: 130%;
 }
 
+.roll-speciality-label {
+  margin: 0;
+  margin-top: -10px;
+  font-size: 12px;
+}
+
 .roll-label .danger {
   color: #831515;
 }
