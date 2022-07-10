@@ -133,23 +133,13 @@ Hooks.once("init", async function () {
     options.data.root[varName] = varValue;
   });
   
-  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, sheetType, skillsModern, skillsDa, skillsWild, options) {
-    if(sheetsystem === undefined || sheetsystem === '') {
-      if(sheetType === `${game.i18n.localize("VTM5E.VampireDarkAges")}`) {
-        console.log("dark ages without any sheetsystem")
-        options.data.root[varName] = skillsDa;
-      } else {
-        console.log("not da without any sheetsystem")
-        options.data.root[varName] = skillsModern;
-      }
+  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, , skillsModern, skillsDa, skillsWild, options) {
+    if(sheetsystem === 'darkages') {
+      options.data.root[varName] = skillsDa;
+    } else if(sheetsystem === 'wildwest') {
+      options.data.root[varName] = skillsWild;
     } else {
-      if(sheetsystem === 'darkages') {
-        options.data.root[varName] = skillsDa;
-      } else if(sheetsystem === 'wildwest') {
-        options.data.root[varName] = skillsWild;
-      } else {
-        options.data.root[varName] = skillsModern;
-      }
+      options.data.root[varName] = skillsModern;
     }
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {

@@ -48,6 +48,11 @@ export class MortalActorSheet extends CoterieActorSheet {
     const data = super.getData();
     // TODO: confirm that I can finish and use this list
     data.sheetType = `${game.i18n.localize("VTM5E.Mortal")}`;
+    console.log(data)
+    console.log(data.data)
+    if(data.data.headers.sheetsystem === undefined || data.data.headers.sheetsystem) {
+      console.log("inside")
+    }
 
     // Prepare items.
     if (this.actor.data.type === "mortal") {
