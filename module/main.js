@@ -133,13 +133,16 @@ Hooks.once("init", async function () {
     options.data.root[varName] = varValue;
   });
   
-  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
-    if(sheetsystem === 'modern') {
-      options.data.root[varName] = skillsModern;
-    } else if(sheetsystem === 'darkages') {
-      options.data.root[varName] = skillsDa;
-    } else if(sheetsystem === 'wildwest') {
-      options.data.root[varName] = skillsWild;
+  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, sheettype, skillsModern, skillsDa, skillsWild, options) {
+    console.log(sheettype)
+    if(sheettype !== undefined) {
+      if(sheetsystem === 'darkages') {
+        options.data.root[varName] = skillsDa;
+      } else if(sheetsystem === 'wildwest') {
+        options.data.root[varName] = skillsWild;
+      } else {
+        options.data.root[varName] = skillsModern;
+      }
     }
   });
   Handlebars.registerHelper("setDotsFromGen", function(varName, varValue, options) {
