@@ -205,7 +205,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     console.log("here", $(ev.currentTarget))
     console.log(li)
     console.log(li.data("itemId"))
-
+    const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
+    console.log("test", item)
     console.log(this.actor.data)
     if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
       console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
