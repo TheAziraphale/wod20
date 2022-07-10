@@ -1,8 +1,13 @@
 <div class="profile-img-zone">
     <h1>{{ sheetType }}</h1>
-
     {{#if locked}}
-        <label class="sheetsystem-select-label">{{data.data.headers.sheetsystem}}</label>
+        {{#if data.data.headers.sheetsystem 'darkages'}} 
+            <label class="sheetsystem-select-label">{{localize "VTM5E.DarkAges"}}</label>
+        {{else if data.data.headers.sheetsystem 'wildwest'}} 
+            <label class="sheetsystem-select-label">{{localize "VTM5E.WildWest"}}</label>
+        {{else}} 
+            <label class="sheetsystem-select-label">{{localize "VTM5E.Modern"}}</label>
+        {{/else}}
     {{else }}
     <select class="sheetsystem-select" name="data.headers.sheetsystem" data-type="String">
         {{#select data.data.headers.sheetsystem}}
