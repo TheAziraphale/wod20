@@ -1,13 +1,13 @@
 <form>
+    {{log data.data.headers.sheetsystem}}
+    {{log data}}
+    {{log skillsModern}}
+    {{log skillsDa}}
+    {{log skillsWild}}
     {{#unless noability}}
     <div class="form-group">
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            {{log data.data.headers.sheetsystem}}
-            {{log data}}
-            {{log skillsModern}}
-            {{log skillsDa}}
-            {{log skillsWild}}
             {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
             {{log skillArray}}
             <select id="abilitySelect" name="abilitySelect">

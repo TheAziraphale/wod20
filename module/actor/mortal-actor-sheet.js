@@ -524,6 +524,8 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
+    console.log(dataset, this.actor.data.data.headers)
+    console.log(dataset, this.actor.data)
     const abilities = Object.keys(this.actor.data.data.abilities)
     // console.log(abilities);
     renderTemplate(template, { noability: dataset.noability, rollingattributes: dataset.ability, sheettype: dataset.sheettype, abilities }).then((content) => {
