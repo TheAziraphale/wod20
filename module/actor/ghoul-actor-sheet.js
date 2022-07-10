@@ -154,8 +154,8 @@ export class GhoulActorSheet extends MortalActorSheet {
       options = options.concat(
         `<option value="${key}">${game.i18n.localize(value.name)}</option>`
       );
-      options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
     }
+    options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
 
     console.log(options)
     const template = `
@@ -164,7 +164,7 @@ export class GhoulActorSheet extends MortalActorSheet {
               <label>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
               <select id="disciplineSelect" name="data.disciplineSelect">${options}</select>
               <label visible={{eq "custom-discipline" data.data.disciplineSelect}}>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
-              <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}} visible={{eq "custom-discipline" data.data.disciplineSelect}}/>
+              <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}}" visible={{eq "custom-discipline" data.data.disciplineSelect}}/>
           </div>
       </form>`;
 
