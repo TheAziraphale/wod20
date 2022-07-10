@@ -338,6 +338,7 @@ export class CoterieActorSheet extends ActorSheet {
 
     if(locName === '') {
       skillsDa.forEach((name, loc) => {
+        console.log(name, loc, skillName)
         if(name === skillName) {
           locName = loc
         }
