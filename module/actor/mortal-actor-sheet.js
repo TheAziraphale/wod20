@@ -193,9 +193,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           numDice += modifier
 
-          console.log(this.actor)
           const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, 'strength')
-          console.log(specialtyLabel)
 
           rollDice(
             numDice,
@@ -277,9 +275,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           const numDice = abilityVal + attributesVal + modifier
 
-          console.log(this.actor)
           const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, attribute, ability)
-          console.log(specialtyLabel)
 
           rollDice(
             numDice,
@@ -419,9 +415,7 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           numDice += modifier
 
-          console.log(this.actor)
           const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, 'stamina')
-          console.log(specialtyLabel)
 
           rollDice(
             numDice,

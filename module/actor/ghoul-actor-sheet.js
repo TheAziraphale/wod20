@@ -154,13 +154,17 @@ export class GhoulActorSheet extends MortalActorSheet {
       options = options.concat(
         `<option value="${key}">${game.i18n.localize(value.name)}</option>`
       );
+      options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
     }
 
+    console.log(options)
     const template = `
       <form>
           <div class="form-group">
               <label>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
-              <select id="disciplineSelect">${options}</select>
+              <select id="disciplineSelect" name="data.disciplineSelect">${options}</select>
+              <label visible={{eq "custom-discipline" data.data.disciplineSelect}}>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
+              <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}} visible={{eq "custom-discipline" data.data.disciplineSelect}}/>
           </div>
       </form>`;
 
@@ -171,9 +175,13 @@ export class GhoulActorSheet extends MortalActorSheet {
         label: game.i18n.localize("VTM5E.Add"),
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
-          this.actor.update({
-            [`data.disciplines.${discipline}.visible`]: true,
-          });
+          if(discipline === 'custom-discipline') {
+            console.log(discipline, html.find("#newdisciplinename")[0]?.value)
+          } else {
+            this.actor.update({
+              [`data.disciplines.${discipline}.visible`]: true,
+            });
+          }
         },
       },
       cancel: {
