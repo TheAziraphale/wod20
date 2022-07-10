@@ -25,8 +25,6 @@
     <a class="item" data-tab="attributes">{{localize "VTM5E.Attributes"}}</a>
   </nav>
 
-  {{log item}}
-
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Description Tab --}}
@@ -41,11 +39,7 @@
         <label class="resource-label">{{localize "VTM5E.Skill"}}: </label>
         <select name="data.skill" data-type="String">
             {{#select data.data.skill}}
-                {{log data.data.skill}}
-                {{log "iterationComing"}}
                 {{#each item.skillsArray as |skill|}}
-                  {{log skill.name}}
-                  {{log skill.loc}}
                     <option value="{{skill.name}}">{{localize skill.loc}}</option>
                 {{/each}}
             {{/select}}
