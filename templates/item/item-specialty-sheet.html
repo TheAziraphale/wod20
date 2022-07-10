@@ -46,7 +46,7 @@
                 {{#each item.skillsArray as |skill|}}
                   {{log skill.name}}
                   {{log skill.loc}}
-                    <option value={{skill.name}}>{{localize skill.loc}}</option>
+                    <option value="{{skill.name}}">{{localize skill.loc}}</option>
                 {{/each}}
             {{/select}}
         </select>
