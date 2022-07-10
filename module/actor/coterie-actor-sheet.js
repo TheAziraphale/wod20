@@ -265,13 +265,13 @@ export class CoterieActorSheet extends ActorSheet {
       data.dice2 = "athletics";
     }
   
-    let skillsArray = skillsModern
+    data.skillsArray = skillsModern
     switch(this.actor.data.data.headers.sheetsystem) {
       case "darkages":
-        skillsArray = skillsDa
+        data.skillsArray = skillsDa
         break;
       case "wildwest":
-        skillsArray = skillsWild
+        data.skillsArray = skillsWild
         break;
     }
     // Initialize a default name.
@@ -281,8 +281,7 @@ export class CoterieActorSheet extends ActorSheet {
       name: name,
       type: type,
       data: data,
-      sheettype: sheettype,
-      skillsArray: skillsArray,
+      sheettype: sheettype
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data.type;
