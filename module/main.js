@@ -284,10 +284,21 @@ Hooks.once("init", async function () {
         .join("")
     );
   });
-  Handlebars.registerHelper('select', function( value, options ){
-    var $el = $('<select />').html( options.fn(this) );
-    $el.find('[value="' + value + '"]').attr({'selected':'selected'});
-    return $el.html();
+  Handlebars.registerHelper('select', function(value, options) {
+    // Create a select element 
+    var select = document.createElement('select');
+
+    // Populate it with the option HTML
+    select.innerHTML = options.fn(this);
+
+    // Set the value
+    select.value = value;
+
+    // Find the selected node, if it exists, add the selected attribute to it
+    if (select.children[select.selectedIndex])
+        select.children[select.selectedIndex].setAttribute('selected', 'selected');
+
+    return select.innerHTML;
   });
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
     var value = 0
