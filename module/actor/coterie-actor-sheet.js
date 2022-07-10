@@ -292,7 +292,6 @@ export class CoterieActorSheet extends ActorSheet {
   _assignToActorField(fields, value) {
     const actorData = duplicate(this.actor);
     // update actor owned items
-    console.log(fields.length, fields[0], fields[1])
     if (fields.length === 2 && fields[0] === "items") {
       for (const i of actorData.items) {
         if (fields[1] === i._id) {
@@ -300,7 +299,7 @@ export class CoterieActorSheet extends ActorSheet {
           break;
         }
       }
-    } else if (fields.length === 3 && fields[1] === "skills") {
+    } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
       for (const skill of actorData.data.skills) {
         if (fields[2] === skill) {
