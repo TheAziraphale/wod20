@@ -140,9 +140,17 @@ export class CoterieActorSheet extends ActorSheet {
     html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
-      console.log("editing an inventoryItem")
-      console.log(item)
-      console.log(item.data)
+
+      let skillsArray = skillsModern
+      switch(this.actor.data.data.headers.sheetsystem) {
+        case "darkages":
+          skillsArray = skillsDa
+          break;
+        case "wildwest":
+          skillsArray = skillsWild
+          break;
+      }
+      item.data.data.skillsArray = skillsArray
       item.sheet.render(true);
     });
 

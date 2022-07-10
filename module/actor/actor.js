@@ -104,7 +104,6 @@ export class VampireActor extends Actor {
       hasTypes: types.length > 1
     })
 
-    console.log("creating a dialog")
     // Render the confirmation dialog window
     return Dialog.prompt({
       title: title,
