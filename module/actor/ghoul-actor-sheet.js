@@ -168,6 +168,14 @@ export class GhoulActorSheet extends MortalActorSheet {
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
+            const randomKey = this._makeid(10)
+            this.actor.data.data.disciplines[randomKey] = {
+              name: "Custom discipline",
+              power:[],
+              value: 0,
+              visible: true
+            }
+
             console.log(discipline)
             console.log(this.actor)
             if(this.actor) {
@@ -188,6 +196,17 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
   }
+
+  _makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+      charactersLength));
+   }
+   return result;
+}
 
   _onVampireRoll(event) {
     event.preventDefault();
