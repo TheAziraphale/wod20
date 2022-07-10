@@ -134,7 +134,9 @@ export class GhoulActorSheet extends MortalActorSheet {
 
       console.log(this.actor.data)
       if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
+        console.log(this.actor.data.data.disciplines[data.discipline])
         delete this.actor.data.data.disciplines[data.discipline]
+        console.log(this.actor.data.data.disciplines)
         this.actor.update({
           [`data.disciplines`]: this.actor.data.data.disciplines,
         });
