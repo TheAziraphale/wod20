@@ -152,8 +152,12 @@ export class GhoulActorSheet extends MortalActorSheet {
     for (const [key, value] of Object.entries(
       this.actor.data.data.disciplines
     )) {
+      let localizedName = game.i18n.localize(value.name)
+      if(localizedName = undefined) {
+        localizedName = value.name
+      }
       options = options.concat(
-        `<option value="${key}">${game.i18n.localize(value.name)}</option>`
+        `<option value="${key}">${localizedName}</option>`
       );
     }
     options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
