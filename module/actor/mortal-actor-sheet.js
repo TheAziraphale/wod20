@@ -546,9 +546,12 @@ export class MortalActorSheet extends CoterieActorSheet {
   }
 
   _onCustomVampireRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
+    event.preventDefault()
+    const element = event.currentTarget
+    const dataset = element.dataset
+    const attributes = this.actor.data.data.abilities
+    const skills = this.actor.data.data.skills
+
     if (dataset.dice1 === "") {
       const dice2 =
         this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
@@ -556,14 +559,20 @@ export class MortalActorSheet extends CoterieActorSheet {
       dataset.label = dataset.name;
       this._onRollDialog(event);
     } else {
-      const dice1 =
-        this.actor.data.data.abilities[dataset.dice1.toLowerCase()].value;
-      const dice2 =
-        this.actor.data.data.skills[dataset.dice2.toLowerCase()].value;
+      const dice1 = (attributes[dataset.dice1.toLowerCase()]?.value !== undefined ? attributes[dataset.dice1.toLowerCase()].value : 0) + 
+        (attributes[dataset.dice1.toLowerCase()]?.buff !== undefined ? attributes[dataset.dice1.toLowerCase()].buff : 0)
+
+      const dice2 = skills[dataset.dice2.toLowerCase()]?.value !== undefined ? skills[dataset.dice2.toLowerCase()].value : 0;
       const dicePool = dice1 + dice2;
 
+      const difficulty = dataset.difficulty ? parseInt(dataset.difficulty) : 6
+
       console.log(this.actor.data.data.skills[dataset.dice2.toLowerCase()].value)
-      rollDice(dicePool, this.actor, `${dataset.name}`, 6);
+      console.log(dataset)
+      console.log(difficulty)
+      console.log(item)
+      console.log(item.data)
+      rollDice(dicePool, this.actor, `${dataset.name}`, Number.isNaN(difficulty) ? 6 : difficulty, this.actor.data.data.health.state, dataset.applywounds);
     }
   }
 
