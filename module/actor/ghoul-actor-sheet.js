@@ -195,7 +195,8 @@ export class GhoulActorSheet extends MortalActorSheet {
             console.log(this.actor)
             console.log(this.actor.data)
           } else {
-            if(this.actor.data.data.discplines[discipline]?.name === undefined) {
+            console.log(this.actor.data)
+            if(this.actor.data.data.disciplines[discipline]?.name === undefined) {
               delete this.actor.data.data.disciplines[discipline]
             }
             else {
