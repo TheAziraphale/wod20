@@ -170,11 +170,14 @@ export class GhoulActorSheet extends MortalActorSheet {
           if(discipline === 'custom-discipline') {
             const randomKey = this._makeid(10)
             this.actor.data.data.disciplines[randomKey] = {
-              name: "Custom discipline",
+              name: "Unknown discipline",
               power:[],
               value: 0,
               visible: true
             }
+            this.actor.update({
+              [`data.disciplines.${randomKey}.visible`]: true,
+            });
 
             console.log(discipline)
             console.log(this.actor)
