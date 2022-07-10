@@ -143,7 +143,7 @@ Hooks.once("init", async function () {
       options.data.root[varName] = skillsModern;
     } else if(sheetsystem === 'darkages') {
       options.data.root[varName] = skillsDa;
-    } else if(sheetsystem === 'modwildwestern') {
+    } else if(sheetsystem === 'wildwest') {
       options.data.root[varName] = skillsWild;
     }
   });
@@ -283,6 +283,11 @@ Hooks.once("init", async function () {
         .flatMap((word) => capitalize(word))
         .join("")
     );
+  });
+  Handlebars.registerHelper('select', function( value, options ){
+    var $el = $('<select />').html( options.fn(this) );
+    $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+    return $el.html();
   });
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
     var value = 0

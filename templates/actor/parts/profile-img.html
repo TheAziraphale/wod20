@@ -9,11 +9,11 @@
         <i class="fa fa-lock-open"></i>
         {{/if}}
     </button>
-    <select name="data.headers.sheetsystem" data-type="String">
+    <select name="data.headers.sheetsystem" data-type="String" value="{{data.headers.sheetsystem}}">
         {{#select data.headers.sheetsystem}}
-        <option value="modern">{{localize "VTM5E.Modern"}}</option>
-        <option value="darkages">{{localize "VTM5E.DarkAges"}}</option>
-        <option value="wildwest">{{localize "VTM5E.WildWest"}}</option>
+            <option value="modern">{{localize "VTM5E.Modern"}}</option>
+            <option value="darkages">{{localize "VTM5E.DarkAges"}}</option>
+            <option value="wildwest">{{localize "VTM5E.WildWest"}}</option>
         {{/select}}
     </select>
 </div> 
