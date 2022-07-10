@@ -201,7 +201,9 @@ export class GhoulActorSheet extends MortalActorSheet {
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
+    const li = $(ev.currentTarget).parents(".item");
     console.log("here", $(ev.currentTarget))
+    console.log(li)
 
     console.log(this.actor.data)
     if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
