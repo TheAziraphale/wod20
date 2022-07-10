@@ -1,16 +1,11 @@
 <form>
-    {{log skillArray}}
     {{#unless noability}}
     <div class="form-group">
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            {{log skillArray}}
             <select id="abilitySelect" name="abilitySelect">
                 {{#select data.abilitySelect}}
-                {{log skillArray}}
-                {{log ../skillArray}}
                     {{#each skillArray as |skill|}}
-                        {{log skill}}
                         <option value={{skill.name}}>{{localize skill.loc}}</option>
                     {{/each}}
                 {{/select}}

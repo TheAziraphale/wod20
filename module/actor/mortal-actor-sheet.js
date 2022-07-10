@@ -526,7 +526,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     }
 
     let skillArray = skillsModern
-    switch(this.actor.data.data.headers.sheettype) {
+    switch(this.actor.data.data.headers.sheetsystem) {
       case "darkages":
         skillArray = skillsDa
         break;
