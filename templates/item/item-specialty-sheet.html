@@ -36,14 +36,31 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource grid grid-2col flex-center">
-        <label class="resource-label">{{localize "VTM5E.Skill"}}: </label>
-        <select name="data.skill" data-type="String">
-            {{#select data.data.skill}}
-                {{#each item.skillsArray as |skill|}}
-                    <option value="{{skill.name}}">{{localize skill.loc}}</option>
-                {{/each}}
-            {{/select}}
-        </select>
+        {{#if data.data.useattributes}}
+          <label class="resource-label">{{localize "VTM5E.Attribute"}}: </label>
+          <select name="data.attirbute" data-type="String">
+              {{#select data.data.attirbute}}
+                {{> "systems/wod20/templates/item/parts/attributes.html"}}
+              {{/select}}
+          </select>
+        {{else}}
+          <label class="resource-label">{{localize "VTM5E.Skill"}}: </label>
+          <select name="data.skill" data-type="String">
+              {{#select data.data.skill}}
+                  {{#each item.skillsArray as |skill|}}
+                      <option value="{{skill.name}}">{{localize skill.loc}}</option>
+                  {{/each}}
+              {{/select}}
+          </select>
+        {{/if}}
+        
+        <label class="resource-label">{{localize "VTM5E.UseAttributes"}}: </label>
+        <input
+          type="checkbox"
+          id="data.useattributes"
+          name="data.useattributes"
+          {{checked data.data.useattributes}}
+        />
       </div>
     </div>
   </section>

@@ -120,6 +120,21 @@ export class VampireItemSheet extends ItemSheet {
       });
     }
 
+    // Skill Checkbox Handler.
+    const useAttributesCheckbox = document.querySelector(
+      'input[type="checkbox"][name="data.useattributes"]'
+    );
+
+    if (useAttributesCheckbox != null) {
+      useAttributesCheckbox.addEventListener("change", () => {
+        if (useAttributesCheckbox.checked) {
+          this.item.update({ "data.useattributes": true });
+        } else {
+          this.item.update({ "data.useattributes": false });
+        }
+      });
+    }
+
     // Difficulty Input Handler.
     const difficultyInput = document.querySelector(
       'input[type="number"][name="data.difficulty"]'
