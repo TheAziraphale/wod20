@@ -134,8 +134,15 @@ Hooks.once("init", async function () {
   });
   
   Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, sheetType, skillsModern, skillsDa, skillsWild, options) {
-    console.log(sheetType)
-    if(sheetType !== undefined) {
+    if(sheetsystem === undefined || sheetsystem === '') {
+      if(sheetType === `${game.i18n.localize("VTM5E.VampireDarkAges")}`) {
+        console.log("dark ages without any sheetsystem")
+        options.data.root[varName] = skillsDa;
+      } else {
+        console.log("not da without any sheetsystem")
+        options.data.root[varName] = skillsModern;
+      }
+    } else {
       if(sheetsystem === 'darkages') {
         options.data.root[varName] = skillsDa;
       } else if(sheetsystem === 'wildwest') {
