@@ -193,6 +193,10 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           numDice += modifier
 
+          console.log(this.actor)
+          const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, 'strength')
+          console.log(specialtyLabel)
+
           rollDice(
             numDice,
             this.actor,
@@ -239,10 +243,10 @@ export class MortalActorSheet extends CoterieActorSheet {
         label: game.i18n.localize("VTM5E.Roll"),
         callback: async (html) => {
 
-          const attributes = html.find("#attributesSelect")[0]?.value
-          let attributesVal = parseInt(!attributes || attributes === 'null' || attributes === '' ? '0' : 
-            this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
-            this.actor.data.data.abilities[attributes]?.buff : 
+          const attribute = html.find("#attributesSelect")[0]?.value
+          let attributesVal = parseInt(!attribute || attribute === 'null' || attribute === '' ? '0' : 
+            this.actor.data.data.abilities[attribute]?.value + (this.actor.data.data.abilities[attribute]?.buff ? 
+            this.actor.data.data.abilities[attribute]?.buff : 
           0))
           if(Number.isNaN(attributesVal)) {
             attributesVal = 0
@@ -255,7 +259,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             abilityVal = 0
           }
 
-          const attributesLabel = game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) 
+          const attributesLabel = game.i18n.localize(this.actor.data.data.abilities[attribute]?.name) 
           const abilitiesLabel = game.i18n.localize(this.actor.data.data.skills[ability]?.name)
 
           let modifier = parseInt(html.find("#inputMod")[0].value || 0) 
@@ -272,6 +276,10 @@ export class MortalActorSheet extends CoterieActorSheet {
           const applyWounds = html.find("#applyWounds")[0]?.checked || false
 
           const numDice = abilityVal + attributesVal + modifier
+
+          console.log(this.actor)
+          const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, attribute, ability)
+          console.log(specialtyLabel)
 
           rollDice(
             numDice,
@@ -410,6 +418,10 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           numDice += modifier
 
+          console.log(this.actor)
+          const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, 'stamina')
+          console.log(specialtyLabel)
+
           rollDice(
             numDice,
             this.actor,
@@ -455,10 +467,10 @@ export class MortalActorSheet extends CoterieActorSheet {
             abilityVal = 0
           }
 
-          const attributes = html.find("#attributesSelect")[0]?.value
-          let attributesVal = parseInt(!attributes || attributes === 'null' || attributes === '' ? '0' : 
-            this.actor.data.data.abilities[attributes]?.value + (this.actor.data.data.abilities[attributes]?.buff ? 
-            this.actor.data.data.abilities[attributes]?.buff : 
+          const attribute = html.find("#attributesSelect")[0]?.value
+          let attributesVal = parseInt(!attribute || attribute === 'null' || attribute === '' ? '0' : 
+            this.actor.data.data.abilities[attribute]?.value + (this.actor.data.data.abilities[attribute]?.buff ? 
+            this.actor.data.data.abilities[attribute]?.buff : 
           0))
           if(Number.isNaN(attributesVal)) {
             attributesVal = 0
@@ -470,7 +482,7 @@ export class MortalActorSheet extends CoterieActorSheet {
             actorsOwnBuff = 0
           }
 
-          const name = attributes ? game.i18n.localize(this.actor.data.data.abilities[attributes]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
+          const name = attribute ? game.i18n.localize(this.actor.data.data.abilities[attribute]?.name) : game.i18n.localize(this.actor.data.data.skills[ability]?.name)
           const modifier = parseInt(html.find("#inputMod")[0].value || 0)
           const difficulty = parseInt(html.find("#inputDif")[0].value || 6)
           const specialty = html.find("#specialty")[0]?.checked || false
@@ -482,30 +494,8 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + roll + actorsOwnBuff + modifier : roll + modifier
 
-          let specialtyLabel = ''
           console.log(this.actor)
-          this.actor.specialties.forEach((specialty) => {
-            console.log(specialty, attributes, clickedRollName)
-            let foundMatch = false
-            let specialitySource = ''
-            if (specialty.data.useattributes) {
-              foundMatch = specialty.data.attribute === attributes || specialty.data.attribute === clickedRollName
-              specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.attribute === attributes ? attributes : clickedRollName]?.name)
-            } else {
-              foundMatch = specialty.data.skill === ability || specialty.data.skill === clickedRollName
-              specialitySource = game.i18n.localize(this.actor.data.data.skills[specialty.data.skill === ability ? ability : clickedRollName]?.name)
-            }
-            if (foundMatch) {
-              if(specialtyLabel !== '') {
-                specialtyLabel += ', '
-              }                  
-              specialtyLabel += specialty.name
-              if(specialitySource !== '') {
-                specialtyLabel += ' (' + specialitySource + ')'
-              }
-            }
-          })
-
+          const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, attribute, ability, clickedRollName)
           console.log(specialtyLabel)
 
           rollDice(
@@ -531,6 +521,36 @@ export class MortalActorSheet extends CoterieActorSheet {
 
     const abilities = Object.keys(this.actor.data.data.abilities, dataset, buttons)
     this._onRenderDialog(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray: this._getSkillArray(), abilities }, dataset, buttons)
+  }
+
+  _getSpecialityLabel(specialities, attibuteValue, abilityValue, wildcardValue) {
+    let returnLabel = ''
+    specialities.forEach((specialty) => {
+      let foundMatch = false
+      let specialitySource = ''
+      if (specialty.data.useattributes) {
+        foundMatch = specialty.data.attribute === attibuteValue || specialty.data.attribute === wildcardValue
+        if(foundMatch) {
+          specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.attribute === attibuteValue ? attibuteValue : wildcardValue]?.name)
+        }
+      } else {
+        foundMatch = specialty.data.skill === abilityValue || specialty.data.skill === wildcardValue
+        if(foundMatch) {
+          specialitySource = game.i18n.localize(this.actor.data.data.skills[specialty.data.skill === abilityValue ? abilityValue : wildcardValue]?.name)
+        }
+      }
+      if (foundMatch) {
+        if(specialtyLabel !== '') {
+          specialtyLabel += ', '
+        }                  
+        specialtyLabel += specialty.name
+        if(specialitySource && specialitySource !== '') {
+          specialtyLabel += ' (' + specialitySource + ')'
+        }
+      }
+    })
+
+    return returnLabel
   }
 
   _getSkillArray() {
