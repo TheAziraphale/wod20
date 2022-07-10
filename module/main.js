@@ -284,6 +284,7 @@ Hooks.once("init", async function () {
         .join("")
     );
   });
+  /*
   Handlebars.registerHelper('select', function(value, options) {
     // Create a select element 
     var select = document.createElement('select');
@@ -302,6 +303,7 @@ Hooks.once("init", async function () {
     console.log(select.innerHTML)
     return select.innerHTML;
   });
+  */
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
     var value = 0
 
