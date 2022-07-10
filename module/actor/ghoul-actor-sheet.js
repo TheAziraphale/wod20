@@ -210,6 +210,8 @@ export class GhoulActorSheet extends MortalActorSheet {
       this.actor.update({
         [`data.disciplines`]: {...this.actor.data.data.disciplines},
       })
+      console.log("2", data.discipline, this.actor.data.data.disciplines)
+      console.log("3", data.discipline, this.actor)
     } else {
       this.actor.update({
         [`data.disciplines.${data.discipline}.visible`]: false,
