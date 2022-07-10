@@ -450,9 +450,7 @@ export class MortalActorSheet extends CoterieActorSheet {
         callback: async (html) => {
           const ability = html.find("#abilitySelect")[0]?.value
           let abilityVal = parseInt(!ability || ability === 'null'|| ability === ''  ? '0' : 
-            this.actor.data.data.skills[ability]?.value + (this.actor.data.data.skills[ability]?.buff ? 
-            this.actor.data.data.skills[ability]?.buff : 
-          0))
+            this.actor.data.data.skills[ability]?.value)
           if(Number.isNaN(abilityVal)) {
             abilityVal = 0
           }
@@ -495,7 +493,7 @@ export class MortalActorSheet extends CoterieActorSheet {
               specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.attribute === attributes ? attributes : clickedRollName]?.name)
             } else {
               foundMatch = specialty.data.skill === ability || specialty.data.skill === clickedRollName
-              specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.skill === ability ? ability : clickedRollName]?.name)
+              specialitySource = game.i18n.localize(this.actor.data.data.skills[specialty.data.skill === ability ? ability : clickedRollName]?.name)
             }
             if (foundMatch) {
               if(specialtyLabel !== '') {
