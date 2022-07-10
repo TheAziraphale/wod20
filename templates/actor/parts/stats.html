@@ -135,12 +135,8 @@
       </div>
     </li>
     {{#each actor.specialties as |item id|}}
-    {{log item}}
     <li class="item flexrow" data-item-id="{{item._id}}">
-      {{log item.data.useattributes}}
       {{#if item.data.useattributes}}
-      {{log item.data.useattributes}}
-      {{log item.data}}
       <div
         class="item-image custom-rollable"
         data-dice1=""
@@ -155,6 +151,10 @@
           alt="{{item.name}}"
         />
       </div>
+      <h4 class="item-name">{{item.name}}</h4>
+      <h4 class="item-name">
+        {{localize (generateSkillLabel item.data.attribute)}}
+      </h4>
       {{else}}
       {{log item.data}}
       <div
@@ -171,11 +171,11 @@
           alt="{{item.name}}"
         />
       </div>
-      {{/if}}
       <h4 class="item-name">{{item.name}}</h4>
       <h4 class="item-name">
         {{localize (generateSkillLabel item.data.skill)}}
       </h4>
+      {{/if}}
       <div class="item-controls">
         <a class="item-control item-edit" title="{{localize 'VTM5E.Edit'}}"
           ><i class="fas fa-edit"></i
