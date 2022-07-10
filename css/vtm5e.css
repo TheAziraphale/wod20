@@ -759,6 +759,11 @@
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   width: 100%;
+  margin-top: 5px;
+}
+
+.vtm5e .sheet-header .profile-img-zone .sheetsystem-select option {
+  background: #790813;
 }
 
 .vtm5e .sheet-header .profile-img-zone .sheetsystem-label-group {
@@ -771,7 +776,7 @@
   font-size: 12px;
   font-family: "cormorantlight", sans-serif;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 18px;
   margin-right: 5px;
   flex: 0;
 }
