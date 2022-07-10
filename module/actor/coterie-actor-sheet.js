@@ -4,6 +4,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
+import { skillsModern, skillsDa, skillsWild} from "../../assets/skills/skills.js";
 
 export class CoterieActorSheet extends ActorSheet {
   /** @override */
@@ -46,6 +47,9 @@ export class CoterieActorSheet extends ActorSheet {
     data.sheetType = `${game.i18n.localize("VTM5E.Coterie")}`;
 
     data.dtypes = ["String", "Number", "Boolean"];
+    data.skillsModern = skillsModern
+    data.skillsDa = skillsDa
+    data.skillsWild = skillsWild
 
     // Prepare items.
     if (this.actor.data.type === "coterie") {
@@ -313,7 +317,8 @@ export class CoterieActorSheet extends ActorSheet {
         console.log(fields[2])
         console.log(value)
         console.log(actorData.data.skills[fields[2]])
-        actorData.data.skills[fields[2]] = value
+        
+        actorData.data.skills[fields[2]] = _getNewSkillDefinition(fields[2], value)
         console.log(actorData.data.skills[fields[2]])
       }
     } else {
@@ -321,5 +326,32 @@ export class CoterieActorSheet extends ActorSheet {
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
     this.actor.update(actorData);
+  }
+
+  _getNewSkillDefinition(skillName, skillValue) {
+    let locName = ''
+    skillsModern.forEach((name, loc) => {
+      if(name === skillName) {
+        locName = loc
+      }
+    })
+
+    if(locName === '') {
+      skillsDa.forEach((name, loc) => {
+        if(name === skillName) {
+          locName = loc
+        }
+      })    
+      
+      if(locName === '') {
+        skillsWild.forEach((name, loc) => {
+          if(name === skillName) {
+            locName = loc
+          }
+        })
+      }
+    }
+    console.log(skillValue, locName)
+    return {value: skillValue, name: locName}
   }
 }
