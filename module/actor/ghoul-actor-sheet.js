@@ -158,19 +158,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     }
     options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
 
-    console.log(options)
     const template = 'systems/wod20/templates/dialogs/add-discipline.html'
-    /*
-    const template = `
-      <form>
-          <div class="form-group">
-              <label>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
-              <select id="disciplineSelect" name="data.disciplineSelect">${options}</select>
-              <label visible={{eq "custom-discipline" data.data.disciplineSelect}}>${game.i18n.localize("VTM5E.SelectDiscipline")}</label>
-              <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}}" visible={{eq "custom-discipline" data.data.disciplineSelect}}/>
-          </div>
-      </form>`;
-*/
+
     let buttons = {};
     buttons = {
       draw: {
@@ -179,7 +168,8 @@ export class GhoulActorSheet extends MortalActorSheet {
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
-            console.log(discipline, html.find("#newdisciplinename")[0]?.value)
+            console.log(discipline)
+            console.log(data.disciplines)
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
@@ -193,26 +183,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       },
     };
 
-    const dataset = {label:"VTM5E.AddDiscipline"}
-
     super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
-    
-    const disciplineSelect = document.querySelector(
-      'select[name="disciplineSelect"]'
-    );
-    console.log(disciplineSelect)
-    if(disciplineSelect) {
-      disciplineSelect.addEventListener("click", function() {
-        console.log("click happened", this)
-      });
-      disciplineSelect.addEventListener("select", function() {
-        console.log("select", this)
-      });
-      disciplineSelect.addEventListener("change", function() {
-        console.log("change happened", this.value)
-        this.item.update({ "data.disciplineSelect": this.value });
-      });
-    }
   }
 
   _onVampireRoll(event) {
