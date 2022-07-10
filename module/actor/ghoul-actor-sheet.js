@@ -140,7 +140,9 @@ export class GhoulActorSheet extends MortalActorSheet {
     html.find(".power-rollable").click(this._onVampireRoll.bind(this));
     
     // Skill Checkbox Handler.
-    const disciplineSelect = document.getElementById('data.disciplineSelect');
+    const disciplineSelect = document.querySelector(
+      'select[name="data.disciplineSelect"]'
+    );
 
     console.log(disciplineSelect)
     if(disciplineSelect) {
