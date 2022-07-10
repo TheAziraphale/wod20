@@ -294,10 +294,12 @@ Hooks.once("init", async function () {
     // Set the value
     select.value = value;
 
+    console.log(select.value)
     // Find the selected node, if it exists, add the selected attribute to it
     if (select.children[select.selectedIndex])
         select.children[select.selectedIndex].setAttribute('selected', 'selected');
 
+    console.log(select.innerHTML)
     return select.innerHTML;
   });
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
