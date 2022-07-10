@@ -351,7 +351,7 @@ export class CoterieActorSheet extends ActorSheet {
         })
       }
     }
-    console.log(skillValue, locName)
+    console.log(skillValue, localization)
     return {value: skillValue, name: localization}
   }
 }
