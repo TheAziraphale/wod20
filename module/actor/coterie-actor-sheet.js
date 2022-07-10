@@ -122,6 +122,7 @@ export class CoterieActorSheet extends ActorSheet {
     html.find(".item-chat").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
+      console.log("chat")
       renderTemplate(
         "systems/wod20/templates/actor/parts/chat-message.html",
         {
@@ -142,6 +143,8 @@ export class CoterieActorSheet extends ActorSheet {
       const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
 
       item.data.data.skillsArray = this._getSkillArray() 
+      item.data.test = "111"
+      item.test = "111"
       console.log("editing")
       item.sheet.render(true);
     });
@@ -149,6 +152,7 @@ export class CoterieActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
+      console.log("deleting")
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
     });
