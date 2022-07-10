@@ -329,30 +329,29 @@ export class CoterieActorSheet extends ActorSheet {
   }
 
   _getNewSkillDefinition(skillName, skillValue) {
-    let locName = ''
-    skillsModern.forEach((name, loc) => {
-      if(name === skillName) {
-        locName = loc
+    let localization = ''
+    skillsModern.forEach((skill) => {
+      if(skill && skill.name === skillName) {
+        localization = skill.loc
       }
     })
 
     if(locName === '') {
-      skillsDa.forEach((name, loc) => {
-        console.log(name, loc, skillName)
-        if(name === skillName) {
-          locName = loc
+      skillsDa.forEach((skill) => {
+        if(skill && skill.name === skillName) {
+          localization = skill.loc
         }
       })    
       
       if(locName === '') {
-        skillsWild.forEach((name, loc) => {
-          if(name === skillName) {
-            locName = loc
+        skillsWild.forEach((skill) => {
+          if(skill && skill.name === skillName) {
+            localization = skill.loc
           }
         })
       }
     }
     console.log(skillValue, locName)
-    return {value: skillValue, name: locName}
+    return {value: skillValue, name: localization}
   }
 }
