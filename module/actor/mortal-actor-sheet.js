@@ -495,7 +495,7 @@ export class MortalActorSheet extends CoterieActorSheet {
               specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.attribute === attributes ? attributes : clickedRollName]?.name)
             } else {
               foundMatch = specialty.data.skill === ability || specialty.data.skill === clickedRollName
-              specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.attribute === attributes ? attributes : clickedRollName]?.name)
+              specialitySource = game.i18n.localize(this.actor.data.data.abilities[specialty.data.skill === ability ? ability : clickedRollName]?.name)
             }
             if (foundMatch) {
               if(specialtyLabel !== '') {
