@@ -50,7 +50,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     data.sheetType = `${game.i18n.localize("VTM5E.Mortal")}`;
     console.log(data)
     console.log(data.data)
-    if(data.data.headers.sheetsystem === undefined || data.data.headers.sheetsystem) {
+    if(data.data.headers.sheetsystem === undefined || data.data.headers.sheetsystem === '') {
       console.log("inside")
     }
 
