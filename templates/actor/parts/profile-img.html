@@ -9,10 +9,9 @@
         <i class="fa fa-lock-open"></i>
         {{/if}}
     </button>
-    <select name="data.headers.sheetsystem" data-type="String" value="{{data.headers.sheetsystem}}">
-        {{log data}}
-        {{log data.headers.sheetsystem}}
-        {{#select data.headers.sheetsystem}}
+    <select name="data.headers.sheetsystem" data-type="String">
+        {{log data.data.headers.sheetsystem}}
+        {{#select data.data.headers.sheetsystem}}
             <option value="modern">{{localize "VTM5E.Modern"}}</option>
             <option value="darkages">{{localize "VTM5E.DarkAges"}}</option>
             <option value="wildwest">{{localize "VTM5E.WildWest"}}</option>
