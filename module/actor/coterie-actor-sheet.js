@@ -336,14 +336,14 @@ export class CoterieActorSheet extends ActorSheet {
       }
     })
 
-    if(locName === '') {
+    if(localization === '') {
       skillsDa.forEach((skill) => {
         if(skill && skill.name === skillName) {
           localization = skill.loc
         }
       })    
       
-      if(locName === '') {
+      if(localization === '') {
         skillsWild.forEach((skill) => {
           if(skill && skill.name === skillName) {
             localization = skill.loc
