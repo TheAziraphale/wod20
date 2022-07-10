@@ -299,11 +299,23 @@ export class CoterieActorSheet extends ActorSheet {
           break;
         }
       }
+    } else if (fields.length === 3 && fields[1] === "skills") {
+      let foundSkill = false
+      for (const skill of actorData.data.skills) {
+        if (fields[2] === skill) {
+          skill.value = value;
+          foundSkill = true
+          break;
+        }
+      }
+      if(!foundSkill) {
+        console.log(field[1])
+        console.log(value)
+        console.log(actorData.data.skills[field[1]])
+        actorData.data.skills[field[1]] = [value]
+      }
     } else {
       const lastField = fields.pop();
-      console.log(lastField)
-      console.log(fields)
-      console.log(actorData)
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
     this.actor.update(actorData);
