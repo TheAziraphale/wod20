@@ -306,7 +306,7 @@ export class CoterieActorSheet extends ActorSheet {
     } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
       for (const skillKey of Object.keys(actorData.data.skills)) {
-        if (fields[2] === skillKey) {
+        if (fields[2] === skillKey && actorData.data.skills[skillKey] && actorData.data.skills[skillKey].length === 2) {
           console.log(actorData.data.skills[skillKey], value)
           actorData.data.skills[skillKey].value = value;
           foundSkill = true
