@@ -3,19 +3,14 @@
     <div class="form-group">
         {{#if rollingattributes}} 
             <label> {{localize "VTM5E.SelectAbility"}}:</label>
-            {{#ifEquals sheettype "Vampire"}} 
-                <select id="abilitySelect" name="abilitySelect">
-                    {{#select data.abilitySelect}} 
-                        {{> "systems/wod20/templates/item/parts/skills.html"}} 
-                    {{/select}}
-                </select>
-            {{else}}
-                <select id="abilitySelect" name="abilitySelect">
-                    {{#select data.abilitySelect}} 
-                        {{> "systems/wod20/templates/item/parts/skills-da.html"}} 
-                    {{/select}}
-                </select>
-            {{/ifEquals}}
+            {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
+            <select id="abilitySelect" name="abilitySelect">
+                {{#select data.abilitySelect}}                         
+                    {{#each skillArray as |skill|}}
+                        <option value={{skill.name}}>{{localize skill.loc}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
         {{else}}
             <label> {{localize "VTM5E.SelectAttributes"}}: </label>
             <select id="attributesSelect" name="attributesSelect">

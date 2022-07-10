@@ -68,17 +68,14 @@
         </select>
         <label class="resource-label">+</label>
         {{#if data.data.skill}}
-          {{#ifEquals data.data.sheettype "Vampire"}} 
-            <select name="data.dice2" data-type="String">
-              {{#select data.data.dice2}} {{>
-              "systems/wod20/templates/item/parts/skills.html"}} {{/select}}
-            </select>
-          {{else}}
-            <select name="data.dice2" data-type="String">
-              {{#select data.data.dice2}} {{>
-              "systems/wod20/templates/item/parts/skills-da.html"}} {{/select}}
-            </select>
-          {{/ifEquals}}
+          {{setSkillArray "skillArray" data.data.headers.sheetsystem skillsModern skillsDa skillsWild}}
+          <select name="data.dice2" data-type="String">
+              {{#select data.data.dice2}}                        
+                  {{#each skillArray as |skill|}}
+                      <option value={{skill.name}}>{{localize skill.loc}}</option>
+                  {{/each}}
+              {{/select}}
+          </select>
         {{else}}
         <select name="data.dice2" data-type="String">
           {{#select data.data.dice2}} {{>
