@@ -206,12 +206,15 @@
       </div>
     </li>
     {{#each actor.customRolls as |roll id|}}
+    {{log roll}}
     <li class="item flexrow" data-item-id="{{roll._id}}">
       <div
         class="item-image custom-rollable"
         data-dice1="{{roll.data.dice1}}"
         data-dice2="{{roll.data.dice2}}"
         data-name="{{roll.name}}"
+        data-difficulty="{{roll.difficulty}}"
+        data-applywounds="{{roll.applywounds}}"
       >
         <img
           src="{{roll.img}}"
