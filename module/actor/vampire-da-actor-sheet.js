@@ -106,7 +106,7 @@ export class VampireDarkAgesSheet extends GhoulActorSheet {
     if (item.data.data.dice2 === "discipline") {
       dice2 = disciplineValue;
     } else if (item.data.data.skill) {
-      dice2 = (this.actor.data.data.abilities[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].value : 0);
+      dice2 = (this.actor.data.data.skills[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.skills[item.data.data.dice2].value : 0);
     } else {
       dice2 = (this.actor.data.data.abilities[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].value : 0) + 
       (this.actor.data.data.abilities[item.data.data.dice2]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].buff : 0)
