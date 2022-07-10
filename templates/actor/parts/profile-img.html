@@ -1,9 +1,9 @@
 <div class="profile-img-zone">
     <h1>{{ sheetType }}</h1>
     {{#if locked}}
-        {{#if data.data.headers.sheetsystem 'darkages'}} 
+        {{#if (eq data.data.headers.sheetsystem "darkages")}} 
             <label class="sheetsystem-select-label">{{localize "VTM5E.DarkAges"}}</label>
-        {{else if data.data.headers.sheetsystem 'wildwest'}} 
+        {{else if (eq data.data.headers.sheetsystem "wildwest")}} 
             <label class="sheetsystem-select-label">{{localize "VTM5E.WildWest"}}</label>
         {{else}} 
             <label class="sheetsystem-select-label">{{localize "VTM5E.Modern"}}</label>
