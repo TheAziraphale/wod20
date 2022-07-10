@@ -138,6 +138,17 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     // Rollable Vampire/Ghouls powers
     html.find(".power-rollable").click(this._onVampireRoll.bind(this));
+    
+    // Skill Checkbox Handler.
+    const disciplineSelect = document.getElementById('data.disciplineSelect');
+
+    console.log(disciplineSelect)
+    if(disciplineSelect) {
+      disciplineSelect.addEventListener("change", function() {
+        console.log("change happened", this.value)
+        this.item.update({ "data.disciplineSelect": this.value });
+      });
+    }
   }
 
   /**
