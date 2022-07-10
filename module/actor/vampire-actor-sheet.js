@@ -80,43 +80,4 @@ export class VampireActorSheet extends GhoulActorSheet {
     actorData.bloodPotency = getBloodPotencyValues(actorData.bloodPotencyValue);
   }
 
-  /** @override */
-  _onVampireRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    console.log(dataset)
-    const item = this.actor.items.get(dataset.id);
-    let disciplineValue = 0;
-    // if (item.data.data.discipline === "rituals") {
-    //   disciplineValue = this.actor.data.data.disciplines.sorcery.value;
-    // } else
-
-    if (item.data.data.discipline === "ceremonies") {
-      disciplineValue = this.actor.data.data.disciplines.oblivion.value;
-    } else {
-      disciplineValue =this.actor.data.data.disciplines[item.data.data.discipline].value;
-    }
-    // disciplineValue += this.actor.bloodPotency.power; // Blood potency power adds dices to discipline rolls only
-
-    const dice1 =
-      item.data.data.dice1 === "discipline"
-        ? disciplineValue
-        : (this.actor.data.data.abilities[item.data.data.dice1]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].value : 0) + 
-        (this.actor.data.data.abilities[item.data.data.dice1]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].buff : 0)
-
-    let dice2;
-    if (item.data.data.dice2 === "discipline") {
-      dice2 = disciplineValue;
-    } else if (item.data.data.skill) {
-      dice2 = (this.actor.data.data.skills[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.skills[item.data.data.dice2].value : 0);
-    } else {
-      dice2 = (this.actor.data.data.abilities[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].value : 0) + 
-      (this.actor.data.data.abilities[item.data.data.dice2]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].buff : 0)
-    }
-  
-    const dicePool = dice1 + dice2;
-    const difficulty = item.data.data.difficulty ? parseInt(item.data.data.difficulty) : 6
-    rollDice(dicePool, this.actor, `${item.data.name}`, Number.isNaN(difficulty) ? 6 : difficulty, false, this.actor.data.data.health.state, item.data.data.applywounds);
-  }
 }
