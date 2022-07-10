@@ -153,7 +153,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       this.actor.data.data.disciplines
     )) {
       let localizedName = game.i18n.localize(value.name)
-      if(localizedName = undefined) {
+      if(localizedName === undefined) {
         localizedName = value.name
       }
       options = options.concat(
