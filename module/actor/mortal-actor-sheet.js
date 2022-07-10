@@ -569,6 +569,10 @@ export class MortalActorSheet extends CoterieActorSheet {
 
       console.log(this.actor.data.data.skills[dataset.dice2.toLowerCase()].value)
       console.log(dataset)
+      console.log(Number.isNaN(difficulty) ? 6 : difficulty)
+      console.log(this.actor.data.data.health.state)
+      console.log(dataset.applywounds)
+      console.log(dicePool)
       rollDice(dicePool, this.actor, `${dataset.name}`, Number.isNaN(difficulty) ? 6 : difficulty, this.actor.data.data.health.state, dataset.applywounds);
     }
   }
