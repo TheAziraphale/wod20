@@ -310,10 +310,10 @@ export class CoterieActorSheet extends ActorSheet {
         }
       }
       if(!foundSkill) {
-        console.log(fields[1])
+        console.log(fields[2])
         console.log(value)
-        console.log(actorData.data.skills[fields[1]])
-        actorData.data.skills[fields[1]] = [value]
+        console.log(actorData.data.skills[fields[2]])
+        actorData.data.skills[fields[2]] = [value]
       }
     } else {
       const lastField = fields.pop();
