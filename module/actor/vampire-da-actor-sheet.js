@@ -112,6 +112,8 @@ export class VampireDarkAgesSheet extends GhoulActorSheet {
       (this.actor.data.data.abilities[item.data.data.dice2]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice2].buff : 0)
     }
 
+    console.log(this.actor.data.data.abilities)
+    console.log(this.actor.data.data.abilities[item.data.data.dice2])
     console.log(item.data.data.skill)
     console.log(item.data)
     console.log(item)
