@@ -158,6 +158,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     options += `<option value="custom-discipline">${game.i18n.localize('VTM5E.CustomDiscipline')}</option>`
 
     console.log(options)
+    const template = 'systems/wod20/templates/dialogs/add-discipline.html'
+    /*
     const template = `
       <form>
           <div class="form-group">
@@ -167,7 +169,7 @@ export class GhoulActorSheet extends MortalActorSheet {
               <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}}" visible={{eq "custom-discipline" data.data.disciplineSelect}}/>
           </div>
       </form>`;
-
+*/
     let buttons = {};
     buttons = {
       draw: {
@@ -190,12 +192,9 @@ export class GhoulActorSheet extends MortalActorSheet {
       },
     };
 
-    new Dialog({
-      title: game.i18n.localize("VTM5E.AddDiscipline"),
-      content: template,
-      buttons: buttons,
-      default: "draw",
-    }).render(true);
+    const dataset = {label:"VTM5E.AddDiscipline"}
+
+    super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)
   }
 
   _onVampireRoll(event) {

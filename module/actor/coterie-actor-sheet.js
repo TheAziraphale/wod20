@@ -362,4 +362,15 @@ export class CoterieActorSheet extends ActorSheet {
 
     return {value: skillValue, name: localization}
   }
+
+  _onRenderDialog(template, extraFields, title, buttons) {
+    renderTemplate(template, extraFields).then((content) => {
+      new Dialog({
+        title:title,
+        content,
+        buttons: buttons,
+        default: 'draw'
+      }).render(true)
+    })
+  }
 }

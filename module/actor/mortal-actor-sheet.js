@@ -218,7 +218,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       damageNumber = 0
     }
 
-    this._onRenderDialog(template, {damage: damageNumber, skillsArray: this._getSkillArray() }, dataset, buttons)
+    this._onRenderDialogInternal(template, {damage: damageNumber, skillsArray: this._getSkillArray() }, dataset, buttons)
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -301,7 +301,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       difficultyNumber = 6
     }
 
-    this._onRenderDialog(template, {difficulty: difficultyNumber, skillsArray: this._getSkillArray() }, dataset, buttons)
+    this._onRenderDialogInternal(template, {difficulty: difficultyNumber, skillsArray: this._getSkillArray() }, dataset, buttons)
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -352,7 +352,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    this._onRenderDialog(template, {sheettype: dataset.sheettype}, dataset, buttons)
+    this._onRenderDialogInternal(template, {sheettype: dataset.sheettype}, dataset, buttons)
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -435,7 +435,7 @@ export class MortalActorSheet extends CoterieActorSheet {
       }
     }
 
-    this._onRenderDialog(template, {sheettype: dataset.sheettype}, dataset, buttons)
+    this._onRenderDialogInternal(template, {sheettype: dataset.sheettype}, dataset, buttons)
   }
 
   /**   * Handle clickable Vampire rolls.
@@ -516,7 +516,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     }
 
     const abilities = Object.keys(this.actor.data.data.abilities, dataset, buttons)
-    this._onRenderDialog(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray: this._getSkillArray(), abilities }, dataset, buttons)
+    this._onRenderDialogInternal(template, { noability: dataset.noability, rollingattributes: dataset.ability, skillsArray: this._getSkillArray(), abilities }, dataset, buttons)
   }
 
   _getSpecialityLabel(specialities, attibuteValue, abilityValue, wildcardValue) {
@@ -562,15 +562,8 @@ export class MortalActorSheet extends CoterieActorSheet {
     return skillsArray
   }
 
-  _onRenderDialog(template, extraFields, dataset, buttons) {
-    renderTemplate(template, extraFields).then((content) => {
-      new Dialog({
-        title: game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`,
-        content,
-        buttons: buttons,
-        default: 'draw'
-      }).render(true)
-    })
+  _onRenderDialogInternal(template, extraFields, dataset, buttons) {
+    super._onRenderDialog(template, extraFields, game.i18n.localize('VTM5E.Rolling') + ` ${dataset.label}...`, buttons);
   }
 
   /**

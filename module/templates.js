@@ -36,7 +36,11 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/wod20/templates/item/parts/virtues.html',
 
     // Dialogs
-    'systems/wod20/templates/dialogs/custom-roll.html'
+    'systems/wod20/templates/dialogs/custom-roll.html',
+    'systems/wod20/templates/dialogs/damage-roll.html',
+    'systems/wod20/templates/dialogs/init-roll.html',
+    'systems/wod20/templates/dialogs/soak-roll.html',
+    'systems/wod20/templates/dialogs/weapon-roll.html'
   ]
 
   /* Load the template parts
