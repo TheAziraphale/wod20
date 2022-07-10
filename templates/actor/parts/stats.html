@@ -136,12 +136,11 @@
     </li>
     {{#each actor.specialties as |item id|}}
     {{log item}}
-    {{log id}}
     <li class="item flexrow" data-item-id="{{item._id}}">
-
       {{log item.data.useattributes}}
-      {{log item.data.attribute}}
       {{#if item.data.useattributes}}
+      {{log item.data.useattributes}}
+      {{log item.data}}
       <div
         class="item-image custom-rollable"
         data-dice1=""
@@ -157,6 +156,7 @@
         />
       </div>
       {{else}}
+      {{log item.data}}
       <div
         class="item-image custom-rollable"
         data-dice1=""
