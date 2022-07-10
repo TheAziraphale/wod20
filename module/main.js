@@ -134,11 +134,6 @@ Hooks.once("init", async function () {
   });
   
   Handlebars.registerHelper("setSkillArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
-    console.log(varName)
-    console.log(sheetsystem)
-    console.log(skillsModern)
-    console.log(skillsDa)
-    console.log(skillsWild)
     if(sheetsystem === 'modern') {
       options.data.root[varName] = skillsModern;
     } else if(sheetsystem === 'darkages') {
@@ -307,10 +302,7 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("getSkillValue", function(skillName, skillList, options) {
     var value = 0
 
-    console.log(skillList)
     if(skillList && skillList[skillName]) {
-      console.log(skillList[skillName])
-      console.log(skillList[skillName].value)
       value = skillList[skillName].value
     }
 

@@ -219,6 +219,8 @@ export class CoterieActorSheet extends ActorSheet {
         $(this).addClass("active");
       }
     });
+    console.log("assigning field")
+    console.log(fields, index + 1)
     this._assignToActorField(fields, index + 1);
   }
 
@@ -299,6 +301,9 @@ export class CoterieActorSheet extends ActorSheet {
       }
     } else {
       const lastField = fields.pop();
+      console.log(lastField)
+      console.log(fields)
+      console.log(actorData)
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
     this.actor.update(actorData);

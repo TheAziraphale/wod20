@@ -40,7 +40,7 @@ export const skillsDa = [
     { name:"enigmas", loc:"VTM5E.Enigmas"},
     { name:"awareness", loc:"VTM5E.Awareness"},
     { name:"commerce", loc:"VTM5E.Commerce"},
-    { name:"hearthwisdom", loc:"VTM5E.HearthWisdom"},
+    { name:"hearthWisdom", loc:"VTM5E.HearthWisdom"},
     { name:"brawl", loc:"VTM5E.Brawl"},
     { name:"craft", loc:"VTM5E.Craft"},
     { name:"investigation", loc:"VTM5E.Investigation"},
