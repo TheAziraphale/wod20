@@ -223,8 +223,6 @@ export class CoterieActorSheet extends ActorSheet {
         $(this).addClass("active");
       }
     });
-    console.log("assigning field")
-    console.log(fields, index + 1)
     this._assignToActorField(fields, index + 1);
   }
 
@@ -306,20 +304,14 @@ export class CoterieActorSheet extends ActorSheet {
     } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
       for (const skillKey of Object.keys(actorData.data.skills)) {
-        if (fields[2] === skillKey && actorData.data.skills[skillKey] && actorData.data.skills[skillKey].length === 2) {
-          console.log(actorData.data.skills[skillKey], value)
+        if (fields[2] === skillKey) {
           actorData.data.skills[skillKey].value = value;
           foundSkill = true
           break;
         }
       }
       if(!foundSkill) {
-        console.log(fields[2])
-        console.log(value)
-        console.log(actorData.data.skills[fields[2]])
-        
         actorData.data.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
-        console.log(actorData.data.skills[fields[2]])
       }
     } else {
       const lastField = fields.pop();
@@ -351,7 +343,7 @@ export class CoterieActorSheet extends ActorSheet {
         })
       }
     }
-    console.log(skillValue, localization)
+
     return {value: skillValue, name: localization}
   }
 }
