@@ -4,7 +4,7 @@
         <label>{{localize "VTM5E.SelectDiscipline"}}</label>
         <select id="disciplineSelect" name="data.disciplineSelect">
             {{#select data.data.disciplineSelect}} 
-                {{options}}
+                {{{options}}}
             {{/select}}
         </select>
         {{#if_eq "custom-discipline" data.data.disciplineSelect}}
@@ -12,4 +12,4 @@
             <input name="data.newdisciplinename" id="newdisciplinename" value="{{data.data.newdisciplinename}}" />
         {{/if_eq}}
     </div>
-</form>`;
+</form>
