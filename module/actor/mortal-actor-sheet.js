@@ -288,7 +288,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            applyWounds
+            applyWounds,
+            specialtyLabel
           )
 
         }
@@ -429,7 +430,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            false
+            false,
+            specialtyLabel
           )
         }
       },
