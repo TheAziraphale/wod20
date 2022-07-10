@@ -776,7 +776,8 @@
   font-size: 12px;
   font-family: "cormorantlight", sans-serif;
   font-weight: bold;
-  margin-top: 18px;
+  margin-top: 19px;
+  margin-bottom: 1px;
   margin-right: 5px;
   flex: 0;
 }
