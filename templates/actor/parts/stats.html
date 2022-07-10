@@ -138,6 +138,9 @@
     {{log item}}
     {{log id}}
     <li class="item flexrow" data-item-id="{{item._id}}">
+
+      {{log item.data.useattributes}}
+      {{log item.data.attribute}}
       {{#if item.data.useattributes}}
       <div
         class="item-image custom-rollable"
