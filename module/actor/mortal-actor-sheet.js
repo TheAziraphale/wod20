@@ -485,6 +485,8 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           let specialtyLabel = ''
           if(specialty) {
+            console.log(this.actor)
+            console.log(this.actor.data)
             console.log(this.actor.data.data)
           }
 
