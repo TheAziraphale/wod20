@@ -23,9 +23,10 @@
                 <span class="resource-value-step" data-index="{{this}}"></span>
                 {{/numLoop}}
             </div>
+            {{else if discipline.isCustom}}
+            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}">{{discipline.name}}</div>
             {{else}}
-            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}">{{localize discipline.name}}
-            </div>
+            <div class="item-name" data-roll="{{discipline.value}}" data-label="{{key}}">{{localize discipline.name}}</div>
             {{/if}}
             <div class="item-controls">
                 <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"

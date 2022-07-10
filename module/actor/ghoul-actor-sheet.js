@@ -131,14 +131,18 @@ export class GhoulActorSheet extends MortalActorSheet {
     // Make Discipline hidden
     html.find(".discipline-delete").click((ev) => {
       const data = $(ev.currentTarget)[0].dataset;
-      this.actor.update({
-        [`data.disciplines.${data.discipline}.visible`]: false,
-      });
+
+      if(this.actor.data.data.disciplines[data.discipline].isCustom) {
+        delete this.actor.data.data.disciplines[data.discipline]
+      } else {
+        this.actor.update({
+          [`data.disciplines.${data.discipline}.visible`]: false,
+        });
+      }
     });
 
     // Rollable Vampire/Ghouls powers
     html.find(".power-rollable").click(this._onVampireRoll.bind(this));
-
   }
 
   /**
@@ -153,7 +157,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       this.actor.data.data.disciplines
     )) {
       let localizedName = game.i18n.localize(value.name)
-      if(localizedName === undefined) {
+      if(value.isCustom) {
         localizedName = value.name
       }
       options = options.concat(
@@ -177,7 +181,8 @@ export class GhoulActorSheet extends MortalActorSheet {
               name: "Unknown discipline",
               power:[],
               value: 0,
-              visible: true
+              visible: true,
+              isCustom: true,
             }
             this.actor.update({
               [`data.disciplines.${randomKey}.visible`]: true,
@@ -185,9 +190,6 @@ export class GhoulActorSheet extends MortalActorSheet {
 
             console.log(discipline)
             console.log(this.actor)
-            if(this.actor) {
-              console.log(this.actor.data)
-            }
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
