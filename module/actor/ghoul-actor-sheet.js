@@ -201,16 +201,10 @@ export class GhoulActorSheet extends MortalActorSheet {
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
-    const li = $(ev.currentTarget).parents(".item");
-    console.log("here", $(ev.currentTarget))
-    console.log(li)
-    console.log(li.data("itemId"))
-    const item = this.actor.getEmbeddedDocument('Item',li.data("itemId"));
-    console.log("test", item)
-    console.log(this.actor.data)
     if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
       console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
-      delete this.actor.data.data.disciplines[data.discipline]
+      this.actor.data.data.disciplines[data.discipline].delete()
+      //delete this.actor.data.data.disciplines[data.discipline]
       console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
       /*
       
@@ -218,6 +212,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
       */
+    
       this.actor.update({
         [`data.disciplines`]: {...this.actor.data.data.disciplines},
       })
