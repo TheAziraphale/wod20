@@ -487,23 +487,18 @@ export class MortalActorSheet extends CoterieActorSheet {
           let specialtyLabel = ''
           console.log(this.actor)
           this.actor.specialties.forEach((specialty) => {
-            console.log(specialty, attributes, dataset.label.toLowerCase())
+            console.log(specialty, attributes, clickedRollName)
+            let foundMatch = false
             if (specialty.data.useattributes) {
-              const isAttributeMatch = specialty.data.attribute === attributes
-              if(isAttributeMatch || specialty.data.attribute === clickedRollName) {
-                if(specialtyLabel !== '') {
-                  specialtyLabel += ', '
-                }                  
-                specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[isAttributeMatch === attributes ? attributes : clickedRollName]?.name)
-              }
+              foundMatch = specialty.data.attribute === attributes || specialty.data.attribute === clickedRollName
             } else {
-              const isAbilityMatch = specialty.data.skill === ability
-              if(isAbilityMatch || specialty.data.skill === clickedRollName) {
-                if(specialtyLabel !== '') {
-                  specialtyLabel += ', '
-                }                  
-                specialtyLabel += game.i18n.localize(this.actor.data.data.abilities[isAbilityMatch ? ability : clickedRollName]?.name)
-              }
+              foundMatch = specialty.data.skill === ability || specialty.data.skill === clickedRollName
+            }
+            if (foundMatch) {
+              if(specialtyLabel !== '') {
+                specialtyLabel += ', '
+              }                  
+              specialtyLabel += specialty.name
             }
           })
 
