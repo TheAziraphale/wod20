@@ -540,12 +540,12 @@ export class MortalActorSheet extends CoterieActorSheet {
         }
       }
       if (foundMatch) {
-        if(specialtyLabel !== '') {
-          specialtyLabel += ', '
+        if(returnLabel !== '') {
+          returnLabel += ', '
         }                  
-        specialtyLabel += specialty.name
+        returnLabel += specialty.name
         if(specialitySource && specialitySource !== '') {
-          specialtyLabel += ' (' + specialitySource + ')'
+          returnLabel += ' (' + specialitySource + ')'
         }
       }
     })
