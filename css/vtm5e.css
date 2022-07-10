@@ -748,3 +748,29 @@
 .vtm5e .mid-width-table {
   width: 120px;
 }
+
+.vtm5e .sheet-header .profile-img .sheetsystem-select {
+  background: #790813;
+  color: white;
+  font-family: "cormorantlight", sans-serif;
+  font-weight: bold;
+  border: none;
+  margin: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 100%;
+}
+
+.vtm5e .sheet-header .profile-img .sheetsystem-label-group {
+  display:flex;
+  flex-direction: row;
+}
+
+.vtm5e .sheet-header .profile-img .sheetsystem-label-group .sheetsystem-label {
+  color: #790813;
+  font-size: 12px;
+  font-family: "cormorantlight", sans-serif;
+  font-weight: bold;
+  margin-top: 5px;
+  flex: 0;
+}
