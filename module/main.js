@@ -133,7 +133,7 @@ Hooks.once("init", async function () {
     options.data.root[varName] = varValue;
   });
   
-  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, , skillsModern, skillsDa, skillsWild, options) {
+  Handlebars.registerHelper("setSkillsArray", function(varName, sheetsystem, skillsModern, skillsDa, skillsWild, options) {
     if(sheetsystem === 'darkages') {
       options.data.root[varName] = skillsDa;
     } else if(sheetsystem === 'wildwest') {
