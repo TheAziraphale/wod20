@@ -200,7 +200,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            applyWounds
+            applyWounds,
+            specialtyLabel
           )
         }
       },
@@ -482,6 +483,11 @@ export class MortalActorSheet extends CoterieActorSheet {
 
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + roll + actorsOwnBuff + modifier : roll + modifier
 
+          let specialtyLabel = ''
+          if(specialty) {
+            console.log(this.actor.data.data)
+          }
+
           rollDice(
             numDice,
             this.actor,
@@ -491,7 +497,8 @@ export class MortalActorSheet extends CoterieActorSheet {
             difficulty,
             specialty,
             this.actor.data.data.health.state,
-            applyWounds
+            applyWounds,
+            specialtyLabel
           )
           // this._vampireRoll(numDice, this.actor, `${dataset.label} + ${abilityName}`, difficulty)
         }

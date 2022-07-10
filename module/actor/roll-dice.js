@@ -8,7 +8,8 @@ export async function rollDice (
   difficulty = 6,
   specialty,
   wound,
-  applyWounds
+  applyWounds,
+  specialtyLabel,
 ) {
   // console.log(wound, applyWounds)
   function healthModifier (wound) {
@@ -74,6 +75,10 @@ export async function rollDice (
   }
 
   label = `<p class="roll-label uppercase">${label}</p>`
+
+  if(specialtyLabel && specialtyLabel !== '') {
+    label += `<p class="roll-speciality-label">${specialtyLabel}</p>`
+  }
 
   if (chanceDie) {
     label +=
