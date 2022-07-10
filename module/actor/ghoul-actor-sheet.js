@@ -200,11 +200,14 @@ export class GhoulActorSheet extends MortalActorSheet {
     const disciplineSelect = document.querySelector(
       'select[name="disciplineSelect"]'
     );
-    const secondary = document.getElementById('disciplineSelect"]');
-
     console.log(disciplineSelect)
-    console.log(secondary)
     if(disciplineSelect) {
+      disciplineSelect.addEventListener("click", function() {
+        console.log("click happened", this)
+      });
+      disciplineSelect.addEventListener("select", function() {
+        console.log("select", this)
+      });
       disciplineSelect.addEventListener("change", function() {
         console.log("change happened", this.value)
         this.item.update({ "data.disciplineSelect": this.value });
