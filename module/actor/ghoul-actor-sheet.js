@@ -183,19 +183,18 @@ export class GhoulActorSheet extends MortalActorSheet {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
             const randomKey = this._makeid(10)
-            this.actor.data.data.disciplines[randomKey] = {
-              name: "Unknown discipline",
-              power:[],
-              value: 0,
-              visible: true,
-              isCustom: true,
-            }
-            this.actor.update({[`data.disciplines.${randomKey}.name`]: "Unknown discipline"})
+            this.actor.update({[`data.disciplines.${randomKey}.name`]: "Unknown discipline",
+            [`data.disciplines.${randomKey}.power`]: [],
+            [`data.disciplines.${randomKey}.value`]: 0,
+            [`data.disciplines.${randomKey}.visible`]: true,
+            [`data.disciplines.${randomKey}.isCustom`]: true,
+          })
+          /*
             this.actor.update({[`data.disciplines.${randomKey}.power`]: []})
             this.actor.update({[`data.disciplines.${randomKey}.value`]: 0})
             this.actor.update({[`data.disciplines.${randomKey}.visible`]: true})
             this.actor.update({[`data.disciplines.${randomKey}.isCustom`]: true})
-
+*/
             console.log(discipline)
             console.log(this.actor)
             console.log(this.actor.data)
