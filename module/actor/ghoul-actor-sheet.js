@@ -225,6 +225,9 @@ export class GhoulActorSheet extends MortalActorSheet {
       const li = $(ev.currentTarget).parents(".item")
       console.log(li)
       console.log(li.data("itemId"))
+      console.log(data)
+      console.log(this.actor);
+      console.log(this.actor.data);
       /*
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
