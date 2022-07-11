@@ -148,6 +148,8 @@ export class CoterieActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
+      console.log(li)
+      console.log(li.data("itemId"))
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
     });
@@ -310,7 +312,6 @@ export class CoterieActorSheet extends ActorSheet {
   // There's gotta be a better way to do this but for the life of me I can't figure it out
   _assignToActorField(fields, value) {
     const actorData = duplicate(this.actor);
-    console.log(fields, value)
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
       for (const i of actorData.items) {
@@ -340,11 +341,6 @@ export class CoterieActorSheet extends ActorSheet {
       }
     } else {
       const lastField = fields.pop();
-      console.log(fields)
-      console.log(fields.reduce((data, field) => data[field], actorData))
-      console.log(actorData)
-      console.log(lastField)
-      console.log(value)
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
     this.actor.update(actorData);
