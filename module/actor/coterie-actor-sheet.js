@@ -333,6 +333,7 @@ export class CoterieActorSheet extends ActorSheet {
       }
     } else {
       const lastField = fields.pop();
+      console.log(fields)
       console.log(fields.reduce((data, field) => data[field], actorData))
       console.log(actorData)
       console.log(lastField)
