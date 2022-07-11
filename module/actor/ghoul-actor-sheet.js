@@ -220,7 +220,8 @@ export class GhoulActorSheet extends MortalActorSheet {
       name: name,
       powers:[],
       value: 0,
-      visible: true
+      visible: true,
+      isCustom: true
     };
 
     const itemData = {

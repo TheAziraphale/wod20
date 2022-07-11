@@ -77,6 +77,7 @@ export class MortalActorSheet extends CoterieActorSheet {
     const specialties = [];
     const boons = [];
     const customRolls = [];
+    const customDiscipline = [];
 
     // Iterate through items, allocating to containers
     for (const i of sheetData.items) {
@@ -90,12 +91,15 @@ export class MortalActorSheet extends CoterieActorSheet {
       } else if (i.type === "customRoll") {
         // Append to custom rolls.
         customRolls.push(i);
+      } else if (i.type === "customDiscipline") {
+        customDiscipline.push(i)
       }
     }
     // Assign and return
     actorData.specialties = specialties;
     actorData.boons = boons;
     actorData.customRolls = customRolls;
+    actorData.customDiscipline = customDiscipline;
   }
 
   /* -------------------------------------------- */
