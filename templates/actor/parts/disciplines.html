@@ -64,7 +64,7 @@
         {{#each actor.customDisciplines as |discipline key|}}
             {{#if discipline.data.visible}}
                 <li class="flexrow item-header">
-                    <div class="item-name vrollable" data-roll="{{discipline.data.value}}" data-custom="true" data-label="{{discipline._id}}">{{discipline.data.name}}</div>
+                    <div class="item-name vrollable" data-roll="{{discipline.data.value}}" data-custom="true" data-label="{{discipline.data.name}}">{{discipline.data.name}}</div>
                     <div class="resource-value" data-value="{{discipline.data.value}}" data-name="data.discipline.{{discipline._id}}.value">
                         <span class="resource-value-empty"></span>
                         {{#numLoop ../loopLength}}
