@@ -173,7 +173,7 @@ export class GhoulActorSheet extends MortalActorSheet {
             [`data.disciplines.${randomKey}.visible`]: true,
             [`data.disciplines.${randomKey}.isCustom`]: true,
           })
-          /*
+/*
             this.actor.update({[`data.disciplines.${randomKey}.power`]: []})
             this.actor.update({[`data.disciplines.${randomKey}.value`]: 0})
             this.actor.update({[`data.disciplines.${randomKey}.visible`]: true})
@@ -212,7 +212,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       li.slideUp(200, () => this.render(false));
       */
     
-      this.actor.update({[`data.disciplines`]: this.actor.data.data.disciplines,})
+      this.actor.update({[`data.disciplines`]: {...this.actor.data.data.disciplines},})
       console.log("2", data.discipline, this.actor.data.data.disciplines)
       console.log("3", data.discipline, this.actor)
     } else {
