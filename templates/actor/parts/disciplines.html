@@ -65,7 +65,7 @@
             {{#if discipline.data.visible}}
                 <li class="flexrow item-header">
                     <div class="item-name vrollable" data-roll="{{discipline.data.value}}" data-custom="true" data-label="{{discipline.data.name}}">{{discipline.data.name}}</div>
-                    <div class="resource-value" data-value="{{discipline.data.value}}" data-name="items.{{discipline._id}}.value">
+                    <div class="resource-value" data-value="{{discipline.data.value}}" data-name="items.{{discipline._id}}">
                         <span class="resource-value-empty"></span>
                         {{#numLoop ../loopLength}}
                         <span class="resource-value-step" data-index="{{this}}"></span>
