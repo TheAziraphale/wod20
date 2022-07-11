@@ -211,16 +211,18 @@ export class GhoulActorSheet extends MortalActorSheet {
     const type = "customDiscipline"
     const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.
+  
+    // Initialize a default name.
+    const name = "New Discipline"
+    // Prepare the item object.
+    
     const data = {
       name: name,
       powers:[],
       value: 0,
       visible: true
     };
-  
-    // Initialize a default name.
-    const name = "New Discipline"
-    // Prepare the item object.
+
     const itemData = {
       name: name,
       type: type,
