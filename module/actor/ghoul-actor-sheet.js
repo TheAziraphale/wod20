@@ -223,6 +223,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     const data = $(ev.currentTarget)[0].dataset
     if(data.custom && data.custom === 'true') {
       const li = $(ev.currentTarget).parents(".item")
+      console.log( $(ev.currentTarget))
       console.log(li)
       console.log(li.data("itemId"))
       console.log(data)
