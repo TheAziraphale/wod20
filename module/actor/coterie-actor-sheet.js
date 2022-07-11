@@ -285,6 +285,7 @@ export class CoterieActorSheet extends ActorSheet {
   
     // Initialize a default name.
     const name = this.getItemDefaultName(type, data);
+    console.log(header, type, sheettype, data, name)
     // Prepare the item object.
     const itemData = {
       name: name,
