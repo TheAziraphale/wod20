@@ -61,12 +61,16 @@
             {{/if}}
         {{/each}}
 
-        {{log actor.customDisciplines}}
-        {{log actor}}
         {{#each actor.customDisciplines as |discipline key|}}
             {{#if discipline.data.visible}}
                 <li class="flexrow item-header">
-                    <div class="item-name" data-roll="{{discipline.data.value}}" data-label="{{discipline._id}}">{{discipline.name}}</div>
+                    <div class="item-name vrollable" data-roll="{{discipline.data.value}}" data-custom="true" data-label="{{discipline._id}}">{{discipline.data.name}}</div>
+                    <div class="resource-value" data-value="{{discipline.data.value}}" data-name="data.discipline.{{discipline._id}}.value">
+                        <span class="resource-value-empty"></span>
+                        {{#numLoop ../loopLength}}
+                        <span class="resource-value-step" data-index="{{this}}"></span>
+                        {{/numLoop}}
+                    </div>
                     <div class="item-controls">
                         <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"
                             data-discipline="{{discipline._id}}" data-custom="true" data-sheettype="{{../sheetType}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
