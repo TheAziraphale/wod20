@@ -61,6 +61,8 @@
             {{/if}}
         {{/each}}
 
+        {{log customDisciplines}}
+        {{log data}}
         {{#each customDisciplines as |discipline key|}}
             {{#if discipline.data.visible}}
                 <li class="flexrow item-header">
