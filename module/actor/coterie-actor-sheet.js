@@ -319,6 +319,13 @@ export class CoterieActorSheet extends ActorSheet {
           break;
         }
       }
+    } else if (fields.length === 3 && fields[0] === "items" && fields[1] === "disciplines") {
+      for (const i of actorData.items) {
+        if (fields[2] === i._id) {
+          i.data.value = value;
+          break;
+        }
+      }
     } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
       for (const skillKey of Object.keys(actorData.data.skills)) {
