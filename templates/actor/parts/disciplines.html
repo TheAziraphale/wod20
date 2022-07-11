@@ -61,9 +61,9 @@
             {{/if}}
         {{/each}}
 
-        {{log customDisciplines}}
-        {{log data}}
-        {{#each customDisciplines as |discipline key|}}
+        {{log actor.customDisciplines}}
+        {{log actor}}
+        {{#each actor.customDisciplines as |discipline key|}}
             {{#if discipline.data.visible}}
                 <li class="flexrow item-header">
                     <div class="item-name" data-roll="{{discipline.data.value}}" data-label="{{discipline._id}}">{{discipline.name}}</div>
