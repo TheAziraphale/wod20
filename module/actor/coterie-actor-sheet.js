@@ -148,9 +148,6 @@ export class CoterieActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      console.log($(ev.currentTarget))
-      console.log(li)
-      console.log(li.data("itemId"))
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
     });

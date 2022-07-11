@@ -223,16 +223,8 @@ export class GhoulActorSheet extends MortalActorSheet {
     const data = $(ev.currentTarget)[0].dataset
     if(data.custom && data.custom === 'true') {
       const li = $(ev.currentTarget).parents(".item-header")
-      console.log( $(ev.currentTarget))
-      console.log(li)
-      console.log(li.data("itemId"))
-      console.log(data)
-      console.log(this.actor);
-      console.log(this.actor.data);
-      /*
       this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
       li.slideUp(200, () => this.render(false));
-      */
     } else {
       this.actor.update({
         [`data.disciplines.${data.discipline}.visible`]: false,
