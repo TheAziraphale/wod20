@@ -166,6 +166,10 @@ export class GhoulActorSheet extends MortalActorSheet {
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
+            const createdItem = this._onDisciplineCreate(event)
+            
+            console.log(createdItem)
+            /*
             const randomKey = this._makeid(10)
             this.actor.update({[`data.disciplines.${randomKey}.name`]: "Unknown discipline",
             [`data.disciplines.${randomKey}.power`]: [],
@@ -173,13 +177,15 @@ export class GhoulActorSheet extends MortalActorSheet {
             [`data.disciplines.${randomKey}.visible`]: true,
             [`data.disciplines.${randomKey}.isCustom`]: true,
           })
-/*
             this.actor.update({[`data.disciplines.${randomKey}.power`]: []})
             this.actor.update({[`data.disciplines.${randomKey}.value`]: 0})
             this.actor.update({[`data.disciplines.${randomKey}.visible`]: true})
             this.actor.update({[`data.disciplines.${randomKey}.isCustom`]: true})
-*/
+
             console.log(discipline)
+            console.log(this.actor)
+            console.log(this.actor.data)
+            */
             console.log(this.actor)
             console.log(this.actor.data)
           } else {
@@ -197,24 +203,43 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
   }
+
+  _onDisciplineCreate(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const type = "customDiscipline"
+    const sheettype = header.dataset.sheettype;
+    // Grab any data associated with this control.
+    const data = {
+      name: name,
+      powers:[],
+      value: 0,
+      visible: true
+    };
+  
+    // Initialize a default name.
+    const name = "New Discipline"
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      data: data,
+      sheettype: sheettype
+    };
+
+    // Finally, create the item!
+    console.log(itemData)
+    return this.actor.createEmbeddedDocuments('Item', [(itemData)]);
+  }
   
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
     if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
-      console.log("0", data.discipline, this.actor.data.data.disciplines[data.discipline])
-      delete this.actor.data.data.disciplines[data.discipline]
-      //console.log("1", data.discipline, this.actor.data.data.disciplines[data.discipline])
-      /*
-      
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
-      li.slideUp(200, () => this.render(false));
-      */
-    
-      this.actor.update({[`data.disciplines`]: {...this.actor.data.data.disciplines},})
-      console.log("2", data.discipline, this.actor.data.data.disciplines)
-      console.log("3", data.discipline, this.actor)
+      this.actor.update({
+        [`data.disciplines.${data.discipline}.visible`]: false,
+      })
     } else {
       this.actor.update({
         [`data.disciplines.${data.discipline}.visible`]: false,
