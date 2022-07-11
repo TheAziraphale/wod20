@@ -907,7 +907,7 @@
     }
   },
   "Item": {
-    "types": ["feature", "power", "specialty", "boon", "customDiscipline", "customRoll"],
+    "types": ["feature", "power", "specialty", "boon", "customDisciplines", "customRoll"],
     "templates": {
       "base": {
         "description": ""
@@ -936,7 +936,7 @@
       "templates": ["base"],
       "boontype": "Trivial"
     },
-    "customDiscipline": {
+    "customDisciplines": {
       "templates": ["base"]
     },
     "customRoll": {

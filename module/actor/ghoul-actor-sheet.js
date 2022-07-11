@@ -167,25 +167,7 @@ export class GhoulActorSheet extends MortalActorSheet {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
             const createdItem = this._onDisciplineCreate(event)
-            
             console.log(createdItem)
-            /*
-            const randomKey = this._makeid(10)
-            this.actor.update({[`data.disciplines.${randomKey}.name`]: "Unknown discipline",
-            [`data.disciplines.${randomKey}.power`]: [],
-            [`data.disciplines.${randomKey}.value`]: 0,
-            [`data.disciplines.${randomKey}.visible`]: true,
-            [`data.disciplines.${randomKey}.isCustom`]: true,
-          })
-            this.actor.update({[`data.disciplines.${randomKey}.power`]: []})
-            this.actor.update({[`data.disciplines.${randomKey}.value`]: 0})
-            this.actor.update({[`data.disciplines.${randomKey}.visible`]: true})
-            this.actor.update({[`data.disciplines.${randomKey}.isCustom`]: true})
-
-            console.log(discipline)
-            console.log(this.actor)
-            console.log(this.actor.data)
-            */
             console.log(this.actor)
             console.log(this.actor.data)
           } else {
@@ -239,10 +221,14 @@ export class GhoulActorSheet extends MortalActorSheet {
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
-    if(this.actor.data.data.disciplines[data.discipline]?.isCustom) {
-      this.actor.update({
-        [`data.disciplines.${data.discipline}.visible`]: false,
-      })
+    if(data.custom && data.custom === 'true') {
+      const li = $(ev.currentTarget).parents(".item")
+      console.log(li)
+      console.log(li.data("itemId"))
+      /*
+      this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
+      li.slideUp(200, () => this.render(false));
+      */
     } else {
       this.actor.update({
         [`data.disciplines.${data.discipline}.visible`]: false,
@@ -250,17 +236,6 @@ export class GhoulActorSheet extends MortalActorSheet {
     }
     this._render();
   }
-
-  _makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * 
-      charactersLength));
-   }
-   return result;
-}
 
   _onVampireRoll(event) {
     event.preventDefault();
