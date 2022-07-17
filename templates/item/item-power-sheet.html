@@ -53,6 +53,7 @@
             {{#each data.data.disciplines as |discipline key|}}
               <option value="{{discipline.value}}">{{discipline.name}}</option>
               {{#if discipline.isCustom}}
+                <option value="{{discipline.value}}">{{localize discipline.name}}</option>
               {{else}}
                 <option value="{{discipline.value}}">{{localize discipline.name}}</option>
               {{/if}}

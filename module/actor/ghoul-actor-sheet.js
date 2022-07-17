@@ -215,7 +215,7 @@ export class GhoulActorSheet extends MortalActorSheet {
         },
       };
 
-      super._onRenderDialog(template, {}, game.i18n.localize("VTM5E.AddDiscipline"), buttons) 
+      super._onRenderDialog(template, {}, game.i18n.localize("VTM5E.SelectNameDiscipline"), buttons) 
    }
 
   _onDisciplineCreate(event, disciplineName) {
@@ -225,7 +225,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     const type = "customDiscipline"
     const sheettype = header.dataset.sheettype;
     // Grab any data associated with this control.
-  
+
     // Initialize a default name.
     const name = disciplineName ? disciplineName : "New Discipline"
     // Prepare the item object.
