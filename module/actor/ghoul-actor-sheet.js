@@ -288,9 +288,6 @@ export class GhoulActorSheet extends MortalActorSheet {
     const dataset = element.dataset;
     const item = this.actor.items.get(dataset.id);
     let disciplineValue = 0
-    console.log(this.actor.data.data.disciplines[item.data.data.discipline])
-    console.log(item.data.data.discipline)
-    console.log(this.actor)
     if(this.actor.data.data.disciplines[item.data.data.discipline]) {
       disciplineValue = this.actor.data.data.disciplines[item.data.data.discipline].value
     } else {
@@ -302,14 +299,10 @@ export class GhoulActorSheet extends MortalActorSheet {
         }
       }
     }
-
-    console.log(item)
-    console.log(item.data)
-    console.log(item.data.data)
     const dice1 =
       item.data.data.dice1 === "discipline"
         ? disciplineValue : item.data.data.dice1 === "thaumaturgy" ?
-        this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"] : 0
+        this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"].value : 0
         : (this.actor.data.data.abilities[item.data.data.dice1]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].value : 0) + 
         (this.actor.data.data.abilities[item.data.data.dice1]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].buff : 0)
 
@@ -317,7 +310,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     if (item.data.data.dice2 === "discipline") {
       dice2 = disciplineValue
     } else if (item.data.data.dice1 === "thaumaturgy") {      
-      dice2 = this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"] : 0
+      dice2 = this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"].value : 0
     } else if (item.data.data.skill) {
       dice2 = (this.actor.data.data.skills[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.skills[item.data.data.dice2].value : 0);
     } else {
