@@ -78,9 +78,6 @@
                             data-discipline_list={{../actor.disciplines_list}} data-customname="{{discipline.name}}" data-discipline="{{discipline._id}}" data-custom="true"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
-                {{log discipline}}
-                {{log discipline._id}}
-                {{log ../actor.disciplines_list}}
                 {{#each (lookup ../actor.disciplines_list discipline.name) as |item id|}}
                 <li class="item flexcol" data-item-id="{{item._id}}">
                     <div class="flexrow">
