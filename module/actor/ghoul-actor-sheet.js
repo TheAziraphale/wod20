@@ -308,13 +308,16 @@ export class GhoulActorSheet extends MortalActorSheet {
     console.log(item.data.data)
     const dice1 =
       item.data.data.dice1 === "discipline"
-        ? disciplineValue
+        ? disciplineValue : item.data.data.dice1 === "thaumaturgy" ?
+        this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"] : 0
         : (this.actor.data.data.abilities[item.data.data.dice1]?.value !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].value : 0) + 
         (this.actor.data.data.abilities[item.data.data.dice1]?.buff !== undefined ? this.actor.data.data.abilities[item.data.data.dice1].buff : 0)
 
     let dice2;
     if (item.data.data.dice2 === "discipline") {
       dice2 = disciplineValue
+    } else if (item.data.data.dice1 === "thaumaturgy") {      
+      dice2 = this.actor.data.data.disciplines["thaumaturgy"]?.value !== undefined ? this.actor.data.data.disciplines["thaumaturgy"] : 0
     } else if (item.data.data.skill) {
       dice2 = (this.actor.data.data.skills[item.data.data.dice2]?.value !== undefined ? this.actor.data.data.skills[item.data.data.dice2].value : 0);
     } else {
