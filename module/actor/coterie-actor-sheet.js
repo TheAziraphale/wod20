@@ -184,8 +184,8 @@ export class CoterieActorSheet extends ActorSheet {
   }
 
   _getDisciplines(ev) {
-    console.log(this.actor.data)
-    return this.actor.data.data.disciplines
+    console.log(this.actor)
+    return {...this.actor.data.data.disciplines, ...this.actor.customDisciplines}
   }
 
   _setupDotCounters(html) {
