@@ -259,10 +259,20 @@ export class GhoulActorSheet extends MortalActorSheet {
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
+
     if(data.custom && data.custom === 'true') {
-      const li = $(ev.currentTarget).parents(".item-header")
-      this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
-      li.slideUp(200, () => this.render(false));
+      let stillHaveChildren = false
+      if(data.discipline && data.disciplines_list && data.disciplines_list.length > 0 && data.discipline_list[data.discipline] &&& data.discipline_list[data.discipline].length > 0) {
+        stillHaveChildren = true
+      }
+
+      if(!stillHaveChildren) {
+        const li = $(ev.currentTarget).parents(".item-header")
+        this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
+        li.slideUp(200, () => this.render(false));
+      } else {
+        alert("You can't remove custom disciplines that still have powers on them")
+      }
     } else {
       this.actor.update({
         [`data.disciplines.${data.discipline}.visible`]: false,

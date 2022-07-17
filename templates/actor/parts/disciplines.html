@@ -75,7 +75,7 @@
                         <a class="item-control item-create" title="{{localize 'VTM5E.AddPower'}}" data-type="power"
                             data-customname="{{discipline.name}}" data-discipline="{{discipline._id}}" data-custom="true" data-sheettype="{{../sheetType}}"><i class="fas fa-plus"></i> {{localize "VTM5E.AddPower"}}</a>
                         <a class="item-control discipline-delete" title="{{localize 'VTM5E.Delete'}}"
-                            data-discipline="{{discipline._id}}" data-custom="true"><i class="fas fa-trash"></i></a>
+                            data-discipline_list={{../actor.disciplines_list}} data-discipline="{{discipline._id}}" data-custom="true"><i class="fas fa-trash"></i></a>
                     </div>
                 </li>
                 {{log discipline}}
