@@ -601,6 +601,11 @@
   font-size: 12px;
 }
 
+.roll-speciality-label-applied {
+  text-decoration: underline
+}
+
+
 .roll-label .danger {
   color: #831515;
 }

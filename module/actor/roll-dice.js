@@ -77,7 +77,7 @@ export async function rollDice (
   label = `<p class="roll-label uppercase">${label}</p>`
 
   if(specialtyLabel && specialtyLabel !== '') {
-    label += `<p class="roll-speciality-label">${specialtyLabel}</p>`
+    label += `<p class="roll-speciality-label ${specialty ? 'roll-speciality-label-applied' : ''}">${specialtyLabel}</p>`
   }
 
   if (chanceDie) {
