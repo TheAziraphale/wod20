@@ -142,7 +142,7 @@ export class CoterieActorSheet extends ActorSheet {
       const item = this.actor.getEmbeddedDocument('Item', li.data("itemId"));
 
       item.skillsArray = this._getSkillArray() 
-      item.disciplines = this._getDisciplines(ev) 
+      item.disciplines = this._getDisciplines() 
       item.sheet.render(true);
     });
 
@@ -183,17 +183,14 @@ export class CoterieActorSheet extends ActorSheet {
     return skillsArray
   }
 
-  _getDisciplines(ev) {
+  _getDisciplines() {
     let customDisciplines = {}
     let i
     for(i = 0; i < this.actor.customDisciplines.length; i++) {
-      console.log( this.actor.customDisciplines[i])
       if( this.actor.customDisciplines[i]) {
         customDisciplines[this.actor.customDisciplines[i].name] = this.actor.customDisciplines[i].data
       }
     }
-
-    console.log(this.actor)
     return {...this.actor.data.data.disciplines, ...customDisciplines}
   }
 
