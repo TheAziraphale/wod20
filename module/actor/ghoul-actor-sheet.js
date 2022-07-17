@@ -263,13 +263,14 @@ export class GhoulActorSheet extends MortalActorSheet {
     console.log("deleting")
     if(data.custom && data.custom === 'true') {
       let stillHaveChildren = false
+      const disciplineList = this.actor.disciplineList
       console.log(data.customname)
-      console.log(data.discipline_list)
+      console.log(disciplineList)
       if(data.customname && 
-        data.disciplines_list && 
-        data.disciplines_list.length > 0 && 
-        data.discipline_list[data.customname] && 
-        data.discipline_list[data.customname].length > 0) {
+        disciplineList && 
+        disciplineList.length > 0 && 
+        disciplineList[data.customname] && 
+        disciplineList[data.customname].length > 0) {
         stillHaveChildren = true
       }
 
