@@ -288,6 +288,9 @@ export class GhoulActorSheet extends MortalActorSheet {
     const dataset = element.dataset;
     const item = this.actor.items.get(dataset.id);
     let disciplineValue = 0
+    console.log(this.actor.data.data.disciplines[item.data.data.discipline])
+    console.log(item.data.data.discipline)
+    console.log(this.actor)
     if(this.actor.data.data.disciplines[item.data.data.discipline]) {
       disciplineValue = this.actor.data.data.disciplines[item.data.data.discipline].value
     } else {
