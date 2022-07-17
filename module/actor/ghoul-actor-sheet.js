@@ -209,9 +209,6 @@ export class GhoulActorSheet extends MortalActorSheet {
           callback: async (html) => {
             const name = html.find("#nameDiscipline")[0].value;
             const createdItem = this._onDisciplineCreate(event, name)
-            console.log(createdItem)
-            console.log(this.actor)
-            console.log(this.actor.data)
           },
         },
         cancel: {
@@ -251,7 +248,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     };
 
     // Finally, create the item!
-    console.log(itemData)
+    // console.log(itemData)
     return this.actor.createEmbeddedDocuments('Item', [(itemData)]);
   }
   

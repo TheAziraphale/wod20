@@ -293,9 +293,8 @@ export class CoterieActorSheet extends ActorSheet {
     }
   
     // Initialize a default name.
-    console.log(header.dataset.customname )
     const name = header.dataset.customname ? header.dataset.customname : this.getItemDefaultName(type, data)
-    console.log(header, type, sheettype, data, name)
+    // console.log(header, type, sheettype, data, name)
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -315,7 +314,6 @@ export class CoterieActorSheet extends ActorSheet {
       return `${game.i18n.localize("VTM5E." + data.featuretype.capitalize())}`;
     }
     if (type === "power") {
-      console.log("getting default name of", data.discipline)
       return `${game.i18n.localize("VTM5E." + data.discipline.capitalize())}`;
     }
     return `${game.i18n.localize("VTM5E." + type.capitalize())}`;
