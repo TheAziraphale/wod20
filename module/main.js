@@ -410,13 +410,17 @@ Hooks.once("init", async function () {
       ceremonies: "VTM5E.Ceremonies"
     }
 
+    console.log(this.actor)
     const customDisciplines = this.actor.customDisciplines
-    let i
-    for(i = 0; i < customDisciplines.length; i++) {
-      disciplines[customDisciplines[i].name] = customDisciplines[i].name
+    if(customDisciplines) {
+      let i
+      for(i = 0; i < customDisciplines.length; i++) {
+        disciplines[customDisciplines[i].name] = customDisciplines[i].name
+      }
+      console.log("getDisciplineName")
+      console.log(disciplines)
     }
-    console.log("getDisciplineName")
-    console.log(disciplines)
+
     return disciplines[key];
   });
 });
