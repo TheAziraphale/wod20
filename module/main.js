@@ -407,17 +407,14 @@ Hooks.once("init", async function () {
       necromancy: "VTM5E.Necromancy",
       oblivion: "VTM5E.Oblivion",
       rituals: "VTM5E.Rituals",
-      ceremonies: "VTM5E.Ceremonies",
-      
-    };
-    // if (roll) {
-    //   // if (key === "rituals") {
-    //   //   return disciplines.sorcery;
-    //   // } else
-    //   if (key === "ceremonies") {
-    //     return disciplines.oblivion;
-    //   }
-    // }
+      ceremonies: "VTM5E.Ceremonies"
+    }
+
+    const customDisciplines = this.actor.customDisciplines
+    let i
+    for(i = 0; i < customDisciplines.length; i++) {
+      disciplines[customDisciplines[i].name] = customDisciplines[i].name
+    }
     return disciplines[key];
   });
 });
