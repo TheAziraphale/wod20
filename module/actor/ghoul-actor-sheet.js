@@ -260,10 +260,11 @@ export class GhoulActorSheet extends MortalActorSheet {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
 
+    console.log(data)
+    console.log("deleting")
     if(data.custom && data.custom === 'true') {
       let stillHaveChildren = false
       console.log(data.customname, data.discipline_list)
-      console.log(data)
       if(data.customname && 
         data.disciplines_list && 
         data.disciplines_list.length > 0 && 
