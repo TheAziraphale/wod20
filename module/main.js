@@ -373,7 +373,7 @@ Hooks.once("init", async function () {
     })
     return foundMatch ? "" : label;
   });
-  Handlebars.registerHelper("getDisciplineName", function (key, roll = false) {
+  Handlebars.registerHelper("getDisciplineName", function (key, roll = false, disciplineList) {
     const disciplines = {
       abombwe: "VTM5E.Abombwe",
       animalism: "VTM5E.Animalism",
@@ -410,16 +410,7 @@ Hooks.once("init", async function () {
       ceremonies: "VTM5E.Ceremonies"
     }
 
-    console.log(this.actor)
-    const customDisciplines = this.actor.customDisciplines
-    if(customDisciplines) {
-      let i
-      for(i = 0; i < customDisciplines.length; i++) {
-        disciplines[customDisciplines[i].name] = customDisciplines[i].name
-      }
-      console.log("getDisciplineName")
-      console.log(disciplines)
-    }
+    console.log(disciplineList)
 
     return disciplines[key];
   });
