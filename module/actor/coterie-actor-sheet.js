@@ -142,6 +142,7 @@ export class CoterieActorSheet extends ActorSheet {
       const item = this.actor.getEmbeddedDocument('Item', li.data("itemId"));
 
       item.skillsArray = this._getSkillArray() 
+      item.disciplines = this._getDisciplines(ev) 
       item.sheet.render(true);
     });
 
@@ -180,6 +181,11 @@ export class CoterieActorSheet extends ActorSheet {
         break;
     }
     return skillsArray
+  }
+
+  _getDisciplines(ev) {
+    console.log(this.actor.data)
+    return this.actor.data.data.disciplines
   }
 
   _setupDotCounters(html) {
