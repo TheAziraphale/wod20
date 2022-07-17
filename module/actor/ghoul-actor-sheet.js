@@ -258,17 +258,9 @@ export class GhoulActorSheet extends MortalActorSheet {
   _deleteDisciplineButton(ev) {
     ev.preventDefault()
     const data = $(ev.currentTarget)[0].dataset
-
-    console.log(data)
-    console.log("deleting")
     if(data.custom && data.custom === 'true') {
       let stillHaveChildren = false
       const disciplineList = this.actor.disciplines_list
-      console.log(data.customname)
-      console.log(disciplineList)
-      console.log(disciplineList.length)
-      console.log(disciplineList[data.customname])
-      console.log(disciplineList[data.customname].length)
       if(data.customname && 
         disciplineList &&
         disciplineList[data.customname] && 
