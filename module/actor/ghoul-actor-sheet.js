@@ -262,14 +262,17 @@ export class GhoulActorSheet extends MortalActorSheet {
 
     if(data.custom && data.custom === 'true') {
       let stillHaveChildren = false
-      if(data.discipline && data.disciplines_list && data.disciplines_list.length > 0 && data.discipline_list[data.discipline] &&& data.discipline_list[data.discipline].length > 0) {
+      if(data.discipline && 
+        data.disciplines_list && 
+        data.disciplines_list.length > 0 && 
+        data.discipline_list[data.discipline] && 
+        data.discipline_list[data.discipline].length > 0) {
         stillHaveChildren = true
       }
-
       if(!stillHaveChildren) {
         const li = $(ev.currentTarget).parents(".item-header")
-        this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))]);
-        li.slideUp(200, () => this.render(false));
+        this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))])
+        li.slideUp(200, () => this.render(false))
       } else {
         alert("You can't remove custom disciplines that still have powers on them")
       }
