@@ -415,6 +415,8 @@ Hooks.once("init", async function () {
     for(i = 0; i < customDisciplines.length; i++) {
       disciplines[customDisciplines[i].name] = customDisciplines[i].name
     }
+    console.log("getDisciplineName")
+    console.log(disciplines)
     return disciplines[key];
   });
 });
