@@ -493,10 +493,7 @@ export class MortalActorSheet extends CoterieActorSheet {
           }
 
           const numDice = dataset.noability!=="true" ? abilityVal + attributesVal + roll + actorsOwnBuff + modifier : roll + modifier
-
-          console.log(this.actor)
           const specialtyLabel = this._getSpecialityLabel(this.actor.specialties, attribute, ability, clickedRollName)
-          console.log(specialtyLabel)
 
           rollDice(
             numDice,

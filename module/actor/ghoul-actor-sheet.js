@@ -267,8 +267,6 @@ export class GhoulActorSheet extends MortalActorSheet {
         disciplineList[data.customname].length > 0) {
         stillHaveChildren = true
       }
-
-      console.log(stillHaveChildren)
       if(!stillHaveChildren) {
         const li = $(ev.currentTarget).parents(".item-header")
         this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))])
@@ -293,6 +291,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     console.log(item.data)
     console.log(item.data.data.discipline)
     console.log(this.actor.data.data.disciplines[item.data.data.discipline])
+    console.log(this.actor)
     const disciplineValue = this.actor.data.data.disciplines[item.data.data.discipline] ? this.actor.data.data.disciplines[item.data.data.discipline].value : 0
 
     const dice1 =
