@@ -270,8 +270,7 @@ export class GhoulActorSheet extends MortalActorSheet {
       console.log(disciplineList[data.customname])
       console.log(disciplineList[data.customname].length)
       if(data.customname && 
-        disciplineList && 
-        disciplineList.length > 0 && 
+        disciplineList &&
         disciplineList[data.customname] && 
         disciplineList[data.customname].length > 0) {
         stillHaveChildren = true
