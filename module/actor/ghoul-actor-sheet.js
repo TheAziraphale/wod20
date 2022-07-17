@@ -263,10 +263,12 @@ export class GhoulActorSheet extends MortalActorSheet {
     console.log("deleting")
     if(data.custom && data.custom === 'true') {
       let stillHaveChildren = false
-      console.log(this.actor)
       const disciplineList = this.actor.disciplines_list
       console.log(data.customname)
       console.log(disciplineList)
+      console.log(disciplineList.length)
+      console.log(disciplineList[data.customname])
+      console.log(disciplineList[data.customname].length)
       if(data.customname && 
         disciplineList && 
         disciplineList.length > 0 && 
@@ -275,6 +277,7 @@ export class GhoulActorSheet extends MortalActorSheet {
         stillHaveChildren = true
       }
 
+      console.log(stillHaveChildren)
       if(!stillHaveChildren) {
         const li = $(ev.currentTarget).parents(".item-header")
         this.actor.deleteEmbeddedDocuments('Item', [(li.data("itemId"))])
