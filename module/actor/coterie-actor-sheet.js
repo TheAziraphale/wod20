@@ -188,8 +188,9 @@ export class CoterieActorSheet extends ActorSheet {
     let i
     for(i = 0; i < this.actor.customDisciplines.length; i++) {
       console.log( this.actor.customDisciplines[i])
-      console.log( this.actor.customDisciplines[i][0])
-      //customDisciplines[this.actor.customDisciplines[i].name] = this.actor.customDisciplines[i][0].data
+      if( this.actor.customDisciplines[i]) {
+        customDisciplines[this.actor.customDisciplines[i].name] = this.actor.customDisciplines[i].data
+      }
     }
 
     console.log(this.actor)
