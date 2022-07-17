@@ -82,13 +82,13 @@
                 {{log discipline._id}}
                 {{log ../actor.disciplines_list}}
                 {{#each (lookup ../actor.disciplines_list discipline.name) as |item id|}}
-                <li class="item flexcol" data-item-id="{{item.name}}">
+                <li class="item flexcol" data-item-id="{{item._id}}">
                     <div class="flexrow">
                         {{#if item.data.rollable}}
-                        <div class="item-image power-rollable" data-id="{{item.name}}" data-use-hunger="1"><img src="{{item.img}}"
+                        <div class="item-image power-rollable" data-id="{{item._id}}" data-use-hunger="1"><img src="{{item.img}}"
                                 title="{{item.name}}" width="24" height="24" alt="{{item.name}}" /></div>
                         {{else}}
-                        <div class="item-image" data-id="{{item.name}}"><img src="{{item.img}}" title="{{item.name}}"
+                        <div class="item-image" data-id="{{item._id}}"><img src="{{item.img}}" title="{{item.name}}"
                                 width="24" height="24" alt="{{item.name}}" /></div>
                         {{/if}}
                         <h4 class="item-name collapsible">{{item.name}}</h4>
