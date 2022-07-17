@@ -100,8 +100,9 @@ export class GhoulActorSheet extends MortalActorSheet {
     for (const i of sheetData.items) {
       if (i.type === "power") {
         // Append to disciplines.
+        console.log(i.data)
         if (i.data.discipline !== undefined) {
-          // console.log("that's the discipline", i.data.discipline);
+          console.log("that's the discipline", i.data.discipline);
           disciplines[i.data.discipline] && disciplines[i.data.discipline].push(i);
           if (this.actor.data.data.disciplines[i.data.discipline] && !this.actor.data.data.disciplines[i.data.discipline].visible) {
             this.actor.update({

@@ -184,8 +184,13 @@ export class CoterieActorSheet extends ActorSheet {
   }
 
   _getDisciplines(ev) {
+    let customDisciplines
+    for(i = 0; i < this.actor.customDisciplines.length; i++) {
+      customDisciplines.push(this.actor.customDisciplines[i][0].data)
+    }
+
     console.log(this.actor)
-    return {...this.actor.data.data.disciplines, ...this.actor.customDisciplines}
+    return {...this.actor.data.data.disciplines, ...customDisciplines}
   }
 
   _setupDotCounters(html) {
@@ -308,6 +313,7 @@ export class CoterieActorSheet extends ActorSheet {
       return `${game.i18n.localize("VTM5E." + data.featuretype.capitalize())}`;
     }
     if (type === "power") {
+      console.log("getting default name of", data.discipline)
       return `${game.i18n.localize("VTM5E." + data.discipline.capitalize())}`;
     }
     return `${game.i18n.localize("VTM5E." + type.capitalize())}`;
