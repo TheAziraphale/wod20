@@ -166,10 +166,11 @@ export class GhoulActorSheet extends MortalActorSheet {
         callback: async (html) => {
           const discipline = html.find("#disciplineSelect")[0].value;
           if(discipline === 'custom-discipline') {
-            const createdItem = this._onDisciplineCreate(event)
-            console.log(createdItem)
-            console.log(this.actor)
-            console.log(this.actor.data)
+            //const createdItem = this._onDisciplineCreate(event)
+            this._onCreateAndNameDiscipline(event)
+            //console.log(createdItem)
+            //console.log(this.actor)
+            //console.log(this.actor.data)
           } else {
             this.actor.update({
               [`data.disciplines.${discipline}.visible`]: true,
@@ -186,7 +187,38 @@ export class GhoulActorSheet extends MortalActorSheet {
     super._onRenderDialog(template, {options}, game.i18n.localize("VTM5E.AddDiscipline"), buttons)    
   }
 
-  _onDisciplineCreate(event) {
+  /**
+   * Name and create discipline
+   * @param {Event} event   The originating click event
+   * @private
+   */
+   _onCreateAndNameDiscipline(event) {
+      event.preventDefault();
+      const template = 'systems/wod20/templates/dialogs/name-discipline.html'
+
+      let buttons = {};
+      buttons = {
+        draw: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize("VTM5E.Add"),
+          callback: async (html) => {
+            const name = html.find("#nameDiscipline")[0].value;
+            const createdItem = this._onDisciplineCreate(event, name)
+            console.log(createdItem)
+            console.log(this.actor)
+            console.log(this.actor.data)
+          },
+        },
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: game.i18n.localize("VTM5E.Cancel"),
+        },
+      };
+
+      super._onRenderDialog(template, {}, game.i18n.localize("VTM5E.AddDiscipline"), buttons) 
+   }
+
+  _onDisciplineCreate(event, disciplineName) {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -195,7 +227,7 @@ export class GhoulActorSheet extends MortalActorSheet {
     // Grab any data associated with this control.
   
     // Initialize a default name.
-    const name = "New Discipline"
+    const name = disciplineName ? disciplineName : "New Discipline"
     // Prepare the item object.
     
     const data = {
