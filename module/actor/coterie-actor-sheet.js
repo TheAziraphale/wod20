@@ -293,6 +293,7 @@ export class CoterieActorSheet extends ActorSheet {
     }
   
     // Initialize a default name.
+    console.log(header.dataset.customname )
     const name = header.dataset.customname ? header.dataset.customname : this.getItemDefaultName(type, data)
     console.log(header, type, sheettype, data, name)
     // Prepare the item object.
