@@ -185,7 +185,7 @@ export class CoterieActorSheet extends ActorSheet {
 
   _getDisciplines(ev) {
     let customDisciplines
-    for(i = 0; i < this.actor.customDisciplines.length; i++) {
+    for(let i = 0; i < this.actor.customDisciplines.length; i++) {
       customDisciplines.push(this.actor.customDisciplines[i][0].data)
     }
 
