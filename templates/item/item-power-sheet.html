@@ -53,7 +53,7 @@
         <select name="data.discipline" data-type="String">
           {{#select data.data.discipline}} 
             {{#each item.disciplines as |discipline key|}}
-              <option value="{{discipline.name}}">{{localize discipline.name}}</option>
+              <option value="{{key}}">{{localize discipline.name}}</option>
             {{/each}}
           {{/select}}
         </select>
