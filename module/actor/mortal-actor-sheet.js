@@ -719,15 +719,15 @@ export class MortalActorSheet extends CoterieActorSheet {
     }
 
     if (
-      actorData.data[resource].aggravated +
-        actorData.data[resource].superficial >
-      actorData.data[resource].max
+      actorData.system[resource].aggravated +
+        actorData.system[resource].superficial >
+      actorData.system[resource].max
     ) {
-      actorData.data[resource].aggravated =
-        actorData.data[resource].max - actorData.data[resource].superficial;
-      if (actorData.data[resource].aggravated <= 0) {
-        actorData.data[resource].aggravated = 0;
-        actorData.data[resource].superficial = actorData.data[resource].max;
+      actorData.system[resource].aggravated =
+        actorData.system[resource].max - actorData.data[resource].superficial;
+      if (actorData.system[resource].aggravated <= 0) {
+        actorData.system[resource].aggravated = 0;
+        actorData.system[resource].superficial = actorData.data[resource].max;
       }
     }
     this.actor.update(actorData);
