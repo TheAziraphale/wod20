@@ -708,8 +708,6 @@ export class MortalActorSheet extends CoterieActorSheet {
     const dataset = element.dataset;
     const resource = dataset.resource;
     if (dataset.action === "plus") {
-      console.log(actorData)
-      console.log(resource)
       actorData.system[resource].max++;
     } else if (dataset.action === "minus") {
       actorData.system[resource].max = Math.max(
