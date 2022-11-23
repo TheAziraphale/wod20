@@ -355,9 +355,9 @@ export class CoterieActorSheet extends ActorSheet {
     }
     console.log("start", actorData)
     console.log(actorData.value)
-    console.log(actor.value)
+    console.log(this.actor.value)
     this.actor.update(actorData);
-    console.log(actor.value)
+    console.log(this.actor.value)
     console.log("last", this.actor)
   }
 
