@@ -350,15 +350,14 @@ export class CoterieActorSheet extends ActorSheet {
         actorData.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
       }
     } else {
-      const lastField = fields.pop();
-      actorData[lastField] = value;
+      console.log(fields, value)
+      console.log(actorData)
+      //const lastField = fields.pop();
+      //actorData[lastField] = value;
     }
     console.log("start", actorData)
-    console.log(actorData.value)
-    console.log(this.actor.value)
-    this.actor.update(actorData);
-    console.log(this.actor.value)
     console.log("last", this.actor)
+    this.actor.update(actorData);
   }
 
   _getNewSkillDefinition(skillName, skillValue) {
