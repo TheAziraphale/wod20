@@ -355,7 +355,15 @@ export class CoterieActorSheet extends ActorSheet {
     } else {
       const lastField = fields.pop();
       console.log(fields)
-      fields.reduce((data, field) => data[field], actorData)[lastField] = value;
+      console.log(lastField)
+      fields.reduce((data, field) => {
+        console.log(data)
+        console.log(field)
+        console.log(data[field])
+        console.log(actorData)
+        return data[field], actorData
+      })[lastField] = value;
+      console.log(value)
     }
     this.actor.update(actorData);
   }
