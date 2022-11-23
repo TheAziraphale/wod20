@@ -322,8 +322,6 @@ export class CoterieActorSheet extends ActorSheet {
   // There's gotta be a better way to do this but for the life of me I can't figure it out
   _assignToActorField(fields, value) {
     const actorData = duplicate(this.actor);
-
-    console.log(fields)
     const newFieldNames = [];
     fields.forEach((field) =>  {
       newFieldNames.push(field === 'data' ? 'system' : field)
@@ -331,21 +329,21 @@ export class CoterieActorSheet extends ActorSheet {
 
     fields = newFieldNames;
 
-    console.log(fields)
-    console.log(newFieldNames)
-
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
+      console.log(actorData)
+      console.log(actorData.items)
+      console.log(fields[1])
       for (const i of actorData.items) {
+        console.log("i", i)
         if (fields[1] === i._id) {
-          i.data.points = value;
+          i.system.points = value;
           break;
         }
       }
     } else if (fields.length === 3 && fields[0] === "items" && fields[1] === "disciplines") {
       for (const i of actorData.items) {
         if (fields[2] === i._id) {
-          console.log("i", i)
           i.data.value = value;
           break;
         }
