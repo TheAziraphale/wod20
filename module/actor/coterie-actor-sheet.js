@@ -52,7 +52,7 @@ export class CoterieActorSheet extends ActorSheet {
     data.skillsWild = skillsWild
 
     // Prepare items.
-    if (this.actor.data.type === "coterie") {
+    if (this.actor.type === "coterie") {
       this._prepareItems(data);
     }
 
@@ -172,7 +172,7 @@ export class CoterieActorSheet extends ActorSheet {
 
   _getSkillArray() {
     let skillsArray = skillsModern
-    switch(this.actor.data.data.headers.sheetsystem) {
+    switch(this.actor.system.headers.sheetsystem) {
       case "darkages":
         skillsArray = skillsDa
         break;
@@ -191,7 +191,7 @@ export class CoterieActorSheet extends ActorSheet {
         customDisciplines[this.actor.customDisciplines[i].name] = this.actor.customDisciplines[i].data
       }
     }
-    return {...this.actor.data.data.disciplines, ...customDisciplines}
+    return {...this.actor.system.disciplines, ...customDisciplines}
   }
 
   _setupDotCounters(html) {
