@@ -326,7 +326,7 @@ export class CoterieActorSheet extends ActorSheet {
     console.log(fields)
     const newFieldNames = [];
     fields.forEach((field) =>  {
-      newFieldNames[field === 'data' ? 'system' : field] 
+      newFieldNames.push(field === 'data' ? 'system' : field)
     })
 
     fields = newFieldNames;
