@@ -322,6 +322,18 @@ export class CoterieActorSheet extends ActorSheet {
   // There's gotta be a better way to do this but for the life of me I can't figure it out
   _assignToActorField(fields, value) {
     const actorData = duplicate(this.actor);
+
+    console.log(fields)
+    const newFieldNames = [];
+    fields.forEach((field) =>  {
+      newFieldNames[field === 'data' ? 'system' : field] 
+    })
+
+    fields = newFieldNames;
+
+    console.log(fields)
+    console.log(newFieldNames)
+
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
       for (const i of actorData.items) {
@@ -333,28 +345,37 @@ export class CoterieActorSheet extends ActorSheet {
     } else if (fields.length === 3 && fields[0] === "items" && fields[1] === "disciplines") {
       for (const i of actorData.items) {
         if (fields[2] === i._id) {
+          console.log("i", i)
           i.data.value = value;
           break;
         }
       }
     } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
-      for (const skillKey of Object.keys(actorData.skills)) {
+      for (const skillKey of Object.keys(actorData.system.skills)) {
         if (fields[2] === skillKey) {
-          actorData.skills[skillKey].value = value;
+          actorData.system.skills[skillKey].value = value;
           foundSkill = true
           break;
         }
       }
       if(!foundSkill) {
-        actorData.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
+        actorData.system.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
       }
     } else {
+      const lastField = fields.pop();
+      console.log(fields)
+      fields.reduce((data, field) => data[field], actorData.system)[lastField] = value;
+    }
+    
+    /*
+    else {
       console.log(fields, value)
       console.log(actorData)
       //const lastField = fields.pop();
       //actorData[lastField] = value;
     }
+    */
     console.log("start", actorData)
     console.log("last", this.actor)
     this.actor.update(actorData);
