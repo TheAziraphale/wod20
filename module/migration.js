@@ -3,6 +3,8 @@
 let worldVersion
 
 export const migrateWorld = async () => {
+  console.log("migration")
+  console.log(game)
   const currentVersion = game.data.system.data.version
   try {
     worldVersion = game.settings.get('vtm5e', 'worldVersion')

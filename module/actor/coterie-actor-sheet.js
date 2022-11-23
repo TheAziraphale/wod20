@@ -331,11 +331,7 @@ export class CoterieActorSheet extends ActorSheet {
 
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
-      console.log(actorData)
-      console.log(actorData.items)
-      console.log(fields[1])
       for (const i of actorData.items) {
-        console.log("i", i)
         if (fields[1] === i._id) {
           i.system.points = value;
           break;
@@ -362,20 +358,8 @@ export class CoterieActorSheet extends ActorSheet {
       }
     } else {
       const lastField = fields.pop();
-      console.log(fields)
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
-    
-    /*
-    else {
-      console.log(fields, value)
-      console.log(actorData)
-      //const lastField = fields.pop();
-      //actorData[lastField] = value;
-    }
-    */
-    console.log("start", actorData)
-    console.log("last", this.actor)
     this.actor.update(actorData);
   }
 
