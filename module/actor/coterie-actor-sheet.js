@@ -322,6 +322,9 @@ export class CoterieActorSheet extends ActorSheet {
   // There's gotta be a better way to do this but for the life of me I can't figure it out
   _assignToActorField(fields, value) {
     const actorData = duplicate(this.actor);
+    console.log(actorData)
+    console.log(fields)
+    console.log(value)
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
       for (const i of actorData.items) {
@@ -339,18 +342,19 @@ export class CoterieActorSheet extends ActorSheet {
       }
     } else if (fields.length >= 2 && fields[1] === "skills") {
       let foundSkill = false
-      for (const skillKey of Object.keys(actorData.data.skills)) {
+      for (const skillKey of Object.keys(actorData.skills)) {
         if (fields[2] === skillKey) {
-          actorData.data.skills[skillKey].value = value;
+          actorData.skills[skillKey].value = value;
           foundSkill = true
           break;
         }
       }
       if(!foundSkill) {
-        actorData.data.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
+        actorData.skills[fields[2]] = this._getNewSkillDefinition(fields[2], value)
       }
     } else {
       const lastField = fields.pop();
+      console.log(fields)
       fields.reduce((data, field) => data[field], actorData)[lastField] = value;
     }
     this.actor.update(actorData);
