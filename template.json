@@ -920,6 +920,7 @@
     },
     "power": {
       "templates": ["base"],
+      "discipline": "abombwe",
       "duration": "",
       "dice1": "discipline",
       "dice2": "discipline",
