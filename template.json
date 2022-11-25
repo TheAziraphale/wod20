@@ -907,20 +907,20 @@
     }
   },
   "Item": {
-    "types": ["feature", "power", "specialty", "boon", "customRoll"],
+    "types": ["feature", "power", "specialty", "boon", "customDiscipline", "customRoll"],
     "templates": {
       "base": {
         "description": ""
       }
     },
-    "Feature": {
+    "feature": {
       "templates": ["base"],
       "featuretype": "merit",
       "points": 0
     },
     "power": {
       "templates": ["base"],
-      "discipline": "auspex",
+      "discipline": "abombwe",
       "duration": "",
       "dice1": "discipline",
       "dice2": "discipline",
@@ -936,7 +936,7 @@
       "templates": ["base"],
       "boontype": "Trivial"
     },
-    "discipline": {
+    "customDisciplines": {
       "templates": ["base"]
     },
     "customRoll": {
