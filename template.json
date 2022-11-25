@@ -907,20 +907,20 @@
     }
   },
   "Item": {
-    "types": ["feature", "power", "specialty", "boon", "customDiscipline", "customRoll"],
+    "types": ["feature", "power", "specialty", "boon", "customRoll"],
     "templates": {
       "base": {
         "description": ""
       }
     },
-    "feature": {
+    "Feature": {
       "templates": ["base"],
       "featuretype": "merit",
       "points": 0
     },
     "power": {
       "templates": ["base"],
-      "discipline": "rituals",
+      "discipline": "auspex",
       "duration": "",
       "dice1": "discipline",
       "dice2": "discipline",
@@ -936,7 +936,7 @@
       "templates": ["base"],
       "boontype": "Trivial"
     },
-    "customDisciplines": {
+    "discipline": {
       "templates": ["base"]
     },
     "customRoll": {
