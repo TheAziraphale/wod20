@@ -39,7 +39,7 @@
             {{editor content=data.duration target="data.duration" button=true owner=owner editable=editable}}
             </div> -->
       <!-- <label class="resource-label">{{localize "VTM5E.System"}}: </label> -->
-      {{editor content=data.data.description target="data.description"
+      {{editor content=data.system.description target="data.description"
       button=true owner=owner editable=editable}}
     </div>
 
@@ -51,7 +51,7 @@
       <div class="resource grid grid-4col flex-center">
         <label class="resource-label">{{localize "VTM5E.Discipline"}}: </label>
         <select name="data.discipline" data-type="String">
-          {{#select data.data.discipline}} 
+          {{#select data.system.discipline}} 
             {{#each item.disciplines as |discipline key|}}
               <option value="{{key}}">{{localize discipline.name}}</option>
             {{/each}}
@@ -63,17 +63,17 @@
 
         <label class="resource-label">{{localize "VTM5E.System"}}: </label>
         <select name="data.dice1" data-type="String">
-          {{#select data.data.dice1}} {{>
+          {{#select data.system.dice1}} {{>
           "systems/wod20/templates/item/parts/attributes.html"}}
           <option value="discipline">
-            {{localize (getDisciplineName item.data.data.discipline false item.disciplines)}}
+            {{localize (getDisciplineName item.data.system.discipline false item.disciplines)}}
           </option>
           {{/select}}
         </select>
         <label class="resource-label">+</label>
-        {{#if data.data.skill}}
+        {{#if data.system.skill}}
           <select name="data.dice2" data-type="String">
-              {{#select data.data.dice2}}                        
+              {{#select data.system.dice2}}                        
                   {{#each item.skillsArray as |skill|}}
                       <option value="{{skill.name}}">{{localize skill.loc}}</option>
                   {{/each}}
@@ -81,10 +81,10 @@
           </select>
         {{else}}
         <select name="data.dice2" data-type="String">
-          {{#select data.data.dice2}} {{>
+          {{#select data.system.dice2}} {{>
           "systems/wod20/templates/item/parts/attributes.html"}}
           <option value="discipline">
-            {{localize (getDisciplineName item.data.data.discipline false item.disciplines)}}
+            {{localize (getDisciplineName item.data.system.discipline false item.disciplines)}}
           </option>
           {{/select}}
         </select>
@@ -95,7 +95,7 @@
           type="checkbox"
           id="data.rollable"
           name="data.rollable"
-          {{checked data.data.rollable}}
+          {{checked data.system.rollable}}
         />
 
         <label class="resource-label">{{localize "VTM5E.UseSkill"}}: </label>
@@ -103,7 +103,7 @@
           type="checkbox"
           id="data.skill"
           name="data.skill"
-          {{checked data.data.skill}}
+          {{checked data.system.skill}}
         />
 
         <label class="resource-label">{{localize "VTM5E.Difficulty"}}: </label>
@@ -111,7 +111,7 @@
           type="number"
           id="data.difficulty"
           name="data.difficulty"
-          value={{data.data.difficulty}}
+          value={{data.system.difficulty}}
           min=0
           max=10
           placeholder="6"
@@ -122,7 +122,7 @@
           type="checkbox"
           id="data.applywounds"
           name="data.applywounds"
-          {{checked data.data.applywounds}}
+          {{checked data.system.applywounds}}
         />
 
       </div>
