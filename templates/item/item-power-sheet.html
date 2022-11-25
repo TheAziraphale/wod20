@@ -67,7 +67,7 @@
           "systems/wod20/templates/item/parts/attributes.html"}}
           <option value="discipline">
             {{log item }}
-            {{localize (getDisciplineName item.data.system.discipline false item.disciplines)}}
+            {{localize (getDisciplineName item.system.discipline false item.disciplines)}}
           </option>
           {{/select}}
         </select>
@@ -85,7 +85,7 @@
           {{#select data.system.dice2}} {{>
           "systems/wod20/templates/item/parts/attributes.html"}}
           <option value="discipline">
-            {{localize (getDisciplineName item.data.system.discipline false item.disciplines)}}
+            {{localize (getDisciplineName item.system.discipline false item.disciplines)}}
           </option>
           {{/select}}
         </select>
