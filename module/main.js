@@ -377,7 +377,7 @@ Hooks.once("init", async function () {
     console.log(disciplineList)
     console.log(key)
     console.log(disciplineList[key])
-    return disciplineList[key] ? (disciplineList[key].name ? disciplineList[key]) : key;
+    return disciplineList[key] ? (disciplineList[key].name ? disciplineList[key].name : disciplineList[key]) : key;
   });
 });
 
