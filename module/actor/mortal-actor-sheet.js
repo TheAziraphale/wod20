@@ -31,7 +31,6 @@ export class MortalActorSheet extends CoterieActorSheet {
   constructor(actor, options) {
     super(actor, options);
     this.isCharacter = true;
-    this.sheetType = "Mortal";
     this.hunger = false;
   }
 
